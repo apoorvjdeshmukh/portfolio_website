@@ -165,7 +165,11 @@
 
 @media (max-width: 640px) {
   .hero { flex-direction: column-reverse; gap: 1.5rem; }
-  .photoWrapper { align-self: flex-start; }
-  .photo { width: 88px; height: 88px; }
+  .photoWrapper { align-self: center; }
+  .photo { width: 120px; height: 160px; }
   .cta { gap: 7px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .roleChip { color: #1C1210; }
 }

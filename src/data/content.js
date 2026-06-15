@@ -9,7 +9,7 @@ export const personal = {
   photo: '/avatar.jpg',
   availability: 'Open to Product Manager roles',
   seeking: {
-    titles: ['Senior PM', 'Lead PM', 'Principal PM', 'Technical PM'],
+    titles: ['Product Manager', 'Senior PM', 'Lead PM', 'Principal PM', 'Technical PM'],
     types: ['Full-time', 'Part-time', 'Contract'],
     locations: ['Remote', 'Hybrid', 'On-site'],
     start: 'Available immediately',
