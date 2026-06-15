@@ -1,4 +1,5 @@
 import { personal } from '../data/content'
+import CopyEmail from './CopyEmail'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -15,9 +16,9 @@ export default function Footer() {
         <a href={personal.github} target="_blank" rel="noopener noreferrer">
           <i className="ti ti-brand-github" aria-hidden="true" /> GitHub
         </a>
-        <a href={`mailto:${personal.email}`}>
+        <CopyEmail>
           <i className="ti ti-mail" aria-hidden="true" /> Email
-        </a>
+        </CopyEmail>
       </div>
     </footer>
   )

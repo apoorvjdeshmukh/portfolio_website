@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { personal } from '../data/content'
+import CopyEmail from './CopyEmail'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -40,9 +41,9 @@ export default function Hero() {
           {personal.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
         </div>
         <div className={styles.cta}>
-          <a href={`mailto:${personal.email}`} className={styles.btnPrimary}>
+          <CopyEmail className={styles.btnPrimary}>
             <i className="ti ti-send" aria-hidden="true" /> Get in touch
-          </a>
+          </CopyEmail>
           <a href="#projects" className={styles.btnGhost}>
             <i className="ti ti-arrow-down" aria-hidden="true" /> See my work
           </a>

@@ -1,4 +1,5 @@
 import { personal } from '../data/content'
+import CopyEmail from './CopyEmail'
 import styles from './ResumeCard.module.css'
 
 export default function ResumeCard() {
@@ -17,12 +18,9 @@ export default function ResumeCard() {
         <a href="/resume.pdf" download className={styles.btn}>
           <i className="ti ti-download" aria-hidden="true" /> Download PDF
         </a>
-        <a
-          href={`mailto:${personal.email}?subject=Resume Request&body=Hi Apoorv, I'd like to request your updated resume.`}
-          className={styles.btnGhost}
-        >
+        <CopyEmail className={styles.btnGhost}>
           <i className="ti ti-mail" aria-hidden="true" /> Email me
-        </a>
+        </CopyEmail>
       </div>
     </section>
   )

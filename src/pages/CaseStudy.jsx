@@ -28,7 +28,11 @@ export default function CaseStudy() {
   const { id } = useParams()
   const cs = caseStudies[id]
 
-  useEffect(() => { window.scrollTo(0, 0) }, [id])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    if (cs) document.title = `${cs.title} — Apoorv Deshmukh`
+    return () => { document.title = 'Apoorv Deshmukh | Product Manager' }
+  }, [id, cs])
 
   if (!cs) return <Navigate to="/" replace />
 

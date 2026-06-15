@@ -1,4 +1,5 @@
 import { personal } from '../data/content'
+import CopyEmail from './CopyEmail'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -13,12 +14,9 @@ export default function Contact() {
           Open to Senior PM roles and consulting engagements — particularly AI-native products, 0-to-1 builds, and regulated environments.
         </p>
         <div className={styles.cta}>
-          <a
-            href={`mailto:${personal.email}`}
-            className={styles.btnPrimary}
-          >
+          <CopyEmail className={styles.btnPrimary}>
             <i className="ti ti-send" aria-hidden="true" /> Get in touch
-          </a>
+          </CopyEmail>
           <a
             href={personal.linkedin}
             target="_blank"

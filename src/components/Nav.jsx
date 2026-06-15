@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { personal } from '../data/content'
+import CopyEmail from './CopyEmail'
 import styles from './Nav.module.css'
 
 export default function Nav() {
@@ -18,9 +19,9 @@ export default function Nav() {
         <a href={personal.github} target="_blank" rel="noopener noreferrer">
           <i className="ti ti-brand-github" aria-hidden="true" /> GitHub
         </a>
-        <a href={`mailto:${personal.email}`}>
+        <CopyEmail>
           <i className="ti ti-mail" aria-hidden="true" /> Email
-        </a>
+        </CopyEmail>
       </div>
     </nav>
   )
