@@ -1,5 +1,5 @@
 export const personal = {
-  name: 'Apoorv Jain Deshmukh',
+  name: 'Apoorv Jain Deshmukh, CSPO',
   title: 'Senior Product Manager',
   location: 'New York, NY',
   email: 'apoorvjdeshmukh@gmail.com',
@@ -16,7 +16,7 @@ export const personal = {
   },
   headline: ['Building products where', 'AI meets real stakes.'],
   bio: "Senior PM with 6+ years in product management and 2+ years in data analytics, specializing in AI-native products, agentic workflows, and 0-to-1 builds. I prototype with code, ship production RAG systems, and compress delivery cycles by de-risking decisions early with working software.",
-  tags: ['AI / ML Products', 'RAG Systems', 'FinTech', 'Compliance Workflows', '0-to-1 Builds', 'AWS Certified', 'CSPO'],
+  tags: ['AI / ML Products', 'RAG Systems', 'FinTech', 'Compliance Workflows', '0-to-1 Builds', 'AWS Certified', 'CSPO', 'Logistics', 'Healthcare', 'LLM Evals', 'Platform', 'Multi-tenant', 'B2B SaaS'],
 }
 
 export const metrics = [
