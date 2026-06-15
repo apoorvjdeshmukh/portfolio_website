@@ -9,7 +9,7 @@
 .company span { color: var(--text-tertiary); }
 .bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
 .bullet { font-size: 13px; color: var(--text-secondary); line-height: 1.6; padding-left: 14px; position: relative; }
-.bullet::before { content: '–'; color: var(--accent); position: absolute; left: 0; font-weight: 600; }
+.bullet::before { content: '•'; color: var(--accent); position: absolute; left: 0; font-size: 15px; line-height: 1.5; }
 .bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
 .eduItem { margin-bottom: 0.75rem; }
 .eduDegree { font-size: 13px; font-weight: 600; }

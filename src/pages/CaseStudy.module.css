@@ -49,8 +49,8 @@
 .sectionHeading { font-size: 16px; font-weight: 600; margin-bottom: 0.75rem; }
 .sectionBody { display: flex; flex-direction: column; gap: 0.75rem; }
 .sectionBody p { font-size: 14px; line-height: 1.75; color: var(--text-secondary); }
-.ol { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 6px; }
-.ol li { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+.ol { padding-left: 1.5rem; list-style: decimal; }
+.ol li { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 6px; padding-left: 4px; }
 
 .bigWin {
   display: flex; gap: 1.25rem; align-items: flex-start;

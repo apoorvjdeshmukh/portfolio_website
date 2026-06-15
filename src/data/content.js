@@ -122,7 +122,7 @@ export const experience = [
     ],
   },
   {
-    period: 'Jul 2025 – Apr 2026',
+    period: 'Jul 2025 – Present',
     role: 'AI Product Manager',
     company: 'AgileCatalyst.ai',
     type: 'Part-time · Remote',

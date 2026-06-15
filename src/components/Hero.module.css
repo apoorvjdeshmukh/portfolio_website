@@ -150,23 +150,32 @@
 .photoWrapper {
   flex: 0 0 auto;
   padding-top: 0.25rem;
+  padding-right: 12px;
+  padding-bottom: 12px;
 }
 
 .photo {
-  width: 160px;
-  height: 220px;
+  width: 168px;
+  height: 230px;
   border-radius: var(--radius-xl);
   object-fit: cover;
-  object-position: center center;
-  border: 3px solid var(--bg-tertiary);
-  box-shadow: 0 8px 32px rgba(255,107,53,0.18);
+  object-position: center top;
   display: block;
+  box-shadow:
+    16px 16px 0 rgba(242, 104, 43, 0.3),
+    0 6px 24px rgba(0,0,0,0.08);
 }
 
 @media (max-width: 640px) {
   .hero { flex-direction: column-reverse; gap: 1.5rem; }
-  .photoWrapper { align-self: center; }
-  .photo { width: 120px; height: 160px; }
+  .photoWrapper {
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+  .photo { width: 160px; height: 210px; }
   .cta { gap: 7px; }
 }
 
