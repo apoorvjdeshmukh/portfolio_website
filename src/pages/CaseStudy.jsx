@@ -43,7 +43,16 @@ export default function CaseStudy() {
               <span className={styles.dot}>·</span>
               <span className={styles.platform}>{cs.platform}</span>
             </div>
-            <h1 className={styles.title}>{cs.title}</h1>
+            <div className={styles.titleRow}>
+              <h1 className={styles.title}>{cs.title}</h1>
+              {cs.externalCaseStudy && (
+                <a href={cs.externalCaseStudy.url} target="_blank" rel="noopener noreferrer" className={styles.externalChip}>
+                  <i className="ti ti-world" aria-hidden="true" />
+                  {cs.externalCaseStudy.label}
+                  <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                </a>
+              )}
+            </div>
             <div className={styles.metaRow}>
               <span><i className="ti ti-user" aria-hidden="true" /> {cs.role}</span>
               <span><i className="ti ti-calendar" aria-hidden="true" /> {cs.timeline}</span>

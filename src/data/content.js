@@ -257,6 +257,7 @@ export const caseStudies = {
     timeline: 'Jul 2025 – Apr 2026',
     platform: 'API / Backend · AWS',
     tags: ['RAG', 'AI / ML', 'FinTech', 'Arabic NLP', '0-to-1'],
+    externalCaseStudy: { label: 'Published Case Study', url: 'https://www.behuman.capital/library/case/hybrid-rag-multilingual-financial-intelligence/' },
     tldr: 'Built a production bilingual RAG pipeline from scratch for a GCC fintech marketplace. Investment analysts can now query hundreds of financial documents in English and Arabic via natural language and get grounded answers in under 2 seconds.',
     metrics: [
       { value: 'MRR 1.0', label: 'Arabic retrieval accuracy (was 0.12)' },
