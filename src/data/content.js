@@ -2,7 +2,7 @@ export const personal = {
   name: 'Apoorv Jain Deshmukh, CSPO',
   title: 'Senior Product Manager',
   location: 'New York, NY',
-  email: 'apoorvjdeshmukh@gmail.com',
+  email: 'apoorv.jdeshmukh@gmail.com',
   linkedin: 'https://www.linkedin.com/in/apoorvdeshmukh',
   github: 'https://github.com/apoorvjdeshmukh',
   phone: '201-884-0572',
