@@ -153,11 +153,11 @@
 }
 
 .photo {
-  width: 148px;
-  height: 148px;
-  border-radius: 50%;
+  width: 160px;
+  height: 220px;
+  border-radius: var(--radius-xl);
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   border: 3px solid var(--bg-tertiary);
   box-shadow: 0 8px 32px rgba(255,107,53,0.18);
   display: block;
