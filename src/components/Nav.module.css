@@ -14,16 +14,24 @@
 }
 .name:hover { color: var(--accent); }
 .links { display: flex; gap: 1.5rem; }
-.links a {
+.links a,
+.links button {
   font-size: 13px;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 5px;
   transition: color 0.15s;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
-.links a i { font-size: 16px; }
-.links a:hover { color: var(--text-primary); }
+.links a i,
+.links button i { font-size: 16px; }
+.links a:hover,
+.links button:hover { color: var(--text-primary); }
 @media (max-width: 520px) {
   .nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .links { gap: 1rem; }
