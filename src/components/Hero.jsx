@@ -32,9 +32,7 @@ export default function Hero() {
             ))}
           </div>
           <div className={styles.seekingMeta}>
-            <span>{personal.seeking.types.join(' · ')}</span>
-            <span className={styles.seekingDivider}>·</span>
-            <span>{personal.seeking.locations.join(' · ')}</span>
+            <span>{[...personal.seeking.types, ...personal.seeking.locations].join(' · ')}</span>
           </div>
         </div>
 
