@@ -1,0 +1,44 @@
+.card {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1.25rem; flex-wrap: wrap;
+  border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 1.25rem 1.5rem; margin-bottom: 3.5rem;
+  background: var(--bg-secondary);
+  transition: border-color 0.15s, transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255,107,53,0.1);
+}
+.left { display: flex; align-items: center; gap: 1rem; }
+.icon {
+  width: 40px; height: 40px; border-radius: var(--radius-md);
+  background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.icon i { font-size: 20px; color: var(--accent); }
+.title { font-size: 14px; font-weight: 600; }
+.sub { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; flex-shrink: 0; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; padding: 9px 18px;
+  background: var(--accent); color: #fff; border-radius: var(--radius-md);
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s; flex-shrink: 0;
+}
+.btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255,107,53,0.3);
+}
+.btn i { font-size: 15px; }
+.btnGhost {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; padding: 9px 18px;
+  border: 1px solid var(--border-hover); border-radius: var(--radius-md);
+  color: var(--text-secondary); background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.btnGhost:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+.btnGhost i { font-size: 15px; }

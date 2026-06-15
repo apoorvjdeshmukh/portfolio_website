@@ -1,0 +1,85 @@
+.page { min-height: 100vh; }
+.container { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+.header { margin-bottom: 2rem; }
+.headerMeta { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; }
+.company { font-size: 12px; padding: 3px 10px; border-radius: 100px; font-weight: 600; }
+.nurd { background: var(--accent-light); color: var(--accent-text); }
+.agile { background: var(--accent-secondary-light); color: var(--accent-secondary-text); }
+.eze { background: #EEF4FF; color: #3457D5; }
+.dot { color: var(--text-tertiary); }
+.platform { font-size: 12px; color: var(--text-tertiary); }
+.title { font-size: clamp(24px, 4vw, 36px); font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; margin-bottom: 1rem; }
+.metaRow { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.metaRow span { font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; }
+.metaRow i { font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 11px; padding: 3px 10px; border-radius: 100px;
+  border: 1px solid rgba(255,217,61,0.35);
+  background: var(--accent-secondary-light);
+  color: var(--accent-secondary-text);
+  font-weight: 500;
+}
+
+.tldr {
+  border-left: 3px solid var(--accent); padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--accent-light); margin-bottom: 2rem;
+}
+.tldrLabel { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.tldrText { font-size: 14px; line-height: 1.7; color: var(--text-primary); }
+
+.metricsGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 2.5rem; }
+.metricCard {
+  background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 1rem;
+  border: 1px solid var(--border);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.metricCard:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.1); }
+.metricValue { font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+.metricLabel { font-size: 11px; color: var(--text-secondary); line-height: 1.4; }
+
+.diagSection { margin-bottom: 2.5rem; }
+.sectionLabel { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+
+.sections { display: flex; flex-direction: column; gap: 0; margin-bottom: 2.5rem; }
+.section { padding: 1.75rem 0; border-bottom: 0.5px solid var(--border); }
+.section:first-child { padding-top: 0; }
+.sectionHeading { font-size: 16px; font-weight: 600; margin-bottom: 0.75rem; }
+.sectionBody { display: flex; flex-direction: column; gap: 0.75rem; }
+.sectionBody p { font-size: 14px; line-height: 1.75; color: var(--text-secondary); }
+.ol { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 6px; }
+.ol li { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+
+.bigWin {
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  background: var(--bg-secondary); border-radius: var(--radius-xl);
+  padding: 1.5rem; margin-bottom: 3rem;
+  border: 1px solid var(--border);
+}
+.bigWinIcon {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--radius-md);
+  background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+}
+.bigWinIcon i { font-size: 20px; color: var(--accent); }
+.bigWinLabel { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.bigWinText { font-size: 14px; line-height: 1.7; color: var(--text-primary); }
+
+.nextGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+.nextCard {
+  border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 1.25rem;
+  display: flex; flex-direction: column; gap: 8px; color: inherit;
+  transition: border-color 0.15s, transform 0.2s, box-shadow 0.2s;
+  background: var(--bg);
+}
+.nextCard:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255,107,53,0.12);
+}
+.nextTitle { font-size: 14px; font-weight: 600; line-height: 1.4; }
+.nextLink { font-size: 12px; color: var(--accent); display: flex; align-items: center; gap: 4px; font-weight: 600; }
+.nextLink i { font-size: 14px; }
+
+@media (max-width: 640px) { .container { padding: 1.5rem 1rem 3rem; } }

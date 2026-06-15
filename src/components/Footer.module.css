@@ -1,0 +1,8 @@
+.footer { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.name { font-size: 13px; font-weight: 600; }
+.email { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.links { display: flex; gap: 1.25rem; }
+.links a { font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; transition: color 0.15s; }
+.links a i { font-size: 15px; }
+.links a:hover { color: var(--accent); }
+@media (max-width: 520px) { .footer { flex-direction: column; align-items: flex-start; } }

@@ -1,0 +1,23 @@
+.section { margin-bottom: 3.5rem; }
+.list { display: flex; flex-direction: column; }
+.item { display: grid; grid-template-columns: 148px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 0.5px solid var(--border); }
+.item:last-child { border-bottom: none; }
+.period { font-size: 12px; color: var(--text-tertiary); padding-top: 3px; font-family: 'DM Mono', monospace; }
+.content { display: flex; flex-direction: column; gap: 4px; }
+.role { font-size: 15px; font-weight: 600; }
+.company { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+.company span { color: var(--text-tertiary); }
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.bullet { font-size: 13px; color: var(--text-secondary); line-height: 1.6; padding-left: 14px; position: relative; }
+.bullet::before { content: '–'; color: var(--accent); position: absolute; left: 0; font-weight: 600; }
+.bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
+.eduItem { margin-bottom: 0.75rem; }
+.eduDegree { font-size: 13px; font-weight: 600; }
+.eduSchool { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.certList { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.certItem { font-size: 12px; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 6px; line-height: 1.5; }
+.certItem i { font-size: 14px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+@media (max-width: 640px) {
+  .item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .bottom { grid-template-columns: 1fr; }
+}
