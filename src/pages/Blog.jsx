@@ -15,7 +15,7 @@ export default function Blog() {
         <Nav />
         <main>
           <p className="section-label">BLOG</p>
-          <h1 className={styles.heading}>Notes on building AI products</h1>
+          <h1 className={styles.heading}>Notes on building products</h1>
           <p className={styles.sub}>Frameworks and lessons from product management, RAG systems, and 0-to-1 builds.</p>
 
           <div className={styles.list}>

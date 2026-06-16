@@ -13,6 +13,7 @@ export const personal = {
     types: ['Full-time', 'Part-time', 'Contract'],
     locations: ['Remote', 'Hybrid', 'On-site'],
     start: 'Available immediately',
+    visaNote: 'No visa sponsorship required',
   },
   headline: ['Building products where', 'AI meets real stakes.'],
   bio: "Senior PM with 6+ years in product management and 2+ years in data analytics, specializing in AI-native products, agentic workflows, and 0-to-1 builds. I prototype with code, ship production RAG systems, and compress delivery cycles by de-risking decisions early with working software.",

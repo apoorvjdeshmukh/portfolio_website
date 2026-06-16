@@ -26,6 +26,8 @@ export default function Hero() {
             <span>Actively seeking</span>
             <span className={styles.seekingDivider}>·</span>
             <span className={styles.seekingStart}>{personal.seeking.start}</span>
+            <span className={styles.seekingDivider}>·</span>
+            <span className={styles.seekingStart}>{personal.seeking.visaNote}</span>
           </div>
           <div className={styles.seekingRoles}>
             {personal.seeking.titles.map(t => (
