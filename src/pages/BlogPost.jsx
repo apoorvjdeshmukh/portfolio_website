@@ -45,6 +45,44 @@ export default function BlogPost() {
             </div>
           ))}
 
+          {post.benchmarkTable && (
+            <div className={styles.benchmark}>
+              <h3 className={styles.benchmarkTitle}>{post.benchmarkTable.title}</h3>
+              <p className={styles.benchmarkSubtitle}>{post.benchmarkTable.subtitle}</p>
+
+              <div className={styles.benchmarkStats}>
+                {post.benchmarkTable.stats.map(s => (
+                  <div className={styles.statCard} key={s.label}>
+                    <p className={styles.statLabel}>{s.label}</p>
+                    <p className={styles.statValue}>{s.value}{s.suffix && <span className={styles.statSuffix}> {s.suffix}</span>}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className={styles.tableWrap}>
+                <table className={styles.table}>
+                  <thead>
+                    <tr><th>Model</th><th>Category</th><th>R@1</th><th>MRR</th><th>Dim</th></tr>
+                  </thead>
+                  <tbody>
+                    {post.benchmarkTable.rows.map((row, i) => row.note ? (
+                      <tr key={i} className={styles.noteRow}><td colSpan={5}>{row.note}</td></tr>
+                    ) : (
+                      <tr key={i} className={row.selected ? styles.selectedRow : ''}>
+                        <td>{row.selected && <i className="ti ti-check" aria-hidden="true" />} {row.model}</td>
+                        <td><span className={styles.catTag}>{row.category}</span></td>
+                        <td>{row.r1}</td>
+                        <td className={styles.mrrCell}>{row.mrr}</td>
+                        <td>{row.dim}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className={styles.benchmarkFootnote}>{post.benchmarkTable.footnote}</p>
+            </div>
+          )}
+
           {post.surprise && (
             <div className={styles.callout}>
               <p className={styles.calloutLabel}>{post.surprise.label}</p>

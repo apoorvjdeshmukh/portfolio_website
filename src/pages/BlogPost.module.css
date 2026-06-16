@@ -36,6 +36,41 @@
 .takeawayLabel { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
 .takeawayBody { font-size: 15px; font-weight: 600; line-height: 1.6; color: var(--text-primary); }
 
+.benchmark {
+  background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 1.5rem; margin: 2rem 0;
+}
+.benchmarkTitle { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.benchmarkSubtitle { font-size: 12px; color: var(--text-secondary); font-family: 'DM Mono', monospace; margin-bottom: 1.25rem; }
+
+.benchmarkStats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.statCard { background: var(--accent-light); border-radius: var(--radius-md); padding: 0.75rem 1rem; }
+.statLabel { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 4px; }
+.statValue { font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1; }
+.statSuffix { font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+
+.tableWrap { overflow-x: auto; margin-bottom: 1rem; }
+.table { width: 100%; border-collapse: collapse; font-family: 'DM Mono', monospace; font-size: 12px; }
+.table th {
+  text-align: left; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-tertiary); padding: 8px 10px; border-bottom: 1px solid var(--border);
+}
+.table td { padding: 9px 10px; border-bottom: 1px solid var(--border); color: var(--text-primary); white-space: nowrap; }
+.table th:nth-child(3), .table th:nth-child(4), .table th:nth-child(5),
+.table td:nth-child(3), .table td:nth-child(4), .table td:nth-child(5) { text-align: right; }
+.selectedRow td { background: var(--accent-light); font-weight: 600; }
+.selectedRow i { color: var(--accent); }
+.mrrCell { color: #15803d; font-weight: 600; }
+.catTag { font-size: 10px; padding: 2px 8px; border-radius: 100px; background: var(--accent-secondary-light); color: var(--accent-secondary-text); white-space: nowrap; }
+.noteRow td { text-align: center; color: var(--text-tertiary); font-style: italic; padding: 12px; }
+
+.benchmarkFootnote { font-size: 12px; line-height: 1.6; color: var(--text-secondary); }
+
+@media (max-width: 640px) {
+  .table { font-size: 11px; }
+  .table th, .table td { padding: 7px 6px; }
+}
+
 .back { font-size: 13px; font-weight: 600; color: var(--accent); }
 
 @media (max-width: 640px) { .container { padding: 1.5rem 1rem 3rem; } }
