@@ -23,11 +23,21 @@ export const personal = {
 export const recommendations = [
   {
     name: 'Clayton Karges',
+    photo: '/clayton-karges.jpg',
     title: 'Director of Data & AI Product',
     company: 'Eze Castle Integration',
     relationship: 'Managed Apoorv directly',
     date: 'July 15, 2022',
     quote: "I am fortunate to have had the opportunity to work alongside Apoorv for the past 15 months. While Apoorv joined the team relatively new to the Product Management space, he quickly excelled at the role. From defining product requirements to managing client relationships, I have been continuously impressed with his ability to learn new skills (hard and soft alike) in short time. I would be delighted to have Apoorv as a part of my team on any future project. Not only has he demonstrated consistent business acumen, technical knowledge and effective communication but also a reputation as a co-worker who people enjoy working with.",
+  },
+  {
+    name: 'Himanshu Niranjani',
+    photo: '/himanshu-niranjani.jpg',
+    title: 'CTO',
+    company: 'AgileCatalyst.ai and BeHuman Capital',
+    relationship: 'Managed Apoorv at AgileCatalyst.ai',
+    date: 'June 16, 2026',
+    quote: "I worked with Apoorv as AI Product Manager at AgileCatalyst, where he built our 0→1 RAG system for a fintech marketplace from concept to production.\n\nApoorv designed a hybrid retrieval architecture achieving MRR=1.0 across English and Arabic, delivering answers in under 1.2 seconds. He benchmarked 20+ embedding models, navigated multilingual OCR (95% EN, 90%+ AR), and built guardrails ensuring trustworthy AI for high-stakes decisions.\n\nWhat stands out: end-to-end ownership. Apoorv owned infrastructure decisions, coordinated across engineering/legal/compliance under GCC regulatory constraints, and shipped features with urgency.\n\nFor Senior PM roles in AI-native products or regulated spaces, Apoorv is exceptional. He ships.\n\nHighly recommended.",
   },
 ]
 

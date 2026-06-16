@@ -1,16 +1,45 @@
 .section { margin-bottom: 3.5rem; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+.header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+.header p { margin-bottom: 0 !important; }
+
+.nav { display: flex; gap: 6px; }
+.nav button {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--bg-secondary);
+  color: var(--text-secondary); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: border-color 0.15s, color 0.15s;
+}
+.nav button:hover { border-color: var(--accent); color: var(--accent); }
+.nav button i { font-size: 16px; }
+
+.cardViewport { overflow: hidden; border-radius: var(--radius-xl); }
 
 .card {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: 1.5rem;
+  padding: 1.75rem;
   position: relative;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
 }
 
-.card i {
+.card[data-dir="next"] { animation-name: slideInNext; }
+.card[data-dir="prev"] { animation-name: slideInPrev; }
+
+@keyframes slideInNext {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInPrev {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.card > i {
   font-size: 28px;
   color: var(--accent);
   opacity: 0.25;
@@ -24,6 +53,8 @@
   color: var(--text-primary);
   margin-bottom: 1.25rem;
 }
+.quote p { margin-bottom: 0.75rem; }
+.quote p:last-child { margin-bottom: 0; }
 
 .author { display: flex; align-items: center; gap: 12px; }
 
@@ -41,6 +72,21 @@
   flex-shrink: 0;
 }
 
+.avatarImg {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 .name { font-size: 13px; font-weight: 600; }
 .role { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
 .meta { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+
+.dots { display: flex; justify-content: center; gap: 6px; margin-top: 1rem; }
+.dot, .dotActive {
+  width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
+  background: var(--border-hover); transition: background 0.15s, transform 0.15s;
+}
+.dotActive { background: var(--accent); transform: scale(1.2); }
