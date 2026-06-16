@@ -1,0 +1,46 @@
+.section { margin-bottom: 3.5rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.card i {
+  font-size: 28px;
+  color: var(--accent);
+  opacity: 0.25;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.quote {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.author { display: flex; align-items: center; gap: 12px; }
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.name { font-size: 13px; font-weight: 600; }
+.role { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
+.meta { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }

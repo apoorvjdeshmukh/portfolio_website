@@ -5,6 +5,7 @@ import Metrics from '../components/Metrics'
 import Projects from '../components/Projects'
 import Stack from '../components/Stack'
 import Experience from '../components/Experience'
+import Recommendations from '../components/Recommendations'
 import ResumeCard from '../components/ResumeCard'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
@@ -20,6 +21,7 @@ export default function Home() {
           <Projects />
           <Stack />
           <Experience />
+          <Recommendations />
           <ResumeCard />
           <Contact />
         </main>

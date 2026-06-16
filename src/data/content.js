@@ -20,6 +20,17 @@ export const personal = {
   tags: ['AI / ML Products', 'RAG Systems', 'FinTech', 'Compliance Workflows', '0-to-1 Builds', 'AWS Certified', 'CSPO', 'Logistics', 'Healthcare', 'LLM Evals', 'Platform', 'Multi-tenant', 'B2B SaaS'],
 }
 
+export const recommendations = [
+  {
+    name: 'Clayton Karges',
+    title: 'Director of Data & AI Product',
+    company: 'Eze Castle Integration',
+    relationship: 'Managed Apoorv directly',
+    date: 'July 15, 2022',
+    quote: "I am fortunate to have had the opportunity to work alongside Apoorv for the past 15 months. While Apoorv joined the team relatively new to the Product Management space, he quickly excelled at the role. From defining product requirements to managing client relationships, I have been continuously impressed with his ability to learn new skills (hard and soft alike) in short time. I would be delighted to have Apoorv as a part of my team on any future project. Not only has he demonstrated consistent business acumen, technical knowledge and effective communication but also a reputation as a co-worker who people enjoy working with.",
+  },
+]
+
 export const metrics = [
   {
     value: 'MRR 1.0',
