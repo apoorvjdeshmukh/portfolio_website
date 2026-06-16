@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 import ReactGA from 'react-ga4'
 import Home from './pages/Home'
 import CaseStudy from './pages/CaseStudy'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import NotFound from './pages/NotFound'
 import Toast from './components/Toast'
 import { ToastContext } from './context/ToastContext'
@@ -27,6 +29,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects/:id" element={<CaseStudy />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toast message={toast} onDone={clearToast} />

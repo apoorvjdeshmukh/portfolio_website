@@ -13,6 +13,9 @@ export default function Nav() {
         {isHome ? personal.name : '← Back'}
       </Link>
       <div className={styles.links}>
+        <Link to="/blog">
+          <i className="ti ti-notes" aria-hidden="true" /> Blog
+        </Link>
         <a href={personal.linkedin} target="_blank" rel="noopener noreferrer">
           <i className="ti ti-brand-linkedin" aria-hidden="true" /> LinkedIn
         </a>

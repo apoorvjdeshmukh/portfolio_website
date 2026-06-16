@@ -1,0 +1,41 @@
+.page { min-height: 100vh; }
+.container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+.tags { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; }
+.tag { font-size: 11px; padding: 3px 10px; border-radius: 100px; background: var(--accent-light); color: var(--accent-text); font-weight: 500; }
+
+.title { font-size: clamp(26px, 4vw, 38px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 0.5rem; }
+.subtitle { font-size: 15px; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.date { font-size: 12px; color: var(--text-tertiary); font-family: 'DM Mono', monospace; margin-bottom: 2rem; }
+
+.intro { font-size: 15px; line-height: 1.75; color: var(--text-primary); margin-bottom: 2.5rem; }
+
+.step { display: flex; gap: 1rem; margin-bottom: 1.75rem; align-items: flex-start; }
+.stepNum {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  background: var(--accent-light); color: var(--accent); font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.stepTitle { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.stepBody { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+.stepList { margin-top: 8px; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 6px; }
+.stepList li { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+
+.callout {
+  border-left: 3px solid var(--accent); padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--accent-light); margin: 2rem 0;
+}
+.calloutLabel { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.calloutBody { font-size: 14px; line-height: 1.7; color: var(--text-primary); }
+
+.takeaway {
+  background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 1.5rem; margin: 2rem 0 2.5rem;
+}
+.takeawayLabel { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.takeawayBody { font-size: 15px; font-weight: 600; line-height: 1.6; color: var(--text-primary); }
+
+.back { font-size: 13px; font-weight: 600; color: var(--accent); }
+
+@media (max-width: 640px) { .container { padding: 1.5rem 1rem 3rem; } }
