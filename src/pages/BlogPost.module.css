@@ -61,6 +61,7 @@
 .selectedRow td { background: var(--accent-light); font-weight: 600; }
 .selectedRow i { color: var(--accent); }
 .mrrCell { color: #15803d; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .mrrCell { color: #22C55E; } }
 .catTag { font-size: 10px; padding: 2px 8px; border-radius: 100px; background: var(--accent-secondary-light); color: var(--accent-secondary-text); white-space: nowrap; }
 .noteRow td { text-align: center; color: var(--text-tertiary); font-style: italic; padding: 12px; }
 

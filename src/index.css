@@ -13,7 +13,7 @@
   --bg-tertiary: #FFE4D0;
   --text-primary: #1C1210;
   --text-secondary: #6B5A52;
-  --text-tertiary: #A8948A;
+  --text-tertiary: #786460;
   --border: rgba(255,107,53,0.14);
   --border-hover: rgba(255,107,53,0.32);
   --radius-sm: 8px;
@@ -37,7 +37,7 @@
     --bg-tertiary: #281608;
     --text-primary: #F5EDE8;
     --text-secondary: #B09A90;
-    --text-tertiary: #7A6A62;
+    --text-tertiary: #9E8C84;
     --border: rgba(255,128,80,0.12);
     --border-hover: rgba(255,128,80,0.26);
   }
@@ -67,6 +67,6 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 1.25rem;
 }

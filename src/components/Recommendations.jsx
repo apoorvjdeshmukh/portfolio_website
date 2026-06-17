@@ -6,13 +6,42 @@ function initials(name) {
   return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()
 }
 
+function CardContent({ r }) {
+  return (
+    <>
+      <i className="ti ti-quote" aria-hidden="true" />
+      <div className={styles.quote}>
+        {r.quote.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
+      </div>
+      <div className={styles.author}>
+        {r.photo
+          ? <img src={r.photo} alt={r.name} className={styles.avatarImg} />
+          : <div className={styles.avatar}>{initials(r.name)}</div>}
+        <div>
+          <p className={styles.name}>{r.name}</p>
+          <p className={styles.role}>{r.title}, {r.company}</p>
+          <p className={styles.meta}>{r.relationship} · {r.date}</p>
+        </div>
+      </div>
+    </>
+  )
+}
+
 export default function Recommendations() {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState(1)
   const [paused, setPaused] = useState(false)
+  const [minHeight, setMinHeight] = useState(0)
   const total = recommendations.length
   const r = recommendations[index]
   const timerRef = useRef(null)
+  const measureRef = useRef(null)
+
+  useEffect(() => {
+    if (!measureRef.current) return
+    const heights = Array.from(measureRef.current.children).map(el => el.offsetHeight)
+    setMinHeight(Math.max(...heights))
+  }, [])
 
   const prev = () => { setDirection(-1); setIndex(i => (i - 1 + total) % total) }
   const next = () => { setDirection(1); setIndex(i => (i + 1) % total) }
@@ -33,6 +62,19 @@ export default function Recommendations() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* Hidden offscreen container used only to measure all card heights on mount */}
+      <div
+        ref={measureRef}
+        aria-hidden="true"
+        style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', width: 'inherit' }}
+      >
+        {recommendations.map((rec, i) => (
+          <div key={i} className={styles.card}>
+            <CardContent r={rec} />
+          </div>
+        ))}
+      </div>
+
       <div className={styles.header}>
         <p className="section-label">RECOMMENDATIONS</p>
         {total > 1 && (
@@ -47,22 +89,9 @@ export default function Recommendations() {
         )}
       </div>
 
-      <div className={styles.cardViewport}>
+      <div className={styles.cardViewport} style={minHeight ? { minHeight } : undefined}>
         <div className={styles.card} key={index} data-dir={direction === 1 ? 'next' : 'prev'}>
-          <i className="ti ti-quote" aria-hidden="true" />
-          <div className={styles.quote}>
-            {r.quote.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
-          </div>
-          <div className={styles.author}>
-            {r.photo
-              ? <img src={r.photo} alt={r.name} className={styles.avatarImg} />
-              : <div className={styles.avatar}>{initials(r.name)}</div>}
-            <div>
-              <p className={styles.name}>{r.name}</p>
-              <p className={styles.role}>{r.title}, {r.company}</p>
-              <p className={styles.meta}>{r.relationship} · {r.date}</p>
-            </div>
-          </div>
+          <CardContent r={r} />
         </div>
       </div>
 
