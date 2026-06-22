@@ -1,4 +1,33 @@
 export const blogPosts = {
+  'building-ai-products': {
+    title: 'Building AI products, not just speccing them',
+    subtitle: 'Three things I shipped to close the gap between spec and production',
+    date: '2026-06-22',
+    tags: ['AI / ML', 'Builder PM', 'Product'],
+    intro: "The fastest way I learned what AI products actually need? I stopped speccing them and started building them.",
+    steps: [
+      {
+        title: 'A multilingual RAG system, end to end',
+        body: 'Hybrid retrieval, async ingestion, and a benchmark of 20+ embedding models to find the one that hit MRR 1.0. The hard part was never the tech. It was defining what "good" meant for the people trusting the answers.',
+        list: ['MRR 1.0 on the selected model', 'Dense + BM25 hybrid retrieval', '20+ models benchmarked'],
+      },
+      {
+        title: 'AI integration on a logistics platform',
+        body: 'A tool that pulls shipment data out of messy, multi-format documents and lifted shipment processing speed 20%, with the monitoring and data isolation to run it safely in production.',
+        list: ['20% faster shipment processing', '11+ epics shipped', '50% faster prototyping'],
+      },
+      {
+        title: 'Production-ready code, not just tickets',
+        body: 'New features and bug fixes, written with Claude and reviewed by engineers before merge. Not to become an engineer, but to take small tickets off their plate and close the gap between idea and working software.',
+        list: ['Claude-assisted development', 'Engineer-reviewed before merge', 'Production-shipped'],
+      },
+    ],
+    surprise: {
+      label: 'What I keep coming back to',
+      body: 'AI lowered the cost of building. It did not lower the cost of building the right thing. The teams that win aren\'t the fastest. They\'re the ones who define "good" clearly, measure it honestly, and bring people along.',
+    },
+    takeaway: "I work at the intersection of product judgment and hands-on building, and this is the work I want to keep doing.",
+  },
   'embedding-model-benchmark': {
     title: 'How to Benchmark Embedding Models',
     subtitle: 'A framework for picking the right model, not the trending one',
