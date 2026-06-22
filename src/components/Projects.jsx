@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
 import { projects } from '../data/content'
+import Reveal from './Reveal'
 import styles from './Projects.module.css'
 
 export default function Projects() {
   return (
     <section className={styles.section} id="projects">
-      <p className="section-label">Featured projects</p>
-      <div className={styles.grid}>
-        {projects.map(p => (
-          <Link to={`/projects/${p.id}`} key={p.id} className={styles.card}>
+      <Reveal><p className="section-label">Featured projects</p></Reveal>
+      <Reveal as="div" stagger className={styles.grid}>
+        {projects.map((p, i) => (
+          <Link to={`/projects/${p.id}`} key={p.id} className={styles.card} style={{ '--i': i }}>
             <div className={styles.header}>
               <p className={styles.title}>{p.title}</p>
               <span className={`${styles.company} ${styles[p.companyType]}`}>{p.company}</span>
@@ -22,7 +23,7 @@ export default function Projects() {
             </span>
           </Link>
         ))}
-      </div>
+      </Reveal>
     </section>
   )
 }

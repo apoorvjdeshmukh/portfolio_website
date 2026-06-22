@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { metrics } from '../data/content'
+import Reveal from './Reveal'
 import styles from './Metrics.module.css'
 
 function useCountUp(to, from, duration, decimals, triggered) {
@@ -24,7 +25,7 @@ function useCountUp(to, from, duration, decimals, triggered) {
   return display
 }
 
-function MetricCard({ metric, triggered }) {
+function MetricCard({ metric, triggered, style }) {
   const c = metric.counter
   const val = useCountUp(c.to, c.from ?? 0, 1400, c.decimals ?? 0, triggered)
 
@@ -36,7 +37,7 @@ function MetricCard({ metric, triggered }) {
   }
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} style={style}>
       <p className={styles.value}>{triggered ? display : metric.value}</p>
       <p className={styles.desc}>{metric.label}</p>
     </div>
@@ -58,12 +59,12 @@ export default function Metrics() {
 
   return (
     <section className={styles.section} ref={ref}>
-      <p className="section-label">By the numbers</p>
-      <div className={styles.grid}>
+      <Reveal><p className="section-label">By the numbers</p></Reveal>
+      <Reveal as="div" stagger className={styles.grid}>
         {metrics.map((m, i) => (
-          <MetricCard key={i} metric={m} triggered={triggered} />
+          <MetricCard key={i} metric={m} triggered={triggered} style={{ '--i': i }} />
         ))}
-      </div>
+      </Reveal>
     </section>
   )
 }

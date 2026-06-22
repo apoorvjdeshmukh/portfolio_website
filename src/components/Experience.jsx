@@ -1,13 +1,14 @@
 import { experience, education, certifications } from '../data/content'
+import Reveal from './Reveal'
 import styles from './Experience.module.css'
 
 export default function Experience() {
   return (
     <section className={styles.section}>
-      <p className="section-label">Experience</p>
+      <Reveal><p className="section-label">Experience</p></Reveal>
       <div className={styles.list}>
         {experience.map((e, i) => (
-          <div key={i} className={styles.item}>
+          <Reveal key={i} as="div" className={styles.item} style={{ '--i': i }}>
             <p className={styles.period}>{e.period}</p>
             <div className={styles.content}>
               <p className={styles.role}>{e.role}</p>
@@ -16,30 +17,32 @@ export default function Experience() {
                 {e.bullets.map((b, j) => <li key={j} className={styles.bullet}>{b}</li>)}
               </ul>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
-      <div className={styles.bottom}>
-        <div>
-          <p className="section-label">Education</p>
-          {education.map(e => (
-            <div key={e.degree} className={styles.eduItem}>
-              <p className={styles.eduDegree}>{e.degree}</p>
-              <p className={styles.eduSchool}>{e.school} · {e.year}</p>
-            </div>
-          ))}
-        </div>
-        <div>
-          <p className="section-label">Certifications</p>
-          <ul className={styles.certList}>
-            {certifications.map(c => (
-              <li key={c} className={styles.certItem}>
-                <i className="ti ti-certificate" aria-hidden="true" />{c}
-              </li>
+      <Reveal>
+        <div className={styles.bottom}>
+          <div>
+            <p className="section-label">Education</p>
+            {education.map(e => (
+              <div key={e.degree} className={styles.eduItem}>
+                <p className={styles.eduDegree}>{e.degree}</p>
+                <p className={styles.eduSchool}>{e.school} · {e.year}</p>
+              </div>
             ))}
-          </ul>
+          </div>
+          <div>
+            <p className="section-label">Certifications</p>
+            <ul className={styles.certList}>
+              {certifications.map(c => (
+                <li key={c} className={styles.certItem}>
+                  <i className="ti ti-certificate" aria-hidden="true" />{c}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

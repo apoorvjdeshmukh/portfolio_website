@@ -12,6 +12,7 @@
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(255,107,53,0.14);
 }
+.card:hover .title { color: var(--accent); }
 .header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
 .title { font-size: 14px; font-weight: 600; line-height: 1.4; }
 .company { font-size: 11px; padding: 3px 10px; border-radius: var(--radius-pill); font-weight: 600; flex-shrink: 0; }
