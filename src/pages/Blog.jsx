@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { blogPosts } from '../data/blog'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Reveal from '../components/Reveal'
 import styles from './Blog.module.css'
 
 export default function Blog() {
@@ -14,13 +15,15 @@ export default function Blog() {
       <div className={styles.container}>
         <Nav />
         <main>
-          <p className="section-label">BLOG</p>
-          <h1 className={styles.heading}>Notes on building products</h1>
-          <p className={styles.sub}>Frameworks and lessons from product management, RAG systems, and 0-to-1 builds.</p>
+          <Reveal>
+            <p className="section-label">BLOG</p>
+            <h1 className={styles.heading}>Notes on building products</h1>
+            <p className={styles.sub}>Frameworks and lessons from product management, RAG systems, and 0-to-1 builds.</p>
+          </Reveal>
 
-          <div className={styles.list}>
-            {posts.map(([slug, post]) => (
-              <Link to={`/blog/${slug}`} key={slug} className={styles.card}>
+          <Reveal as="div" stagger className={styles.list}>
+            {posts.map(([slug, post], i) => (
+              <Link to={`/blog/${slug}`} key={slug} className={styles.card} style={{ '--i': i }}>
                 <div className={styles.tags}>
                   {post.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
                 </div>
@@ -29,7 +32,7 @@ export default function Blog() {
                 <span className={styles.readMore}>Read post <i className="ti ti-arrow-right" aria-hidden="true" /></span>
               </Link>
             ))}
-          </div>
+          </Reveal>
         </main>
         <Footer />
       </div>

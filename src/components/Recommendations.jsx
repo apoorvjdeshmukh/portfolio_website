@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { recommendations } from '../data/content'
+import Reveal from './Reveal'
 import styles from './Recommendations.module.css'
 
 function initials(name) {
@@ -57,7 +58,8 @@ export default function Recommendations() {
   }, [paused, total])
 
   return (
-    <section
+    <Reveal
+      as="section"
       className={styles.section}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -108,6 +110,6 @@ export default function Recommendations() {
           ))}
         </div>
       )}
-    </section>
+    </Reveal>
   )
 }

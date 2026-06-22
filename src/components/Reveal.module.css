@@ -1,0 +1,41 @@
+/* non-stagger: initial hidden state */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+}
+/* non-stagger: visible — clip-path runs via keyframe only, not retained after */
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+  animation: revealIn .88s cubic-bezier(.76,0,.20,1);
+}
+
+/* stagger container: no self-animation (children handle everything) */
+
+/* stagger children: initial hidden */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(8px);
+}
+/* stagger children: cascade in; fill-mode backwards so they hide during delay */
+.stagger.in > * {
+  opacity: 1;
+  transform: translateY(0);
+  animation: revealIn .72s cubic-bezier(.76,0,.20,1) backwards;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(8px); clip-path: inset(0 0 100% 0); }
+  to   { opacity: 1; transform: translateY(0);   clip-path: inset(0 0 0% 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    animation: none !important;
+  }
+}

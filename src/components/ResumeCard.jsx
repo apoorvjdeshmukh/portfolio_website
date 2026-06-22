@@ -1,10 +1,11 @@
 import { personal } from '../data/content'
 import CopyEmail from './CopyEmail'
+import Reveal from './Reveal'
 import styles from './ResumeCard.module.css'
 
 export default function ResumeCard() {
   return (
-    <section className={styles.card}>
+    <Reveal as="section" className={styles.card}>
       <div className={styles.left}>
         <div className={styles.icon}>
           <i className="ti ti-file-cv" aria-hidden="true" />
@@ -22,6 +23,6 @@ export default function ResumeCard() {
           <i className="ti ti-mail" aria-hidden="true" /> Email me
         </CopyEmail>
       </div>
-    </section>
+    </Reveal>
   )
 }

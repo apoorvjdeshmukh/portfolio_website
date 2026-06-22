@@ -13,6 +13,7 @@ import Footer from '../components/Footer'
 export default function Home() {
   return (
     <div className={styles.page}>
+      <div aria-hidden="true" className={styles.glow} />
       <div className={styles.container}>
         <Nav />
         <main>

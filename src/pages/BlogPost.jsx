@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { blogPosts } from '../data/blog'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Reveal from '../components/Reveal'
 import styles from './BlogPost.module.css'
 
 export default function BlogPost() {
@@ -21,17 +22,18 @@ export default function BlogPost() {
       <div className={styles.container}>
         <Nav />
         <main>
-          <div className={styles.tags}>
-            {post.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
-          </div>
-          <h1 className={styles.title}>{post.title}</h1>
-          <p className={styles.subtitle}>{post.subtitle}</p>
-          <p className={styles.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-
-          <p className={styles.intro}>{post.intro}</p>
+          <Reveal>
+            <div className={styles.tags}>
+              {post.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
+            </div>
+            <h1 className={styles.title}>{post.title}</h1>
+            <p className={styles.subtitle}>{post.subtitle}</p>
+            <p className={styles.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+            <p className={styles.intro}>{post.intro}</p>
+          </Reveal>
 
           {post.steps.map((step, i) => (
-            <div className={styles.step} key={i}>
+            <Reveal key={i} as="div" className={styles.step}>
               <span className={styles.stepNum}>{i + 1}</span>
               <div>
                 <h2 className={styles.stepTitle}>{step.title}</h2>
@@ -42,11 +44,11 @@ export default function BlogPost() {
                   </ul>
                 )}
               </div>
-            </div>
+            </Reveal>
           ))}
 
           {post.benchmarkTable && (
-            <div className={styles.benchmark}>
+            <Reveal as="div" className={styles.benchmark}>
               <h3 className={styles.benchmarkTitle}>{post.benchmarkTable.title}</h3>
               <p className={styles.benchmarkSubtitle}>{post.benchmarkTable.subtitle}</p>
 
@@ -80,24 +82,24 @@ export default function BlogPost() {
                 </table>
               </div>
               <p className={styles.benchmarkFootnote}>{post.benchmarkTable.footnote}</p>
-            </div>
+            </Reveal>
           )}
 
           {post.surprise && (
-            <div className={styles.callout}>
+            <Reveal as="div" className={styles.callout}>
               <p className={styles.calloutLabel}>{post.surprise.label}</p>
               <p className={styles.calloutBody}>{post.surprise.body}</p>
-            </div>
+            </Reveal>
           )}
 
           {post.takeaway && (
-            <div className={styles.takeaway}>
+            <Reveal as="div" className={styles.takeaway}>
               <p className={styles.takeawayLabel}>The takeaway</p>
               <p className={styles.takeawayBody}>{post.takeaway}</p>
-            </div>
+            </Reveal>
           )}
 
-          <Link to="/blog" className={styles.back}>← Back to all posts</Link>
+          <Reveal><Link to="/blog" className={styles.back}>← Back to all posts</Link></Reveal>
         </main>
         <Footer />
       </div>
