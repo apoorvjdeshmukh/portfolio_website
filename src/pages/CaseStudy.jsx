@@ -1,12 +1,26 @@
+import Icon from '../components/Icon'
 import { useParams, Navigate, Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { caseStudies, projects } from '../data/content'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import RagDiagram from '../components/RagDiagram'
+import NexusEcosystemDiagram from '../components/diagrams/NexusEcosystemDiagram'
+import NexusDriverDiagram from '../components/diagrams/NexusDriverDiagram'
+import FintechMpDiagram from '../components/diagrams/FintechMpDiagram'
+import UnionPlatformDiagram from '../components/diagrams/UnionPlatformDiagram'
 import Contact from '../components/Contact'
 import Reveal from '../components/Reveal'
 import styles from './CaseStudy.module.css'
+
+const diagrams = {
+  'rag': RagDiagram,
+  'nexus-ecosystem': NexusEcosystemDiagram,
+  'nexus-driver': NexusDriverDiagram,
+  'fintech-mp': FintechMpDiagram,
+  'union-platform': UnionPlatformDiagram,
+}
 
 function NextProjects({ current }) {
   const others = projects.filter(p => p.id !== current).slice(0, 2)
@@ -17,7 +31,7 @@ function NextProjects({ current }) {
           <span className={`${styles.company} ${styles[p.companyType]}`}>{p.company}</span>
           <p className={styles.nextTitle}>{p.title}</p>
           <span className={styles.nextLink}>
-            Read case study <i className="ti ti-arrow-right" aria-hidden="true" />
+            Read case study <Icon name="arrow-right" />
           </span>
         </Link>
       ))}
@@ -31,14 +45,24 @@ export default function CaseStudy() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    if (cs) document.title = `${cs.title} — Apoorv Deshmukh`
-    return () => { document.title = 'Apoorv Deshmukh | Product Manager' }
-  }, [id, cs])
+  }, [id])
 
   if (!cs) return <Navigate to="/" replace />
 
+  const pageUrl = `https://apoorvdeshmukh.netlify.app/projects/${id}`
+
   return (
     <div className={styles.page}>
+      <Helmet>
+        <title>{cs.title} — Apoorv Deshmukh</title>
+        <meta name="description" content={cs.tldr} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={`${cs.title} — Apoorv Deshmukh`} />
+        <meta property="og:description" content={cs.tldr} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:title" content={`${cs.title} — Apoorv Deshmukh`} />
+        <meta name="twitter:description" content={cs.tldr} />
+      </Helmet>
       <div className={styles.container}>
         <Nav />
         <main>
@@ -53,15 +77,15 @@ export default function CaseStudy() {
                 <h1 className={styles.title}>{cs.title}</h1>
                 {cs.externalCaseStudy && (
                   <a href={cs.externalCaseStudy.url} target="_blank" rel="noopener noreferrer" className={styles.externalChip}>
-                    <i className="ti ti-world" aria-hidden="true" />
+                    <Icon name="world" />
                     {cs.externalCaseStudy.label}
-                    <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                    <Icon name="arrow-up-right" />
                   </a>
                 )}
               </div>
               <div className={styles.metaRow}>
-                <span><i className="ti ti-user" aria-hidden="true" /> {cs.role}</span>
-                <span><i className="ti ti-calendar" aria-hidden="true" /> {cs.timeline}</span>
+                <span><Icon name="user" /> {cs.role}</span>
+                <span><Icon name="calendar" /> {cs.timeline}</span>
               </div>
               <div className={styles.tags}>
                 {cs.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
@@ -85,11 +109,11 @@ export default function CaseStudy() {
             ))}
           </Reveal>
 
-          {cs.hasArchDiagram && (
+          {cs.diagram && diagrams[cs.diagram] && (
             <Reveal>
               <div className={styles.diagSection}>
-                <p className={styles.sectionLabel}>Architecture</p>
-                <RagDiagram />
+                <p className={styles.sectionLabel}>{cs.diagramLabel || 'How it works'}</p>
+                {(() => { const Diagram = diagrams[cs.diagram]; return <Diagram /> })()}
               </div>
             </Reveal>
           )}
@@ -97,7 +121,10 @@ export default function CaseStudy() {
           <div className={styles.sections}>
             {cs.sections.map((s, i) => (
               <Reveal key={i} as="div" className={styles.section}>
-                <h2 className={styles.sectionHeading}>{s.heading}</h2>
+                <h2 className={styles.sectionHeading}>
+                  <span className={styles.sectionNum}>{String(i + 1).padStart(2, '0')}</span>
+                  {s.heading}
+                </h2>
                 <div className={styles.sectionBody}>
                   {s.content.split('\n\n').map((para, j) => {
                     if (/^\d+\./.test(para)) {
@@ -119,7 +146,7 @@ export default function CaseStudy() {
           <Reveal>
             <div className={styles.bigWin}>
               <div className={styles.bigWinIcon}>
-                <i className="ti ti-trophy" aria-hidden="true" />
+                <Icon name="trophy" />
               </div>
               <div>
                 <p className={styles.bigWinLabel}>The big win</p>

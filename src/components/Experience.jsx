@@ -1,3 +1,4 @@
+import Icon from './Icon'
 import { experience, education, certifications } from '../data/content'
 import Reveal from './Reveal'
 import styles from './Experience.module.css'
@@ -36,7 +37,7 @@ export default function Experience() {
             <ul className={styles.certList}>
               {certifications.map(c => (
                 <li key={c} className={styles.certItem}>
-                  <i className="ti ti-certificate" aria-hidden="true" />{c}
+                  <Icon name="certificate" />{c}
                 </li>
               ))}
             </ul>

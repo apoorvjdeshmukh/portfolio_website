@@ -14,7 +14,7 @@ export const blogPosts = {
       {
         title: 'AI integration on a logistics platform',
         body: 'A tool that pulls shipment data out of messy, multi-format documents and lifted shipment processing speed 20%, with the monitoring and data isolation to run it safely in production.',
-        list: ['20% faster shipment processing', '11+ epics shipped', '50% faster prototyping'],
+        list: ['20% faster shipment processing', '11+ platform services shipped', '50% faster prototyping'],
       },
       {
         title: 'Production-ready code, not just tickets',
