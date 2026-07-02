@@ -1,3 +1,4 @@
+import Icon from './Icon'
 import { personal } from '../data/content'
 import CopyEmail from './CopyEmail'
 import Reveal from './Reveal'
@@ -13,11 +14,11 @@ export default function Contact() {
             Have a product challenge?<br />I'd love to hear it.
           </h2>
           <p className={styles.sub}>
-            Open to Senior PM roles and consulting engagements — particularly AI-native products, 0-to-1 builds, and regulated environments.
+            Open to PM & Senior PM roles and consulting engagements — particularly AI-native products, 0-to-1 builds, and regulated environments.
           </p>
           <div className={styles.cta}>
             <CopyEmail className={styles.btnPrimary}>
-              <i className="ti ti-send" aria-hidden="true" /> Get in touch
+              <Icon name="send" /> Get in touch
             </CopyEmail>
             <a
               href={personal.linkedin}
@@ -25,7 +26,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className={styles.btnGhost}
             >
-              <i className="ti ti-brand-linkedin" aria-hidden="true" /> LinkedIn
+              <Icon name="brand-linkedin" /> LinkedIn
             </a>
           </div>
         </div>

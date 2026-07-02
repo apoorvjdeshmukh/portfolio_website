@@ -1,5 +1,7 @@
+import Icon from '../components/Icon'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { blogPosts } from '../data/blog'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -12,6 +14,11 @@ export default function Blog() {
 
   return (
     <div className={styles.page}>
+      <Helmet>
+        <title>Blog — Apoorv Deshmukh</title>
+        <meta name="description" content="Frameworks and lessons from product management, RAG systems, and 0-to-1 builds." />
+        <link rel="canonical" href="https://apoorvdeshmukh.netlify.app/blog" />
+      </Helmet>
       <div className={styles.container}>
         <Nav />
         <main>
@@ -29,7 +36,7 @@ export default function Blog() {
                 </div>
                 <h2 className={styles.title}>{post.title}</h2>
                 <p className={styles.subtitle}>{post.subtitle}</p>
-                <span className={styles.readMore}>Read post <i className="ti ti-arrow-right" aria-hidden="true" /></span>
+                <span className={styles.readMore}>Read post <Icon name="arrow-right" /></span>
               </Link>
             ))}
           </Reveal>

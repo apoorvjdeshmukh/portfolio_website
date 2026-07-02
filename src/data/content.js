@@ -7,17 +7,10 @@ export const personal = {
   github: 'https://github.com/apoorvjdeshmukh',
   phone: '201-884-0572',
   photo: '/avatar.jpg',
-  availability: 'Open to Product Manager roles',
-  seeking: {
-    titles: ['Product Manager', 'Senior PM', 'Lead PM', 'Principal PM', 'Technical PM'],
-    types: ['Full-time', 'Part-time', 'Contract'],
-    locations: ['Remote', 'Hybrid', 'On-site'],
-    start: 'Available immediately',
-    visaNote: 'No visa sponsorship required',
-  },
+  availability: 'Open to PM & Senior PM roles · Major US cities or Remote · No sponsorship needed',
   headline: ['Building products where', 'AI meets real stakes.'],
   bio: "Senior PM with 6+ years in product management and 2+ years in data analytics, specializing in AI-native products, agentic workflows, and 0-to-1 builds. I prototype with code, ship production RAG systems, and compress delivery cycles by de-risking decisions early with working software.",
-  tags: ['AI / ML Products', 'RAG Systems', 'FinTech', 'Compliance Workflows', '0-to-1 Builds', 'AWS Certified', 'CSPO', 'Logistics', 'Healthcare', 'LLM Evals', 'Platform', 'Multi-tenant', 'B2B SaaS'],
+  tags: ['AI / ML Products', 'RAG Systems', '0-to-1 Builds', 'FinTech', 'B2B SaaS', 'Compliance Workflows', 'LLM Evals'],
 }
 
 export const recommendations = [
@@ -67,7 +60,7 @@ export const projects = [
     companyType: 'nurd',
     tags: ['0-to-1', 'Infrastructure', 'Compliance & Regulatory', 'Data & Analytics'],
     platform: 'Multi-platform',
-    win: 'Replaced spreadsheet chaos with a role-based, multi-persona B2B SaaS platform across 11+ services on GCP — 100% adoption across 5+ departments, 65% tracking accuracy increase, $500K+ compliance savings per client.',
+    win: 'Replaced spreadsheet chaos with a role-based, multi-persona B2B SaaS platform across 11+ services on GCP — 100% adoption across 5+ departments, tracking accuracy up 70→95%, $500K+ compliance savings per client.',
   },
   {
     id: 'nexus-driver',
@@ -109,22 +102,22 @@ export const projects = [
 
 export const stack = [
   {
-    icon: 'ti-cpu',
+    icon: 'cpu',
     title: 'AI / ML',
     items: ['RAG pipelines & LLM evaluation', 'Prompt engineering (hands-on)', 'Embedding & retrieval architectures', 'Claude Code + Cursor (daily)', 'AI cost & capacity planning', 'Conversational AI design'],
   },
   {
-    icon: 'ti-chess-knight',
+    icon: 'chess-knight',
     title: 'Strategy & Leadership',
     items: ['Agile / Scrum (CSPO)', 'GTM strategy & roadmap ownership', 'Continuous discovery', 'Stakeholder alignment', '0→1 product building', 'Cross-functional collaboration'],
   },
   {
-    icon: 'ti-cloud',
+    icon: 'cloud',
     title: 'Infrastructure & Cloud',
     items: ['AWS Certified Solutions Architect', 'GCP, Docker, FastAPI, Qdrant', 'Multi-tenant RBAC & data isolation', 'OAuth, OIDC, SSO', 'CI/CD pipelines', 'Stripe payment integration'],
   },
   {
-    icon: 'ti-chart-bar',
+    icon: 'chart-bar',
     title: 'Analytics & Data',
     items: ['SQL, BigQuery, Tableau', 'A/B testing & experimentation', 'Metrics instrumentation (PostHog)', 'CDP & behavioral data pipelines', 'GCP data warehouse design', 'HIPAA-regulated environments'],
   },
@@ -132,7 +125,7 @@ export const stack = [
 
 export const experience = [
   {
-    period: 'Sep 2023 – Present',
+    period: 'Sep 2023 – Jun 2026',
     role: 'Senior Product Manager',
     company: 'Nurdsoft',
     type: 'Full-time · Remote',
@@ -182,7 +175,6 @@ export const certifications = [
   'Generative AI for Product Managers — IBM',
   'Building AI-Powered Products — IBM',
   'AWS Certified Solutions Architect Associate',
-  'Querying Data with SQL — Microsoft',
 ]
 
 export const education = [
@@ -196,13 +188,15 @@ export const caseStudies = {
     company: 'Nurdsoft',
     companyType: 'nurd',
     role: 'Senior Product Manager',
-    timeline: 'Sep 2023 – Present',
+    timeline: 'Sep 2023 – Jun 2026',
     platform: 'Web · GCP',
     tags: ['0-to-1', 'B2B SaaS', 'Multi-persona', 'Compliance'],
-    tldr: 'Replaced spreadsheet chaos with a role-based multi-product logistics ecosystem. 100% adoption across 5+ departments. 65% tracking accuracy increase. $500K+ compliance savings per client.',
+    diagram: 'nexus-ecosystem',
+    diagramLabel: 'How it works',
+    tldr: 'Replaced spreadsheet chaos with a role-based multi-product logistics ecosystem. 100% adoption across 5+ departments. Tracking accuracy up from 70% to 95%. $500K+ compliance savings per client.',
     metrics: [
       { value: '100%', label: 'Adoption across 5+ departments' },
-      { value: '65%', label: 'Tracking accuracy increase' },
+      { value: '70→95%', label: 'Shipment tracking accuracy' },
       { value: '$500K+', label: 'Compliance savings per client' },
       { value: '11+', label: 'Platform services shipped' },
     ],
@@ -228,7 +222,7 @@ export const caseStudies = {
         content: 'Defined baseline latency targets for core API endpoints. Dispatch confirmation: p50 < 300ms, p99 < 1.5s (beyond 1.5s dispatchers double-tapped, causing duplicate entries). Set automated alerts: 5XX rate > 2% over 5-minute rolling window triggered on-call engineer before a support ticket was created. PDF queue depth > 50 docs triggered auto-scale. Reduced silent failures by 30%.',
       },
     ],
-    bigWin: 'Orchestrated a 0-to-1 multi-product B2B ecosystem to centralize fragmented trucking operations. Replaced legacy Google Sheets with a role-based, sequential workflow architecture. 100% adoption across 5+ departments and 65% increase in tracking accuracy.',
+    bigWin: 'Orchestrated a 0-to-1 multi-product B2B ecosystem to centralize fragmented trucking operations. Replaced legacy Google Sheets with a role-based, sequential workflow architecture. 100% adoption across 5+ departments and tracking accuracy up from 70% to 95%.',
   },
 
   'nexus-driver': {
@@ -236,14 +230,16 @@ export const caseStudies = {
     company: 'Nurdsoft',
     companyType: 'nurd',
     role: 'Senior Product Manager',
-    timeline: 'Sep 2023 – Present',
+    timeline: 'Sep 2023 – Jun 2026',
     platform: 'iOS & Android (Cross-platform)',
     tags: ['Mobile', 'CA Labor Law', 'DOT Compliance', 'DVIR'],
+    diagram: 'nexus-driver',
+    diagramLabel: 'Compliance flow',
     tldr: 'Cross-platform mobile app automating CA Labor Law break compliance and DOT vehicle inspections. Eliminated manual tracking errors. Delivered 100% verifiable audit trail for legal defense.',
     metrics: [
       { value: '100%', label: 'Verifiable audit trail for all shifts' },
       { value: '0', label: 'After-hours dispatch calls required' },
-      { value: '$500K+', label: 'Annual compliance liability mitigated' },
+      { value: '$500K+', label: 'Annual liability mitigated — part of the Nexus compliance program' },
       { value: '2', label: 'Compliance systems shipped (Break + DVIR)' },
     ],
     sections: [
@@ -287,7 +283,8 @@ export const caseStudies = {
       { value: '<1.2s', label: 'End-to-end response time' },
       { value: '20+', label: 'Embedding models benchmarked' },
     ],
-    hasArchDiagram: true,
+    diagram: 'rag',
+    diagramLabel: 'Architecture',
     sections: [
       {
         heading: 'The problem',
@@ -321,6 +318,8 @@ export const caseStudies = {
     timeline: 'Jul 2025 – Feb 2026',
     platform: 'Web · ReactJS + Node.js',
     tags: ['FinTech', 'KYC', '0-to-1', 'UAE Compliance', 'Stripe'],
+    diagram: 'fintech-mp',
+    diagramLabel: 'Scope timeline',
     tldr: 'Led 0-to-1 build of a UAE-regulated investment marketplace for GCC retail investors and HNWIs. Shipped KYC-compliant, Stripe-integrated MVP across 6 epics and 20+ features. Cut scope creep by 60%, limited delivery delay to 4 weeks vs. projected 2-month overrun.',
     metrics: [
       { value: '60%', label: 'Scope creep eliminated' },
@@ -357,6 +356,8 @@ export const caseStudies = {
     timeline: 'Feb 2021 – Jan 2023',
     platform: 'iOS & Android · Web',
     tags: ['Consumer', 'Growth', '0-to-1', 'Data Analytics'],
+    diagram: 'union-platform',
+    diagramLabel: 'The funnel, before & after',
     tldr: 'Led product strategy for a consumer platform serving union workers. Drove 150% DAU growth (20K→50K), 200K+ downloads, and lifted onboarding completion from 60% to 95% through 40+ user interviews and a systematic redesign.',
     metrics: [
       { value: '+150%', label: 'Daily active user growth (20K → 50K)' },

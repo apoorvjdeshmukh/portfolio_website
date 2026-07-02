@@ -12,7 +12,8 @@
   box-shadow: 0 8px 28px rgba(255,107,53,0.12);
 }
 .value {
-  font-size: 28px; font-weight: 700; color: var(--accent);
+  font-family: 'DM Mono', monospace;
+  font-size: 26px; font-weight: 500; color: var(--accent);
   line-height: 1; margin-bottom: 8px;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;

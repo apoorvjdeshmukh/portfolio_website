@@ -1,3 +1,4 @@
+import Icon from './Icon'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/content'
 import Reveal from './Reveal'
@@ -19,7 +20,7 @@ export default function Projects() {
             </div>
             <p className={styles.win}>{p.win}</p>
             <span className={styles.readMore}>
-              Read case study <i className="ti ti-arrow-right" aria-hidden="true" />
+              Read case study <Icon name="arrow-right" />
             </span>
           </Link>
         ))}

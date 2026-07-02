@@ -1,3 +1,4 @@
+import Icon from './Icon'
 import { Link, useLocation } from 'react-router-dom'
 import { personal } from '../data/content'
 import CopyEmail from './CopyEmail'
@@ -14,16 +15,16 @@ export default function Nav() {
       </Link>
       <div className={styles.links}>
         <Link to="/blog">
-          <i className="ti ti-notes" aria-hidden="true" /> Blog
+          <Icon name="notes" /> Blog
         </Link>
         <a href={personal.linkedin} target="_blank" rel="noopener noreferrer">
-          <i className="ti ti-brand-linkedin" aria-hidden="true" /> LinkedIn
+          <Icon name="brand-linkedin" /> LinkedIn
         </a>
         <a href={personal.github} target="_blank" rel="noopener noreferrer">
-          <i className="ti ti-brand-github" aria-hidden="true" /> GitHub
+          <Icon name="brand-github" /> GitHub
         </a>
         <CopyEmail>
-          <i className="ti ti-mail" aria-hidden="true" /> Email
+          <Icon name="mail" /> Email
         </CopyEmail>
       </div>
     </nav>

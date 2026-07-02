@@ -1,5 +1,7 @@
+import Icon from '../components/Icon'
 import { useParams, Navigate, Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { blogPosts } from '../data/blog'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -12,13 +14,36 @@ export default function BlogPost() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    if (post) document.title = `${post.title} — Apoorv Deshmukh`
-  }, [slug, post])
+  }, [slug])
 
   if (!post) return <Navigate to="/blog" replace />
 
+  const pageUrl = `https://apoorvdeshmukh.netlify.app/blog/${slug}`
+
   return (
     <div className={styles.page}>
+      <Helmet>
+        <title>{post.title} — Apoorv Deshmukh</title>
+        <meta name="description" content={post.subtitle} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={`${post.title} — Apoorv Deshmukh`} />
+        <meta property="og:description" content={post.subtitle} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content={`${post.title} — Apoorv Deshmukh`} />
+        <meta name="twitter:description" content={post.subtitle} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: post.subtitle,
+            datePublished: post.date,
+            url: pageUrl,
+            author: { '@type': 'Person', name: 'Apoorv Jain Deshmukh', url: 'https://apoorvdeshmukh.netlify.app' },
+          })}
+        </script>
+      </Helmet>
       <div className={styles.container}>
         <Nav />
         <main>
@@ -71,7 +96,7 @@ export default function BlogPost() {
                       <tr key={i} className={styles.noteRow}><td colSpan={5}>{row.note}</td></tr>
                     ) : (
                       <tr key={i} className={row.selected ? styles.selectedRow : ''}>
-                        <td>{row.selected && <i className="ti ti-check" aria-hidden="true" />} {row.model}</td>
+                        <td>{row.selected && <Icon name="check" />} {row.model}</td>
                         <td><span className={styles.catTag}>{row.category}</span></td>
                         <td>{row.r1}</td>
                         <td className={styles.mrrCell}>{row.mrr}</td>

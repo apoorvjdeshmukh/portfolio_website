@@ -1,3 +1,4 @@
+import Icon from './Icon'
 import { personal } from '../data/content'
 import CopyEmail from './CopyEmail'
 import Reveal from './Reveal'
@@ -8,7 +9,7 @@ export default function ResumeCard() {
     <Reveal as="section" className={styles.card}>
       <div className={styles.left}>
         <div className={styles.icon}>
-          <i className="ti ti-file-cv" aria-hidden="true" />
+          <Icon name="file-cv" />
         </div>
         <div>
           <p className={styles.title}>Want the full resume?</p>
@@ -17,10 +18,10 @@ export default function ResumeCard() {
       </div>
       <div className={styles.actions}>
         <a href="/resume.pdf" download className={styles.btn}>
-          <i className="ti ti-download" aria-hidden="true" /> Download PDF
+          <Icon name="download" /> Download PDF
         </a>
         <CopyEmail className={styles.btnGhost}>
-          <i className="ti ti-mail" aria-hidden="true" /> Email me
+          <Icon name="mail" /> Email me
         </CopyEmail>
       </div>
     </Reveal>
