@@ -14,7 +14,7 @@ export default function Contact() {
             Have a product challenge?<br />I'd love to hear it.
           </h2>
           <p className={styles.sub}>
-            Open to PM & Senior PM roles and consulting engagements — particularly AI-native products, 0-to-1 builds, and regulated environments.
+            Open to PM & Senior PM roles and consulting engagements — particularly AI-native products, 0-to-1 builds, and regulated environments: fintech, healthcare, and logistics.
           </p>
           <div className={styles.cta}>
             <CopyEmail className={styles.btnPrimary}>

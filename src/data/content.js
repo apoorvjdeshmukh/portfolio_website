@@ -10,7 +10,7 @@ export const personal = {
   availability: 'Open to PM & Senior PM roles · Major US cities or Remote · No sponsorship needed',
   headline: ['Building products where', 'AI meets real stakes.'],
   bio: "Senior PM with 6+ years in product management and 2+ years in data analytics, specializing in AI-native products, agentic workflows, and 0-to-1 builds. I prototype with code, ship production RAG systems, and compress delivery cycles by de-risking decisions early with working software.",
-  tags: ['AI / ML Products', 'RAG Systems', '0-to-1 Builds', 'FinTech', 'B2B SaaS', 'Compliance Workflows', 'LLM Evals'],
+  tags: ['AI / ML Products', 'RAG Systems', '0-to-1 Builds', 'FinTech', 'Healthcare', 'B2B SaaS', 'Compliance Workflows', 'LLM Evals'],
 }
 
 export const recommendations = [
