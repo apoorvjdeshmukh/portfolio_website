@@ -125,6 +125,17 @@ export const stack = [
 
 export const experience = [
   {
+    period: 'Jul 2025 – Present',
+    role: 'AI Product Manager',
+    company: 'AgileCatalyst.ai',
+    type: 'Part-time · Remote',
+    bullets: [
+      'Built 0-to-1 bilingual RAG system — MRR 0.12 → 1.0 on Arabic retrieval, 42ms latency, sub-1.2s end-to-end.',
+      'Led greenfield UAE investment platform from brief to KYC-compliant MVP across 6 epics and 20+ features.',
+      'Eliminated scope creep by 60% via code POC prototyping; limited delivery delay to 4 weeks vs. projected 2-month overrun.',
+    ],
+  },
+  {
     period: 'Sep 2023 – Jun 2026',
     role: 'Senior Product Manager',
     company: 'Nurdsoft',
@@ -134,17 +145,6 @@ export const experience = [
       'Drove tracking accuracy 70 → 95% and delivered $500K+ compliance savings per client with zero unplanned downtime across bi-weekly releases.',
       'Built and shipped production AI-powered manifest scraping tool end-to-end, reducing operations processing time by 20%.',
       'Set roadmap prioritization across 11+ platform services; built observability framework enabling proactive failure detection.',
-    ],
-  },
-  {
-    period: 'Jul 2025 – Present',
-    role: 'AI Product Manager',
-    company: 'AgileCatalyst.ai',
-    type: 'Part-time · Remote',
-    bullets: [
-      'Built 0-to-1 bilingual RAG system — MRR 0.12 → 1.0 on Arabic retrieval, 42ms latency, sub-1.2s end-to-end.',
-      'Led greenfield UAE investment platform from brief to KYC-compliant MVP across 6 epics and 20+ features.',
-      'Eliminated scope creep by 60% via code POC prototyping; limited delivery delay to 4 weeks vs. projected 2-month overrun.',
     ],
   },
   {
