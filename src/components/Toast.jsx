@@ -1,3 +1,4 @@
+import Icon from './Icon'
 import { useEffect, useState } from 'react'
 import styles from './Toast.module.css'
 
@@ -16,7 +17,7 @@ export default function Toast({ message, onDone }) {
 
   return (
     <div className={`${styles.toast} ${visible ? styles.show : styles.hide}`}>
-      <span className={styles.icon}><i className="ti ti-circle-check-filled" /></span>
+      <span className={styles.icon}><Icon name="circle-check-filled" /></span>
       {message}
     </div>
   )

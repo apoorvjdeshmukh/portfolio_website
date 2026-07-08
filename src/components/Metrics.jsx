@@ -39,6 +39,7 @@ function MetricCard({ metric, triggered, style }) {
   return (
     <div className={styles.card} style={style}>
       <p className={styles.value}>{triggered ? display : metric.value}</p>
+      <div className={styles.divider} />
       <p className={styles.desc}>{metric.label}</p>
     </div>
   )
@@ -58,13 +59,16 @@ export default function Metrics() {
   }, [])
 
   return (
-    <section className={styles.section} ref={ref}>
-      <Reveal><p className="section-label">By the numbers</p></Reveal>
-      <Reveal as="div" stagger className={styles.grid}>
-        {metrics.map((m, i) => (
-          <MetricCard key={i} metric={m} triggered={triggered} style={{ '--i': i }} />
-        ))}
-      </Reveal>
+    <section className={styles.section} data-act="1" data-numbers ref={ref}>
+      <div className={styles.inner}>
+        <Reveal><p className="section-label">By the numbers</p></Reveal>
+        <Reveal><h2 className={styles.heading}>Outcomes, not activity. A few that mattered.</h2></Reveal>
+        <Reveal as="div" stagger className={styles.grid}>
+          {metrics.map((m, i) => (
+            <MetricCard key={i} metric={m} triggered={triggered} style={{ '--i': i }} />
+          ))}
+        </Reveal>
+      </div>
     </section>
   )
 }

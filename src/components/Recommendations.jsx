@@ -1,3 +1,4 @@
+import Icon from './Icon'
 import { useState, useEffect, useRef } from 'react'
 import { recommendations } from '../data/content'
 import Reveal from './Reveal'
@@ -10,7 +11,7 @@ function initials(name) {
 function CardContent({ r }) {
   return (
     <>
-      <i className="ti ti-quote" aria-hidden="true" />
+      <Icon name="quote" />
       <div className={styles.quote}>
         {r.quote.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
       </div>
@@ -82,10 +83,10 @@ export default function Recommendations() {
         {total > 1 && (
           <div className={styles.nav}>
             <button type="button" onClick={prev} aria-label="Previous recommendation">
-              <i className="ti ti-chevron-left" aria-hidden="true" />
+              <Icon name="chevron-left" />
             </button>
             <button type="button" onClick={next} aria-label="Next recommendation">
-              <i className="ti ti-chevron-right" aria-hidden="true" />
+              <Icon name="chevron-right" />
             </button>
           </div>
         )}

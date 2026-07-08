@@ -1,7 +1,7 @@
-.section { margin-bottom: 3.5rem; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 12px; }
+.section { margin-bottom: clamp(52px, 7vw, 80px); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: clamp(14px, 2vw, 20px); }
 .card {
-  border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 1.25rem;
+  border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 1.375rem;
   transition: border-color 0.15s, transform 0.2s, box-shadow 0.2s;
   background: var(--bg);
 }

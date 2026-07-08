@@ -1,8 +1,8 @@
-import { useContext } from 'react'
+import { forwardRef, useContext } from 'react'
 import { ToastContext } from '../context/ToastContext'
 import { personal } from '../data/content'
 
-export default function CopyEmail({ className, children }) {
+const CopyEmail = forwardRef(function CopyEmail({ className, children, ...rest }, ref) {
   const showToast = useContext(ToastContext)
 
   const handleClick = () => {
@@ -26,8 +26,10 @@ export default function CopyEmail({ className, children }) {
   }
 
   return (
-    <button type="button" onClick={handleClick} className={className}>
+    <button ref={ref} type="button" onClick={handleClick} className={className} {...rest}>
       {children}
     </button>
   )
-}
+})
+
+export default CopyEmail

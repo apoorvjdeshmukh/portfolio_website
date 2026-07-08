@@ -1,0 +1,6 @@
+.section {
+  padding: clamp(70px, 9vw, 120px) clamp(20px, 5vw, 64px);
+  background: var(--bg);
+}
+
+.inner { max-width: 1080px; margin: 0 auto; }

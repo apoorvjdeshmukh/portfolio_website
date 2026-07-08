@@ -1,16 +1,35 @@
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-bottom: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2rem;
-  border-bottom: 0.5px solid var(--border);
-  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  padding: 15px clamp(20px, 5vw, 64px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 248, 242, 0.82);
+  border-bottom: 1px solid var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav { background: rgba(22, 13, 8, 0.82); }
 }
 .name {
   font-size: 15px;
   font-weight: 500;
   color: var(--text-primary);
   transition: color 0.15s;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 .name:hover { color: var(--accent); }
 .links { display: flex; gap: 1.5rem; }

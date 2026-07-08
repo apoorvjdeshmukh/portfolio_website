@@ -1,0 +1,148 @@
+/* Desktop spine */
+.spine {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: rgba(255, 107, 53, 0.16);
+}
+
+.fill {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 0%;
+  max-height: calc(100% - 14px);
+  background: var(--accent);
+  transition: height 0.12s linear;
+}
+
+.node {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot, .dotOn {
+  border-radius: 50%;
+  border: 1.5px solid;
+  transition: all 0.4s cubic-bezier(.22,.61,.36,1);
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  border-color: rgba(255, 107, 53, 0.4);
+}
+
+.dotOn {
+  width: 11px;
+  height: 11px;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.label, .labelOn {
+  position: absolute;
+  right: 26px;
+  top: 50%;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.4s, color 0.4s;
+}
+
+.label {
+  opacity: 0;
+  color: var(--text-tertiary);
+  transform: translate(8px, -50%);
+}
+
+.labelOn {
+  opacity: 1;
+  color: var(--accent-text);
+  transform: translate(0, -50%);
+}
+
+@media (max-width: 919px) {
+  .spine { display: none; }
+}
+
+/* Mobile bottom pill */
+.mpill {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 46;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 11px 17px;
+  border-radius: 100px;
+  background: rgba(28, 18, 16, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+}
+
+.mdot, .mdotActive {
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.mdot {
+  width: 7px;
+  height: 7px;
+  background: rgba(245, 237, 232, 0.35);
+}
+
+.mdotActive {
+  width: 9px;
+  height: 9px;
+  background: #FF8050;
+}
+
+@media (min-width: 920px) {
+  .mpill { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill, .dot, .dotOn, .label, .labelOn, .mdot, .mdotActive { transition: none; }
+}
