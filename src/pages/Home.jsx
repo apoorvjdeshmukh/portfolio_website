@@ -9,7 +9,6 @@ import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import ScrollProgress from '../components/ScrollProgress'
 import Wayfinding from '../components/Wayfinding'
-import Cursor from '../components/Cursor'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 const ACT_COUNT = 5
@@ -25,7 +24,6 @@ export default function Home() {
         <link rel="canonical" href="https://apoorvdeshmukh.netlify.app/" />
       </Helmet>
       <ScrollProgress progress={progress} />
-      <Cursor />
       <Wayfinding activeIndex={activeIndex} mobile={mobile} progress={progress} goToSection={goToSection} />
       <Nav />
       <main>

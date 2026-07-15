@@ -1,4 +1,4 @@
-.section { margin-bottom: 3.5rem; }
+.section { margin-bottom: 0; }
 
 .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
 .header p { margin-bottom: 0 !important; }

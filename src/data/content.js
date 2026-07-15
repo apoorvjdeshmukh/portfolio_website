@@ -10,7 +10,7 @@ export const personal = {
   availability: 'Open to PM & Senior PM roles · Major US cities or Remote · No sponsorship needed',
   headline: ['Building products where', 'AI meets real stakes.'],
   bio: "Senior PM with 6+ years in product management and 2+ years in data analytics, specializing in AI-native products, agentic workflows, and 0-to-1 builds. I prototype with code, ship production RAG systems, and compress delivery cycles by de-risking decisions early with working software.",
-  tags: ['AI / ML Products', 'RAG Systems', '0-to-1 Builds', 'FinTech', 'Healthcare', 'B2B SaaS', 'Compliance Workflows', 'LLM Evals'],
+  tags: ['AI / ML Products', 'RAG Systems', '0-to-1 Builds', 'FinTech', 'Healthcare', 'Logistics', 'B2B SaaS', 'Compliance Workflows', 'LLM Evals'],
 }
 
 export const recommendations = [
@@ -31,6 +31,15 @@ export const recommendations = [
     relationship: 'Managed Apoorv at AgileCatalyst.ai',
     date: 'June 16, 2026',
     quote: "I worked with Apoorv as AI Product Manager at AgileCatalyst, where he built our 0→1 RAG system for a fintech marketplace from concept to production.\n\nApoorv designed a hybrid retrieval architecture achieving MRR=1.0 across English and Arabic, delivering answers in under 1.2 seconds. He benchmarked 20+ embedding models, navigated multilingual OCR (95% EN, 90%+ AR), and built guardrails ensuring trustworthy AI for high-stakes decisions.\n\nWhat stands out: end-to-end ownership. Apoorv owned infrastructure decisions, coordinated across engineering/legal/compliance under GCC regulatory constraints, and shipped features with urgency.\n\nFor Senior PM roles in AI-native products or regulated spaces, Apoorv is exceptional. He ships.\n\nHighly recommended.",
+  },
+  {
+    name: 'Arnav Chachra',
+    photo: '/arnav-chachra.jpg',
+    title: 'IT Administration and Automation',
+    company: 'Nurdsoft',
+    relationship: 'Reported to Apoorv directly',
+    date: 'July 14, 2026',
+    quote: "I had the opportunity to work under Apoorv as my Product Manager. He brought clarity to priorities, communicated decisions thoughtfully, and worked closely with the team through complex product challenges.\n\nWhat stood out most was how calm and composed he remained during critical incidents, including urgent production hotfixes. He kept both the team and the client informed throughout, which helped everyone stay focused and resolve issues faster.\n\nI appreciated his steady leadership and the confidence he placed in the team, and I would gladly recommend him for product management and leadership roles.",
   },
 ]
 

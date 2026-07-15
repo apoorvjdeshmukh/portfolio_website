@@ -19,7 +19,7 @@ export default function Nav() {
         </button>
       )}
       <div className={styles.links}>
-        <Link to="/blog">
+        <Link to="/blog" className={styles.blogLink}>
           <Icon name="notes" /> Blog
         </Link>
         <a href={personal.linkedin} target="_blank" rel="noopener noreferrer">

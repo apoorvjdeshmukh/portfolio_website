@@ -78,22 +78,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: clamp(28px, 4vw, 56px);
-  align-items: flex-start;
+  align-items: stretch;
 }
 
-.indexList { flex: 1 1 300px; min-width: 280px; }
+.indexList { flex: 1 1 300px; min-width: 280px; display: flex; flex-direction: column; }
 
 .row, .rowActive {
+  flex: 1;
   display: grid;
   grid-template-columns: 34px 1fr;
   gap: 16px;
-  align-items: baseline;
-  padding: 18px 0 18px 20px;
+  align-items: center;
+  padding: 18px 16px 18px 20px;
   cursor: pointer;
-  transition: border-color 0.35s;
+  transition: border-color 0.35s, background 0.35s;
 }
 .row { border-left: 2px solid rgba(255,128,80,0.14); }
-.rowActive { border-left: 2px solid #FF8050; }
+.rowActive {
+  border-left: 2px solid #FF8050;
+  background: rgba(255,128,80,0.08);
+  border-radius: 0 14px 14px 0;
+}
 
 .num, .numActive { font-family: 'DM Mono', monospace; font-size: 13px; padding-top: 3px; transition: color 0.35s; }
 .num { color: #7A6A62; }

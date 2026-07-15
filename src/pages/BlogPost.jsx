@@ -54,6 +54,11 @@ export default function BlogPost() {
             <h1 className={styles.title}>{post.title}</h1>
             <p className={styles.subtitle}>{post.subtitle}</p>
             <p className={styles.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+            {post.linkedinUrl && (
+              <a href={post.linkedinUrl} target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+                <Icon name="brand-linkedin" /> View original post on LinkedIn
+              </a>
+            )}
             <p className={styles.intro}>{post.intro}</p>
           </Reveal>
 
