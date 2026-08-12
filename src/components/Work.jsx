@@ -7,7 +7,7 @@ import styles from './Work.module.css'
 
 const items = projects.map((p) => ({ ...p, ...caseStudies[p.id] }))
 
-const chipClass = { nurd: styles.chipNurd, agile: styles.chipAgile, eze: styles.chipEze }
+const chipClass = { nurd: styles.chipNurd, agile: styles.chipAgile, eze: styles.chipEze, personal: styles.chipPersonal }
 
 function Chip({ item }) {
   return <span className={`${styles.chip} ${chipClass[item.companyType]}`}>{item.company}</span>
@@ -60,7 +60,7 @@ export default function Work() {
         <Reveal><p className={styles.label}>Selected work</p></Reveal>
         <Reveal>
           <h2 className={styles.heading}>
-            Five 0-to-1 products, shipped under real constraints — regulation, multiple languages, and legacy chaos.
+            Six 0-to-1 products, shipped under real constraints — regulation, multiple languages, legacy chaos, and (for one) just my own time and a Claude API key.
           </h2>
         </Reveal>
 

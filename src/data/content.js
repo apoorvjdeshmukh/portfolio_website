@@ -107,6 +107,15 @@ export const projects = [
     platform: 'iOS & Android · Web',
     win: 'Drove 150% DAU growth (20K→50K) and 200K+ downloads. Redesigned onboarding from 60→95% completion through 40+ user interviews. Built 300-dimension GCP data warehouse enabling real-time dashboards and experimentation.',
   },
+  {
+    id: 'pitch',
+    title: 'Pitch: Interview Prep That Compounds',
+    company: 'Personal Project',
+    companyType: 'personal',
+    tags: ['0-to-1', 'AI / ML', 'Personal Project', 'Open Source'],
+    platform: 'Web · Next.js',
+    win: 'Built and shipped a free, open-source interview prep tool solo — round-specific prep, a reusable STAR story bank, and a one-page Day Before Brief. Self-hosted for cents per campaign versus $100+ subscriptions.',
+  },
 ]
 
 export const stack = [
@@ -397,5 +406,60 @@ export const caseStudies = {
       },
     ],
     bigWin: 'Turned a stagnating consumer platform into a growth engine. 40+ user interviews revealed a root-cause onboarding problem that was silently destroying retention. Post-redesign: 60→95% onboarding completion, 150% DAU growth, 200K+ downloads — without changing the core product, just the path into it.',
+  },
+
+  'pitch': {
+    title: 'Pitch: Interview Prep That Compounds Across Every Job',
+    company: 'Personal Project',
+    companyType: 'personal',
+    role: 'Solo PM, spec-writer, and product owner — built end-to-end with Claude Code',
+    timeline: '~2 weeks active build, Jul – Aug 2026',
+    platform: 'Next.js · TypeScript · Supabase · Claude API',
+    tags: ['0-to-1', 'AI / ML', 'Personal Project', 'Open Source', 'Self-hosted'],
+    links: [
+      { label: 'GitHub', url: 'https://github.com/apoorvjdeshmukh/pitch', icon: 'brand-github' },
+      { label: '60s demo', url: 'https://youtu.be/bEZ5ZFo7k0Q', icon: 'world' },
+      { label: 'Full walkthrough', url: 'https://youtu.be/xWJJsHSlrPk', icon: 'world' },
+    ],
+    tldr: 'Every job search, I was rebuilding the same prep from scratch — a fit read on the role, notes for each interview round, research on who I was talking to, stories scattered across docs. I built the tool I actually wanted: paste a job description, get round-specific prep, a reusable story bank, and a day-before brief pulling it all together. Free and open-source, self-hosted for cents per campaign instead of a $100+ subscription.',
+    metrics: [
+      { value: '~$0.26', label: 'Claude API cost for a 7-round campaign' },
+      { value: '2 wks', label: 'Active solo build time' },
+      { value: '8', label: 'Core features shipped' },
+      { value: '2', label: 'Tracks: PM and Software Engineer' },
+    ],
+    screenshots: [
+      { src: 'https://raw.githubusercontent.com/apoorvjdeshmukh/pitch/main/docs/screenshots/fit-analysis.png', alt: 'Fit analysis screen scoring a candidate against a pasted job description' },
+      { src: 'https://raw.githubusercontent.com/apoorvjdeshmukh/pitch/main/docs/screenshots/round-prep.png', alt: 'Round-specific interview prep screen' },
+      { src: 'https://raw.githubusercontent.com/apoorvjdeshmukh/pitch/main/docs/screenshots/day-before-brief.png', alt: 'Day Before Brief — a single-page pre-interview summary' },
+    ],
+    video: { youtubeId: 'xWJJsHSlrPk', label: 'Full walkthrough', title: 'Pitch — full walkthrough' },
+    sections: [
+      {
+        heading: 'The problem',
+        content: 'Every interview loop, I found myself rebuilding the same scaffolding from scratch: a read on how I actually fit the role, prep tailored to each round type in that company\'s specific process, research on whoever I was about to talk to, and stories I could tell under pressure — usually scattered across a Google Doc, a notes app, and a dozen browser tabs, **none of it reusable for the next company**.\n\nGeneric AI chat tools (ChatGPT, Claude directly) could answer any one of these questions if I prompted them well, but **they didn\'t know my process, didn\'t remember my stories from the last interview**, and gave me a wall of text instead of something structured enough to actually use the night before.',
+      },
+      {
+        heading: 'The approach',
+        content: 'I scoped this as a PM would scope any 0-to-1 product: define the job to be done, cut everything that wasn\'t load-bearing, and build the smallest version that actually replaced my own scattered workflow.\n\nThe core insight that shaped the whole product: **interview prep isn\'t one task, it\'s a pipeline with distinct stages that each need different inputs**. A Recruiter Screen and a Bar Raiser round test completely different things — generic "interview tips" are close to useless for either. So the product is **built around round-specific prep, not a single chatbot interface**.',
+      },
+      {
+        heading: 'Key product decisions',
+        content: '**Round-type taxonomy, not free-form chat.** Every round (Recruiter Screen, Hiring Manager, Product Sense, Technical, Bar Raiser, etc.) has its own competency map driving what gets generated — a Bar Raiser round pulls different competencies than a Recruiter Screen, on purpose.\n\n**The story bank compounds instead of resetting.** Rather than writing STAR stories cold for every application, a guided Q&A flow interviews you about a real moment, asks good follow-up questions, and turns it into a reusable story. Every future campaign draws from the same bank — **the third job search is easier than the first**. This was the single highest-leverage feature decision in the whole product; everything else is generation, this is compounding value.\n\n**A "read once" endpoint, not another dashboard.** The Day Before Brief is a deliberate full-ink takeover screen — one page, pulling your best stories, company facts, and interviewer notes together, designed to be read once the night before and then closed. Interview prep tools tend to pile on more surface area; this one has an explicit exit.\n\n**PM and Software Engineer tracks.** Round types and competencies are keyed per track rather than being one-size-fits-all — a SWE loop gets Coding and System Design rounds in place of Product Sense and Analytical Thinking.\n\n**Self-hosted by design, not as an afterthought.** Every generation call runs through the user\'s own Claude API key, and data lives in their own Supabase project. This was a deliberate constraint, not a limitation I ran into — it meant designing a real cost-control mechanism (a server-side allowlist gating who can trigger generation) rather than assuming a trusted single-tenant environment.\n\n**Licensing as a product decision, not an afterthought.** Released under PolyForm Noncommercial rather than MIT — free for anyone to self-host and use personally, but commercial use requires reaching out first. This was a deliberate tradeoff between "maximally open" and "protects the option to build a paid product on this later" — I chose to keep that door open rather than default to the most permissive license out of habit.',
+      },
+      {
+        heading: 'What shipped',
+        content: '**Fit analysis** against a pasted job description — a score, concrete strengths, and gaps, each with a specific way to close it before the interview. Auto-generated company and vocabulary flashcards from the JD. **Round-specific prep** for every stage of a company\'s process. Interviewer research from a pasted LinkedIn bio. A guided Q&A story-capture flow feeding a **STAR story bank** that resurfaces automatically wherever a story is relevant, across every campaign. The **Day Before Brief** — one page, read once. Per-campaign file uploads, an offline snapshot mode, and installable PWA support.',
+      },
+      {
+        heading: 'Proof it\'s actually cheap to run',
+        content: '**I measured this rather than estimating it**: reading real token usage off the Claude API responses for an actual campaign run.\n\nA 4-round campaign runs about $0.16 in Claude API cost. A 6-round campaign runs about $0.22. A full 7-round campaign — the max — runs about **$0.26**.\n\nA full job search running several campaigns in parallel is **still under a dollar in AI spend — versus $100+** for a single coaching session or a prep subscription.',
+      },
+      {
+        heading: 'What I\'d do differently',
+        content: '**A real sign-up flow.** I\'d have liked to build one, but it wasn\'t just a missing feature — it was a scope boundary I chose to hold. This app is self-hosted per person, so there\'s no shared account system to build in the first place. The moment I let people sign up instead of self-host, that drags in an admin portal to manage users and billing, a real security posture for holding other people\'s interview data, and a recurring monthly cost to run — real infrastructure for what\'s currently a zero-cost side project.\n\n**Speech-to-text and text-to-speech.** This is the change I keep coming back to — it would unlock mock interviews you actually talk through out loud instead of just reading prep. I scoped it out for now because voice API usage runs meaningfully higher than the text generation this currently uses, and I wanted the headline claim — cents per campaign — to stay true rather than become an asterisk.\n\n**Self-hosted LLM support.** Every generation call goes to Claude today, by design — the prompts are tuned against it, including expecting reliable structured JSON back. Letting people point the app at a local model instead (Ollama, LM Studio, anything OpenAI-compatible) would push the cost story from "cents per campaign" to "literally free." I held off because smaller local models are meaningfully less reliable at strict JSON output than Claude is, so shipping it without testing against real local models first risks flaky generation for exactly the users trying to spend the least money.',
+      },
+    ],
+    bigWin: 'Built and shipped a free, open-source interview prep tool solo, end-to-end with Claude Code. The story bank turns interview prep from a one-time cost into a compounding asset across every future job search — and the whole thing runs on the user\'s own API key for cents per campaign, not a $100+ subscription.',
   },
 }

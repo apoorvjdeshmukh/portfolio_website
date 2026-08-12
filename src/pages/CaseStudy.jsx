@@ -22,6 +22,15 @@ const diagrams = {
   'union-platform': UnionPlatformDiagram,
 }
 
+function renderInline(text) {
+  return text.split(/(\*\*.+?\*\*)/g).map((chunk, i) => {
+    if (chunk.startsWith('**') && chunk.endsWith('**')) {
+      return <mark key={i} className={styles.highlight}>{chunk.slice(2, -2)}</mark>
+    }
+    return chunk
+  })
+}
+
 function NextProjects({ current }) {
   const others = projects.filter(p => p.id !== current).slice(0, 2)
   return (
@@ -82,6 +91,13 @@ export default function CaseStudy() {
                     <Icon name="arrow-up-right" />
                   </a>
                 )}
+                {cs.links && cs.links.map((l) => (
+                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className={styles.externalChip}>
+                    <Icon name={l.icon || 'world'} />
+                    {l.label}
+                    <Icon name="arrow-up-right" />
+                  </a>
+                ))}
               </div>
               <div className={styles.metaRow}>
                 <span><Icon name="user" /> {cs.role}</span>
@@ -118,6 +134,31 @@ export default function CaseStudy() {
             </Reveal>
           )}
 
+          {cs.screenshots && cs.screenshots.length > 0 && (
+            <Reveal as="div" stagger className={styles.mediaGrid}>
+              {cs.screenshots.map((s, i) => (
+                <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className={styles.screenshot} style={{ '--i': i }} />
+              ))}
+            </Reveal>
+          )}
+
+          {cs.video && (
+            <Reveal>
+              <div className={styles.videoSection}>
+                <p className={styles.sectionLabel}>{cs.video.label || 'Demo'}</p>
+                <div className={styles.videoWrap}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${cs.video.youtubeId}`}
+                    title={cs.video.title || cs.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </Reveal>
+          )}
+
           <div className={styles.sections}>
             {cs.sections.map((s, i) => (
               <Reveal key={i} as="div" className={styles.section}>
@@ -131,12 +172,12 @@ export default function CaseStudy() {
                       return (
                         <ol key={j} className={styles.ol}>
                           {para.split('\n').filter(Boolean).map((line, k) => (
-                            <li key={k}>{line.replace(/^\d+\.\s*/, '')}</li>
+                            <li key={k}>{renderInline(line.replace(/^\d+\.\s*/, ''))}</li>
                           ))}
                         </ol>
                       )
                     }
-                    return <p key={j}>{para}</p>
+                    return <p key={j}>{renderInline(para)}</p>
                   })}
                 </div>
               </Reveal>

@@ -42,6 +42,7 @@
 .chipNurd { background: rgba(255,128,80,0.16); color: #FFC0A6; }
 .chipAgile { background: rgba(255,217,61,0.16); color: #FFE07A; }
 .chipEze { background: rgba(120,150,255,0.18); color: #B7C6FF; }
+.chipPersonal { background: rgba(120,220,150,0.16); color: #A6E6BC; }
 
 /* Shared detail content */
 .metaRow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 18px; }
