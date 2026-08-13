@@ -419,7 +419,7 @@ export const caseStudies = {
     links: [
       { label: 'GitHub', url: 'https://github.com/apoorvjdeshmukh/pitch', icon: 'brand-github' },
       { label: '60s demo', url: 'https://youtu.be/bEZ5ZFo7k0Q', icon: 'world' },
-      { label: 'Full walkthrough', url: 'https://youtu.be/xWJJsHSlrPk', icon: 'world' },
+      { label: 'Full walkthrough', url: 'https://youtu.be/iPyjZsyJncg', icon: 'world' },
     ],
     tldr: 'Every job search, I was rebuilding the same prep from scratch — a fit read on the role, notes for each interview round, research on who I was talking to, stories scattered across docs. I built the tool I actually wanted: paste a job description, get round-specific prep, a reusable story bank, and a day-before brief pulling it all together. Free and open-source, self-hosted for cents per campaign instead of a $100+ subscription.',
     metrics: [
@@ -433,7 +433,7 @@ export const caseStudies = {
       { src: 'https://raw.githubusercontent.com/apoorvjdeshmukh/pitch/main/docs/screenshots/round-prep.png', alt: 'Round-specific interview prep screen' },
       { src: 'https://raw.githubusercontent.com/apoorvjdeshmukh/pitch/main/docs/screenshots/day-before-brief.png', alt: 'Day Before Brief — a single-page pre-interview summary' },
     ],
-    video: { youtubeId: 'xWJJsHSlrPk', label: 'Full walkthrough', title: 'Pitch — full walkthrough' },
+    video: { youtubeId: 'iPyjZsyJncg', label: 'Full walkthrough', title: 'Pitch — full walkthrough' },
     sections: [
       {
         heading: 'The problem',
