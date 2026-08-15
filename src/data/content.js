@@ -63,22 +63,31 @@ export const metrics = [
 
 export const projects = [
   {
-    id: 'nexus-ecosystem',
-    title: 'Nexus: Logistics Ecosystem',
+    id: 'logixa',
+    title: 'Logixa',
     company: 'Nurdsoft',
     companyType: 'nurd',
     tags: ['0-to-1', 'Infrastructure', 'Compliance & Regulatory', 'Data & Analytics'],
-    platform: 'Multi-platform',
+    platform: 'Web · GCP',
     win: 'Replaced spreadsheet chaos with a role-based, multi-persona B2B SaaS platform across 11+ services on GCP — 100% adoption across 5+ departments, tracking accuracy up 70→95%, $500K+ compliance savings per client.',
   },
   {
-    id: 'nexus-driver',
-    title: 'Nexus: Driver Compliance App',
+    id: 'logixa-drivers',
+    title: 'Logixa Drivers App',
     company: 'Nurdsoft',
     companyType: 'nurd',
     tags: ['Compliance & Regulatory', 'iOS & Android', '0-to-1'],
     platform: 'iOS & Android',
     win: 'Engineered cross-platform mobile app automating CA Labor Law break compliance and DOT vehicle inspections — eliminated manual tracking errors, delivered 100% verifiable audit trail for legal defense.',
+  },
+  {
+    id: 'logixa-warehouse',
+    title: 'Logixa Warehouse App',
+    company: 'Nurdsoft',
+    companyType: 'nurd',
+    tags: ['Compliance & Regulatory', 'Tablet / iOS', '0-to-1'],
+    platform: 'Tablet (iOS)',
+    win: 'Built a tablet-native warehouse app replacing paper staging sheets with RFID scanning and guided location selection — giving warehouse staff a single, auditable flow from intake to freight breakdown.',
   },
   {
     id: 'rag',
@@ -201,16 +210,22 @@ export const education = [
 ]
 
 export const caseStudies = {
-  'nexus-ecosystem': {
-    title: 'Nexus: Logistics Ecosystem',
+  'logixa': {
+    title: 'Logixa',
     company: 'Nurdsoft',
     companyType: 'nurd',
     role: 'Senior Product Manager',
     timeline: 'Sep 2023 – Jun 2026',
     platform: 'Web · GCP',
     tags: ['0-to-1', 'B2B SaaS', 'Multi-persona', 'Compliance'],
-    diagram: 'nexus-ecosystem',
+    diagram: 'logixa',
     diagramLabel: 'How it works',
+    links: [
+      { label: 'logixa.io', url: 'https://logixa.io/', icon: 'world' },
+    ],
+    screenshots: [
+      { src: '/logixa/web-hero.png', alt: 'Logixa — freight and logistics management platform' },
+    ],
     tldr: 'Replaced spreadsheet chaos with a role-based multi-product logistics ecosystem. 100% adoption across 5+ departments. Tracking accuracy up from 70% to 95%. $500K+ compliance savings per client.',
     metrics: [
       { value: '100%', label: 'Adoption across 5+ departments' },
@@ -243,21 +258,29 @@ export const caseStudies = {
     bigWin: 'Orchestrated a 0-to-1 multi-product B2B ecosystem to centralize fragmented trucking operations. Replaced legacy Google Sheets with a role-based, sequential workflow architecture. 100% adoption across 5+ departments and tracking accuracy up from 70% to 95%.',
   },
 
-  'nexus-driver': {
-    title: 'Nexus: Driver Compliance App',
+  'logixa-drivers': {
+    title: 'Logixa Drivers App',
     company: 'Nurdsoft',
     companyType: 'nurd',
     role: 'Senior Product Manager',
     timeline: 'Sep 2023 – Jun 2026',
     platform: 'iOS & Android (Cross-platform)',
     tags: ['Mobile', 'CA Labor Law', 'DOT Compliance', 'DVIR'],
-    diagram: 'nexus-driver',
+    diagram: 'logixa-drivers',
     diagramLabel: 'Compliance flow',
+    links: [
+      { label: 'logixa.io/driver-app', url: 'https://logixa.io/driver-app', icon: 'world' },
+    ],
+    screenshots: [
+      { src: '/logixa/driver-home.png', alt: 'Logixa Driver — home screen with the driver on duty and a live shift timer' },
+      { src: '/logixa/driver-inspection.png', alt: 'Logixa Driver — pre-trip vehicle inspection form' },
+      { src: '/logixa/driver-assignments.png', alt: 'Logixa Driver — today\'s assignments with pickup and delivery loads' },
+    ],
     tldr: 'Cross-platform mobile app automating CA Labor Law break compliance and DOT vehicle inspections. Eliminated manual tracking errors. Delivered 100% verifiable audit trail for legal defense.',
     metrics: [
       { value: '100%', label: 'Verifiable audit trail for all shifts' },
       { value: '0', label: 'After-hours dispatch calls required' },
-      { value: '$500K+', label: 'Annual liability mitigated — part of the Nexus compliance program' },
+      { value: '$500K+', label: 'Annual liability mitigated — part of the Logixa compliance program' },
       { value: '2', label: 'Compliance systems shipped (Break + DVIR)' },
     ],
     sections: [
@@ -279,10 +302,54 @@ export const caseStudies = {
       },
       {
         heading: 'Web-app integration',
-        content: 'The mobile app is the final node of the Nexus Ecosystem — sharing the same GCP infrastructure as the logistics web-app. Inspection data feeds an asset health logic system tracking Available, Assigned, or Needs Repair status. Historical log data is now positioned for predictive maintenance based on actual driver feedback.',
+        content: 'The mobile app is the final node of the Logixa ecosystem — sharing the same GCP infrastructure as the Logixa web platform. Inspection data feeds an asset health logic system tracking Available, Assigned, or Needs Repair status. Historical log data is now positioned for predictive maintenance based on actual driver feedback.',
       },
     ],
     bigWin: 'Engineered a cross-platform mobile compliance engine. Eliminated manual tracking errors. Provided a 100% verifiable audit trail for legal defense and road safety audits. Solved the after-hours dispatch gap by empowering drivers to self-assign vehicles.',
+  },
+
+  'logixa-warehouse': {
+    title: 'Logixa Warehouse App',
+    company: 'Nurdsoft',
+    companyType: 'nurd',
+    role: 'Senior Product Manager',
+    timeline: 'Sep 2023 – Jun 2026',
+    platform: 'Tablet (iOS)',
+    tags: ['Tablet', 'RFID', 'Warehouse Ops', '0-to-1'],
+    links: [
+      { label: 'logixa.io/warehouse-mgmt', url: 'https://logixa.io/warehouse-mgmt', icon: 'world' },
+    ],
+    screenshots: [
+      { src: '/logixa/warehouse-location.webp', alt: 'Logixa Warehouse — interactive warehouse map for staging location selection' },
+      { src: '/logixa/warehouse-rfid.webp', alt: 'Logixa Warehouse — scanning an RFID tag' },
+      { src: '/logixa/warehouse-unit.webp', alt: 'Logixa Warehouse — unit creation form for warehouse packages' },
+    ],
+    tldr: 'Built a tablet-native app that replaced paper staging sheets and whiteboards with a guided, scan-based workflow for warehouse floor staff — from staging location to unit creation to freight breakdown, feeding the same shipment records as the Logixa web platform and driver app.',
+    metrics: [
+      { value: '3', label: 'Core workflows shipped: stage, build unit, break down freight' },
+      { value: '0', label: 'Paper staging sheets — fully digital intake' },
+      { value: 'RFID', label: 'Scan-based location & stack assignment' },
+      { value: 'iOS', label: 'Tablet-native, built for the warehouse floor' },
+    ],
+    sections: [
+      {
+        heading: 'The problem',
+        content: 'Warehouse floor staff were staging freight using paper sheets and whiteboards — noting which stack and row a shipment landed in by hand, with no direct link back to the shipment record dispatchers and customers were tracking in the web platform. Handwriting errors and delayed updates meant the "single source of truth" the rest of Logixa promised broke down at the one place freight physically moved.',
+      },
+      {
+        heading: 'A guided, scan-based staging flow',
+        content: 'Rather than a free-form form, the app walks staff through an interactive warehouse map to pick a staging location, then narrows to the specific stack and row. An RFID scan step ties the physical unit to that location the moment it\'s placed — replacing a handwritten note with a scan that updates the shipment record in real time.',
+      },
+      {
+        heading: 'Unit creation & freight breakdown',
+        content: 'Once staged, staff build the unit directly on the tablet — creating package-level records instead of a single bulk line item — and the freight breakdown view rolls those units up into a package summary tied to the shipment. This is the same data model dispatchers and customers see on the web platform, so a warehouse update is visible everywhere else immediately.',
+      },
+      {
+        heading: 'Built for tablet, built for the floor',
+        content: 'The interface is tablet-native rather than a scaled-down phone or desktop layout — large tap targets, a map-first location picker, and a scan step designed for gloved hands and a device mounted on a cart, not a desk. It shares login and account infrastructure with the rest of Logixa, so a warehouse operator\'s credentials work the same way across the ecosystem.',
+      },
+    ],
+    bigWin: 'Replaced paper staging sheets and whiteboards with a tablet-native, RFID-backed workflow that keeps the warehouse floor on the same shipment record as dispatch and customers — closing the last gap in the Logixa ecosystem\'s single source of truth.',
   },
 
   'rag': {
