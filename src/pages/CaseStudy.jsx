@@ -16,8 +16,8 @@ import styles from './CaseStudy.module.css'
 
 const diagrams = {
   'rag': RagDiagram,
-  'nexus-ecosystem': NexusEcosystemDiagram,
-  'nexus-driver': NexusDriverDiagram,
+  'logixa': NexusEcosystemDiagram,
+  'logixa-drivers': NexusDriverDiagram,
   'fintech-mp': FintechMpDiagram,
   'union-platform': UnionPlatformDiagram,
 }

@@ -65,7 +65,7 @@ export default function NexusDriverDiagram() {
         </div>
       </div>
 
-      <p className={S.caption}>iOS & Android · shared GCP infrastructure with the Nexus web platform</p>
+      <p className={S.caption}>iOS & Android · shared GCP infrastructure with the Logixa web platform</p>
     </div>
   )
 }

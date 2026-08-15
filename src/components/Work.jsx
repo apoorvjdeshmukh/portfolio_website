@@ -60,7 +60,7 @@ export default function Work() {
         <Reveal><p className={styles.label}>Selected work</p></Reveal>
         <Reveal>
           <h2 className={styles.heading}>
-            Six 0-to-1 products, shipped under real constraints — regulation, multiple languages, legacy chaos, and (for one) just my own time and a Claude API key.
+            Seven 0-to-1 products, shipped under real constraints — regulation, multiple languages, legacy chaos, and (for one) just my own time and a Claude API key.
           </h2>
         </Reveal>
 

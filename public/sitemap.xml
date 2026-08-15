@@ -6,12 +6,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://apoorvdeshmukh.netlify.app/projects/nexus-ecosystem</loc>
+    <loc>https://apoorvdeshmukh.netlify.app/projects/logixa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://apoorvdeshmukh.netlify.app/projects/nexus-driver</loc>
+    <loc>https://apoorvdeshmukh.netlify.app/projects/logixa-drivers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apoorvdeshmukh.netlify.app/projects/logixa-warehouse</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,6 +32,11 @@
   </url>
   <url>
     <loc>https://apoorvdeshmukh.netlify.app/projects/union-platform</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apoorvdeshmukh.netlify.app/projects/pitch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
