@@ -10,6 +10,7 @@ import NexusEcosystemDiagram from '../components/diagrams/NexusEcosystemDiagram'
 import NexusDriverDiagram from '../components/diagrams/NexusDriverDiagram'
 import FintechMpDiagram from '../components/diagrams/FintechMpDiagram'
 import UnionPlatformDiagram from '../components/diagrams/UnionPlatformDiagram'
+import SnugFlowDiagram from '../components/diagrams/SnugFlowDiagram'
 import Contact from '../components/Contact'
 import Reveal from '../components/Reveal'
 import styles from './CaseStudy.module.css'
@@ -20,6 +21,7 @@ const diagrams = {
   'logixa-drivers': NexusDriverDiagram,
   'fintech-mp': FintechMpDiagram,
   'union-platform': UnionPlatformDiagram,
+  'snug': SnugFlowDiagram,
 }
 
 function renderInline(text) {
