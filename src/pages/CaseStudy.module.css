@@ -80,9 +80,9 @@
 }
 .sectionNum {
   font-family: 'DM Mono', monospace;
-  font-size: 13px; font-weight: 500;
+  font-size: 17px; font-weight: 500;
   color: var(--accent);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   flex-shrink: 0;
 }
 .sectionBody { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -126,4 +126,4 @@
 .nextLink { font-size: 12px; color: var(--accent); display: flex; align-items: center; gap: 4px; font-weight: 600; }
 .nextLink i { font-size: 14px; }
 
-@media (max-width: 640px) { .container { padding: 1.5rem 1rem 3rem; } .sectionHeading { font-size: 22px; } }
+@media (max-width: 640px) { .container { padding: 1.5rem 1rem 3rem; } .sectionHeading { font-size: 22px; } .sectionNum { font-size: 15px; } }
