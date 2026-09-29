@@ -125,6 +125,15 @@ export const projects = [
     platform: 'Web · Next.js',
     win: 'Built and shipped a free, open-source interview prep tool solo — round-specific prep, a reusable STAR story bank, and a one-page Day Before Brief. Self-hosted for cents per campaign versus $100+ subscriptions.',
   },
+  {
+    id: 'snug',
+    title: 'Snug: Never Lose Track of a Book',
+    company: 'Personal Project',
+    companyType: 'personal',
+    tags: ['0-to-1', 'Mobile', 'AI / ML', 'Personal Project'],
+    platform: 'iOS · Android · React Native',
+    win: 'Built and shipped a lending-first library app solo in ~11 weeks with Claude Code: AI shelf scan chosen by measurement (24 books found vs 13), a return-rate North Star, and a launch that cleared store privacy, safety and review requirements. Free, no ads.',
+  },
 ]
 
 export const stack = [
@@ -528,5 +537,78 @@ export const caseStudies = {
       },
     ],
     bigWin: 'Built and shipped a free, open-source interview prep tool solo, end-to-end with Claude Code. The story bank turns interview prep from a one-time cost into a compounding asset across every future job search — and the whole thing runs on the user\'s own API key for cents per campaign, not a $100+ subscription.',
+  },
+
+  'snug': {
+    title: 'Snug: Never Lose Track of a Book',
+    company: 'Personal Project',
+    companyType: 'personal',
+    role: 'Solo PM, designer, and engineer, built end-to-end with Claude Code',
+    timeline: '~11 weeks, Jul – Sep 2026 (13 build phases, then store release)',
+    platform: 'React Native (Expo) · TypeScript · Supabase · Claude · OpenAI',
+    tags: ['0-to-1', 'Mobile', 'AI / ML', 'Personal Project', 'Consumer', 'Social'],
+    links: [
+      { label: 'Website', url: 'https://getsnugapp.com', icon: 'world' },
+    ],
+    tldr: `I lent a book to a friend two years ago and still don't know who has it. When I asked around, friends and family had the same problem: everything is going digital, but plenty of us still love our books and want to take care of them. So I built Snug, a small, friendly app that tracks the books you own, lend and borrow. Point your camera at a shelf and AI reads the spines, log a loan in two taps with a due date, and get a gentle nudge when something is overdue. Built solo in about 11 weeks with Claude Code. Live in Android closed beta, in App Store review, free with no ads.`,
+    metrics: [
+      { value: 'Return rate', label: 'North Star: share of closed loans that come back' },
+      { value: '~11 wks', label: 'Solo build, first commit to store submission' },
+      { value: '13', label: 'Planned build phases, all shipped' },
+      { value: '~$0.01–0.02', label: 'AI cost per shelf scan, measured' },
+    ],
+    diagram: 'snug',
+    diagramLabel: 'How it works',
+    screenshots: [
+      { src: '/snug/scan.gif', alt: 'Snug scanning a bookshelf: the camera reads the spines and returns seven matched books' },
+      { src: '/snug/shelf.jpg', alt: 'Snug shelf view showing a grid of book covers' },
+      { src: '/snug/loan.jpg', alt: 'Snug book detail with a linked loan to a friend, a due date and notes on the loan' },
+      { src: '/snug/loans.jpg', alt: 'Snug loans list showing what is due this week, lent out and borrowed' },
+      { src: '/snug/friends.jpg', alt: 'Snug friends list with Keeper levels and active loans' },
+      { src: '/snug/insights.jpg', alt: 'Snug insights screen with return rate, average days to return and lifetime stats' },
+    ],
+    sections: [
+      {
+        heading: 'The problem (user need)',
+        content: `Lending a book is a tiny act of trust that almost always goes untracked. It lives in your head until it doesn't: you forget who has it, they forget they have it, and a year later there's a gap on your shelf and an awkward question you'd rather not ask.\n\nI started with my own story, then checked it against friends and family. Nearly everyone had one. The pattern was consistent: **people don't want a reading log or a social network, they want to stop losing books and stop feeling awkward about asking for them back.**\n\nThe job to be done became: *"When I lend or borrow a book, help me remember it happened, who has it and when it's due, without making me do bookkeeping."*`,
+      },
+      {
+        heading: 'Market gap',
+        content: `Book apps already exist, but they cluster around two jobs: **cataloguing** (BookBuddy, Libib, Handy Library and similar) and **reading tracking and discovery** (Goodreads-style). Lending shows up as a field on a catalog record, a name typed into a box. General item-lending apps (Mooch, Friendli) cover lending but not books specifically.\n\nWhat I found missing, from store listings and reviews:\n\n1. **Lending as a two-sided flow, not a text field.** A loan should exist for the lender and the borrower, and confirm when the friend also has the app.\n2. **A nudge that isn't nagging.** The awkwardness is the real cost, so reminders have to be gentle and sent by the app, not by you.\n3. **Getting your library in without typing.** A cataloguing app is useless if entering 200 books takes an evening.\n\nSnug's position: **a lending-first library app, where cataloguing is the on-ramp (scan a shelf or a barcode) and the return is the outcome.**`,
+      },
+      {
+        heading: 'The plan (how I scoped it)',
+        content: `I planned it like any 0-to-1 product: define the job, cut everything that wasn't load-bearing, and sequence risk early. The plan was **13 phases** (00 to 12), grouped here:\n\n1. Tooling and repo bootstrap, navigation and a design system\n2. Data layer (schema, row-level security, storage) and Auth\n3. Library, book detail, manual add, and the lending flows\n4. Contacts integration (pick a borrower without uploading contacts)\n5. Scan and catalog (AI shelf scan, barcode ISBN)\n6. Reminders and notifications\n7. Analytics (the North Star, built early enough to measure the beta)\n8. Friends and social\n9. Polish, then release prep\n\nThree scoping choices did most of the work. **Lending before everything fancy**, because it's the core promise. **AI where it removes typing, not where it decorates**, so the scan shipped and anything decorative waited. And **the boring backend first**: normalized data and row-level security before any UI, because a lending app that can leak one friend's library to another is dead on arrival.\n\nI kept a running decision log (12 architecture decision records plus a design-changes log) and reconciled the plan against reality every phase, so the docs never drifted from the code.`,
+      },
+      {
+        heading: 'How I built it solo',
+        content: `**Claude Code was the engineering team; I was the product owner, spec-writer and reviewer.** The loop was: write a tight spec with a "Verify" step, let Claude Code implement it, then run it on a real device and in tests before marking the phase done.\n\nWhat made solo tractable:\n\n1. **Specs with verification built in.** Every phase ended with a concrete check, for example unit tests of every analytics aggregation, and a full device test for scanning.\n2. **Fixture-based tests for the logic that's easy to get subtly wrong.** 282 automated tests across 32 suites.\n3. **A bug triage rule.** Classify every bug as "needs a new native build" or "server-side or over-the-air only", fix the second kind immediately, and batch the first. That kept the release cadence sane.\n4. **A no-native-dependencies-mid-session rule.** Adding one native module once crashed a device build, so it became a rule: flag the rebuild requirement first.\n5. **Deferring infrastructure I didn't need yet.** No staging git branch, no auto-builds and no OAuth until the core app was complete. Over-provisioning is a solo builder's biggest hidden cost.\n\nBy the numbers: about 200 commits, 67 database migrations, 9 server functions, 13 phases, in roughly 11 weeks.`,
+      },
+      {
+        heading: 'Choosing the model for each job',
+        content: `Snug uses AI in three places. I didn't pick one "best model"; I picked **the cheapest model that is good enough for each specific job**, and measured where it mattered.\n\n**1. Shelf scan (read every spine in one photo): Claude Sonnet 5.** I ran a spike on three real shelf photos against GPT-4o, comparing accuracy, latency and cost. On the densest, most cluttered shelf, **Claude found 24 books to GPT-4o's 13**. Sonnet was about **6x more expensive per call**, and I still chose it, because the whole value of the feature is "don't type it in by hand", so missing half the shelf defeats the purpose. Measured cost landed at **~$0.01–0.02 per scan**, one vision call. That number then drove product design: an **8-scan daily limit** (raised from an initial 5 once real cost was confirmed) and a **free lifetime allowance of 10 scans**, roughly **$0.10–0.20 of AI spend per user**, treated as an acquisition cost.\n\n**2. "Is this photo actually a book?" GPT-4o-mini.** A condition photo of a door once sailed through the safety check. The question is a one-word yes or no on a low-detail image, so a small model is plenty: **about $0.0004 per photo**, capped at 5 output tokens. Using the scan model here would have cost roughly 25–50x more for no better answer.\n\n**3. Photo safety (unsafe content): OpenAI's moderation model.** It's free and purpose-built for sexual, violent and graphic content. I found by testing that it has **no concept of subject matter at all**, which is why job 2 exists as a separate check, and why the subject check only runs on book photos, never on profile avatars.\n\n**Where I chose not to use AI.** Barcode scanning reads the ISBN on-device and looks it up in a cache first, then Google Books. It's free, instant and deterministic. **If a lookup works, don't pay an LLM to do it.**\n\n**One more design choice:** both OpenAI checks **fail open** (a moderation outage shouldn't block every upload), which risks a silently disabled safety net if a key expires. I caught that in a key-rotation test and added tagged error logging so a failed check is visible.`,
+      },
+      {
+        heading: 'Metrics: North Star, leading and lagging',
+        content: `**North Star: Return Rate.** Loans marked returned, divided by loans that have closed, with lost books excluded from the denominator and counted separately. If people get their books back, the app is doing its job. It's also visible to users in-app (the Insights screen), so I dogfood the metric I'm optimizing.\n\n**Leading indicators (early signals I can act on within days):**\n\n1. **Activation:** books in the library after the first session, and time to the first logged loan.\n2. **Scan quality:** share of scanned books that come back as Matched vs Uncertain vs Unreadable.\n3. **Loan completeness:** share of loans with a due date set, and share linked to a friend who has the app.\n4. **Reminder effectiveness:** share of due-soon loans that are marked returned within a few days of a nudge.\n\n**Lagging indicators (outcomes that confirm the bet):**\n\n1. **Return rate** (the North Star), **average days to return**, and **books lost** as an absolute count.\n2. **Retention:** users still opening the app 7 and 30 days after their first loan.\n3. **Beta cohort retention:** the Google Play requirement of 12 testers opted in for 14 continuous days doubles as a forced retention test.\n\n**Guardrails (things that must not get worse):** AI cost per active user, scan failure rate, and moderation response time on reported content (target 24 hours).\n\nI'm keeping this honest: the app deliberately has **no third-party analytics SDK**, so these are measured from the app's own database and the in-app Insights. Numbers from the beta will be added here as the cohort matures.`,
+      },
+      {
+        heading: 'Integrations and how it works',
+        content: `**Client:** React Native with Expo Router, TanStack Query, TypeScript. **Backend:** Supabase (Postgres with row-level security, auth, storage, scheduled functions). **Server functions:** 9 edge functions, so AI keys never touch the phone.\n\n**Integrations:** Anthropic (shelf scan), OpenAI (photo safety and subject check), Google Books (covers and details, with a cache), Expo push (reminders and nudges), Resend (sign-up codes and sign-in emails), device Contacts (read on the phone only; only the one name you pick is saved).\n\n**The flow:** scan a shelf or a barcode, confirm the books, lend one to a friend or a name with a due date, and the reminder engine handles the rest. If your friend also has Snug, the loan shows for both of you and they can confirm it.`,
+      },
+      {
+        heading: 'Decisions I had to make',
+        content: `**Supabase over Firebase.** Books, loans, copies and history are relational, so Postgres with row-level security fits better than a document store.\n\n**Normalized loans, not a JSON history.** Loans are rows, so the analytics (return rate, average days, most reliable borrower) are simple and testable.\n\n**Server-scheduled reminders, not on-device.** A phone that's off or reinstalled can't be trusted to remember a due date.\n\n**Contacts stay on the phone.** Only the single name you pick is saved. It cost some convenience and removed a whole class of privacy risk.\n\n**Friends and linked loans, gated behind the core.** Social was built last, after the single-user loop worked.\n\n**Moderation before launch.** Because friends can comment on each other's books, I built report and block, a terms page and a 24-hour review target before the store submission, not after a rejection.\n\n**Free, no ads, and honest about it.** No advertising or tracking SDK meant simpler store forms and a cleaner privacy story. The AI cost is contained by the free allowance and rate limits instead.\n\n**Trader status and trademark.** I checked the USPTO and app stores for the name Snug before investing further, declared myself a non-trader for the EU rules because it's a free personal project, and kept the door open to revisit if it becomes a business.`,
+      },
+      {
+        heading: 'How being an experienced PM helped',
+        content: `Most of what made this ship wasn't code; it was product judgment applied without a team to remind me.\n\n**Scoping.** I cut for the job to be done. The 13-phase plan meant the riskiest bet (AI scan) was tested in a spike before I committed to it, and social came last.\n\n**Evidence over opinion.** The model choice came from a measured comparison on real shelves, not a benchmark or a preference.\n\n**Writing it down.** A decision log and ADRs meant I could change my mind on evidence and always know why I'd chosen something.\n\n**Release discipline.** Privacy labels, age rating, data-safety forms, reviewer test accounts, user-content safeguards and beta-tester logistics are the unglamorous work that decides whether a store accepts a first-time app.\n\n**Knowing when not to build.** Deferring sign-in with Google and Apple, a staging pipeline and in-app purchases kept a solo project shippable.`,
+      },
+      {
+        heading: 'What I\'d do next',
+        content: `**Sign in with Google and Apple**, planned right after the core app. **Library visibility for friends**: browse a friend's shelf and ask to borrow. **Crash reporting and richer analytics**, once there's a real user base to justify the store-form and privacy cost. And **records and book clubs**, explored but deliberately not sequenced against the current scope.`,
+      },
+    ],
+    bigWin: 'Took a personal frustration from idea to a real product in stores, solo, in about 11 weeks: an AI shelf scan chosen by measurement (24 books found vs 13), a North Star the app shows its own users, and a launch that cleared privacy, safety and store requirements before the first review.',
   },
 }
