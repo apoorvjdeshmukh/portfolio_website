@@ -570,7 +570,7 @@ export const caseStudies = {
     sections: [
       {
         heading: 'The problem (user need)',
-        content: `Lending a book is a tiny act of trust that almost always goes untracked. It lives in your head until it doesn't: you forget who has it, they forget they have it, and a year later there's a gap on your shelf and an awkward question you'd rather not ask.\n\nI started with my own story, then checked it against friends and family. Nearly everyone had one. The pattern was consistent: **people don't want a reading log or a social network, they want to stop losing books and stop feeling awkward about asking for them back.**\n\nThe job to be done became: *"When I lend or borrow a book, help me remember it happened, who has it and when it's due, without making me do bookkeeping."*`,
+        content: `Lending a book is a tiny act of trust that almost always goes untracked. It lives in your head until it doesn't: you forget who has it, they forget they have it, and a year later there's a gap on your shelf and an awkward question you'd rather not ask.\n\nI started with my own story, then checked it against friends and family. Nearly everyone had one. The pattern was consistent: **people don't want a reading log or a social network, they want to stop losing books and stop feeling awkward about asking for them back.**\n\nThe job to be done became: "When I lend or borrow a book, help me remember it happened, who has it and when it's due, without making me do bookkeeping."`,
       },
       {
         heading: 'Market gap',
