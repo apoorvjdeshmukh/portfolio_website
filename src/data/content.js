@@ -560,12 +560,12 @@ export const caseStudies = {
     diagram: 'snug',
     diagramLabel: 'How it works',
     screenshots: [
-      { src: '/snug/scan.gif', alt: 'Snug scanning a bookshelf: the camera reads the spines and returns seven matched books' },
       { src: '/snug/shelf.jpg', alt: 'Snug shelf view showing a grid of book covers' },
       { src: '/snug/loan.jpg', alt: 'Snug book detail with a linked loan to a friend, a due date and notes on the loan' },
       { src: '/snug/loans.jpg', alt: 'Snug loans list showing what is due this week, lent out and borrowed' },
       { src: '/snug/friends.jpg', alt: 'Snug friends list with Keeper levels and active loans' },
       { src: '/snug/insights.jpg', alt: 'Snug insights screen with return rate, average days to return and lifetime stats' },
+      { src: '/snug/scan.gif', alt: 'Snug scanning a bookshelf: the camera reads the spines and returns seven matched books' },
     ],
     sections: [
       {
