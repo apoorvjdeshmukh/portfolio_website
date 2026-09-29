@@ -552,10 +552,10 @@ export const caseStudies = {
     ],
     tldr: `I lent a book to a friend two years ago and still don't know who has it. When I asked around, friends and family had the same problem: everything is going digital, but plenty of us still love our books and want to take care of them. So I built Snug, a small, friendly app that tracks the books you own, lend and borrow. Point your camera at a shelf and AI reads the spines, log a loan in two taps with a due date, and get a gentle nudge when something is overdue. Built solo in about 11 weeks with Claude Code. Live in Android closed beta, in App Store review, free with no ads.`,
     metrics: [
-      { value: 'Return rate', label: 'North Star: share of closed loans that come back' },
+      { value: 'Return %', label: 'North Star: share of closed loans that come back' },
       { value: '~11 wks', label: 'Solo build, first commit to store submission' },
       { value: '13', label: 'Planned build phases, all shipped' },
-      { value: '~$0.01–0.02', label: 'AI cost per shelf scan, measured' },
+      { value: '~2¢', label: 'AI cost per shelf scan, measured at $0.01–0.02' },
     ],
     diagram: 'snug',
     diagramLabel: 'How it works',
