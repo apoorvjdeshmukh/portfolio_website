@@ -137,7 +137,7 @@ export default function CaseStudy() {
           )}
 
           {cs.screenshots && cs.screenshots.length > 0 && (
-            <Reveal as="div" stagger className={styles.mediaGrid}>
+            <Reveal as="div" stagger threshold={0.01} className={styles.mediaGrid}>
               {cs.screenshots.map((s, i) => (
                 <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className={styles.screenshot} style={{ '--i': i }} />
               ))}
