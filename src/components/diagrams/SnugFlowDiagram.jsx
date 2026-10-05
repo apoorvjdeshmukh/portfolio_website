@@ -37,7 +37,7 @@ export default function SnugFlowDiagram() {
             <span className={S.arrow}>→</span>
             <span className={c('chip', 'chipGood')}>GPT-4o-mini: is it a book? (~$0.0004)</span>
           </div>
-          <p className={S.note}>The <strong>cheapest model that answers each question</strong>, and the subject check runs on book photos only.</p>
+          <p className={S.note}>The <strong>cheapest model that answers each question</strong>.</p>
         </div>
       </div>
 
