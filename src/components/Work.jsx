@@ -13,7 +13,7 @@ function Chip({ item }) {
   return <span className={`${styles.chip} ${chipClass[item.companyType]}`}>{item.company}</span>
 }
 
-function DetailBody({ item }) {
+function DetailBody({ item, compact = false, onNext, nextTitle }) {
   return (
     <>
       <div className={styles.metaRow}>
@@ -22,7 +22,7 @@ function DetailBody({ item }) {
         <span className={styles.metaDot}>·</span>
         <span className={styles.platform}>{item.platform}</span>
       </div>
-      <h3 className={styles.title}>{item.title}</h3>
+      {!compact && <h3 className={styles.title}>{item.title}</h3>}
       <p className={styles.bigWin}>{item.bigWin}</p>
       <div className={styles.metricsGrid}>
         {item.metrics.map((m, i) => (
@@ -36,9 +36,14 @@ function DetailBody({ item }) {
         {item.tags.map((t) => <span key={t} className={styles.tag}>{t}</span>)}
       </div>
       <div className={styles.footerRow}>
-        <Link to={`/projects/${item.id}`} className={styles.readMore}>
+        <Link to={`/projects/${item.id}`} className={styles.cta}>
           Read case study <Icon name="arrow-right" />
         </Link>
+        {onNext && (
+          <button type="button" onClick={onNext} className={styles.next}>
+            Next: {nextTitle}
+          </button>
+        )}
         {item.externalCaseStudy && (
           <a href={item.externalCaseStudy.url} target="_blank" rel="noopener noreferrer" className={styles.published}>
             {item.externalCaseStudy.label} <Icon name="arrow-up-right" />
@@ -51,7 +56,9 @@ function DetailBody({ item }) {
 
 export default function Work() {
   const [selected, setSelected] = useState(0)
+  const [open, setOpen] = useState(0)
   const current = items[selected]
+  const next = items[(selected + 1) % items.length]
 
   return (
     <section className={styles.section} data-act="2" id="work">
@@ -70,35 +77,61 @@ export default function Work() {
             {items.map((item, i) => {
               const on = i === selected
               return (
-                <div
-                  key={item.id}
-                  data-proj
-                  onClick={() => setSelected(i)}
-                  className={on ? styles.rowActive : styles.row}
-                >
-                  <span className={on ? styles.numActive : styles.num}>{String(i + 1).padStart(2, '0')}</span>
-                  <div>
-                    <p className={on ? styles.rowTitleActive : styles.rowTitle}>{item.title}</p>
-                    <p className={on ? styles.rowCompanyActive : styles.rowCompany}>{item.company}</p>
-                  </div>
+                <div key={item.id} data-proj className={on ? styles.rowActive : styles.row}>
+                  <button
+                    type="button"
+                    onClick={() => setSelected(i)}
+                    onMouseEnter={() => setSelected(i)}
+                    onFocus={() => setSelected(i)}
+                    className={styles.rowBtn}
+                  >
+                    <span className={on ? styles.numActive : styles.num}>{String(i + 1).padStart(2, '0')}</span>
+                    <span>
+                      <span className={on ? styles.rowTitleActive : styles.rowTitle}>{item.title}</span>
+                      <span className={on ? styles.rowCompanyActive : styles.rowCompany}>{item.company}</span>
+                    </span>
+                  </button>
+                  <Link to={`/projects/${item.id}`} className={on ? styles.rowGoActive : styles.rowGo} aria-label={`Read ${item.title} case study`}>
+                    <Icon name="arrow-right" />
+                  </Link>
                 </div>
               )
             })}
           </div>
           <div className={styles.detailWrapper}>
             <div key={selected} className={styles.detail}>
-              <DetailBody item={current} />
+              <DetailBody item={current} onNext={() => setSelected((selected + 1) % items.length)} nextTitle={next.title} />
             </div>
           </div>
         </div>
 
-        {/* Mobile: horizontal snap-scroll cards */}
-        <div className={styles.mobileScroller}>
-          {items.map((item) => (
-            <div key={item.id} className={styles.mobileCard}>
-              <DetailBody item={item} />
-            </div>
-          ))}
+        {/* Mobile: accordion, all projects visible */}
+        <div className={styles.accordion}>
+          {items.map((item, i) => {
+            const on = i === open
+            return (
+              <div key={item.id} data-proj className={on ? styles.accItemOpen : styles.accItem}>
+                <button
+                  type="button"
+                  aria-expanded={on}
+                  onClick={() => setOpen(on ? -1 : i)}
+                  className={styles.accHead}
+                >
+                  <span className={on ? styles.numActive : styles.num}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className={styles.accText}>
+                    <span className={styles.accTitle}>{item.title}</span>
+                    <span className={styles.rowCompanyActive}>{item.company}</span>
+                  </span>
+                  <span className={styles.accSign} aria-hidden="true">{on ? '−' : '+'}</span>
+                </button>
+                {on && (
+                  <div className={styles.accBody}>
+                    <DetailBody item={item} compact />
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
