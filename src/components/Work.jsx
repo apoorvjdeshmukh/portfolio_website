@@ -57,8 +57,6 @@ function DetailBody({ item, compact = false, onNext, nextTitle }) {
 export default function Work() {
   const [selected, setSelected] = useState(0)
   const [open, setOpen] = useState(0)
-  const current = items[selected]
-  const next = items[(selected + 1) % items.length]
 
   return (
     <section className={styles.section} data-act="2" id="work">
@@ -81,7 +79,6 @@ export default function Work() {
                   <button
                     type="button"
                     onClick={() => setSelected(i)}
-                    onMouseEnter={() => setSelected(i)}
                     onFocus={() => setSelected(i)}
                     className={styles.rowBtn}
                   >
@@ -99,9 +96,15 @@ export default function Work() {
             })}
           </div>
           <div className={styles.detailWrapper}>
-            <div key={selected} className={styles.detail}>
-              <DetailBody item={current} onNext={() => setSelected((selected + 1) % items.length)} nextTitle={next.title} />
-            </div>
+            {items.map((item, i) => (
+              <div
+                key={item.id}
+                aria-hidden={i !== selected}
+                className={i === selected ? styles.detail : styles.detailHidden}
+              >
+                <DetailBody item={item} onNext={() => setSelected((i + 1) % items.length)} nextTitle={items[(i + 1) % items.length].title} />
+              </div>
+            ))}
           </div>
         </div>
 

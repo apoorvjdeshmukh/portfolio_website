@@ -124,23 +124,29 @@
 .rowCompany { color: #8a766b; }
 .rowCompanyActive { color: #C9B4AA; }
 
-.detailWrapper { flex: 1.4 1 380px; min-width: 320px; display: flex; }
+.detailWrapper { flex: 1.4 1 380px; min-width: 320px; display: grid; }
 
-.detail {
-  flex: 1;
+.detail, .detailHidden {
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,128,80,.16);
   border-radius: 22px;
   padding: clamp(24px, 3vw, 40px);
-  animation: detailIn 0.44s cubic-bezier(.22,.61,.36,1) both;
 }
+.detail { animation: detailIn 0.44s cubic-bezier(.22,.61,.36,1) both; }
+.detailHidden { visibility: hidden; pointer-events: none; }
 .detail .metricsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; padding: 28px 0; }
+.detailHidden .metricsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; padding: 28px 0; }
 .detail .metricValue { font-size: clamp(28px, 3.2vw, 40px); }
+.detailHidden .metricValue { font-size: clamp(28px, 3.2vw, 40px); }
 .detail .metricLabel { font-size: 13px; }
+.detailHidden .metricLabel { font-size: 13px; }
 .detail .footerRow { padding-top: 8px; }
+.detailHidden .footerRow { padding-top: 8px; }
 .detail .tags { margin-bottom: 28px; }
+.detailHidden .tags { margin-bottom: 28px; }
 
 @keyframes detailIn {
   from { opacity: 0; transform: translateY(14px); }
