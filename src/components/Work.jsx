@@ -13,7 +13,18 @@ function Chip({ item }) {
   return <span className={`${styles.chip} ${chipClass[item.companyType]}`}>{item.company}</span>
 }
 
+// Outbound links shown beside the CTA (Pitch's demo videos stay on its case study page)
+function externalLinks(item) {
+  const out = []
+  if (item.externalCaseStudy) out.push(item.externalCaseStudy)
+  if (item.id !== 'pitch') {
+    for (const l of item.links || []) out.push({ label: l.label.startsWith('logixa.io') ? 'Website' : l.label, url: l.url })
+  }
+  return out
+}
+
 function DetailBody({ item, compact = false }) {
+  const externals = externalLinks(item)
   return (
     <>
       <div className={styles.metaRow}>
@@ -36,14 +47,14 @@ function DetailBody({ item, compact = false }) {
         {item.tags.map((t) => <span key={t} className={styles.tag}>{t}</span>)}
       </div>
       <div className={styles.footerRow}>
-        <Link to={`/projects/${item.id}`} className={styles.cta}>
+        <Link to={`/projects/${item.id}`} className={externals.length ? styles.cta : styles.ctaFull}>
           Read case study <Icon name="arrow-right" />
         </Link>
-        {item.externalCaseStudy && (
-          <a href={item.externalCaseStudy.url} target="_blank" rel="noopener noreferrer" className={styles.published}>
-            {item.externalCaseStudy.label} <Icon name="arrow-up-right" />
+        {externals.map((e) => (
+          <a key={e.url} href={e.url} target="_blank" rel="noopener noreferrer" className={styles.pill}>
+            {e.label} <Icon name="arrow-up-right" />
           </a>
-        )}
+        ))}
       </div>
     </>
   )
