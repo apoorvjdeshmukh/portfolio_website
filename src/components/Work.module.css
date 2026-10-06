@@ -76,12 +76,6 @@
 }
 .cta i { font-size: 17px; transition: transform 0.15s; }
 .cta:hover i { transform: translateX(4px); }
-.next {
-  min-height: 48px; padding: 0 20px; border-radius: 100px; cursor: pointer;
-  background: none; border: 1px solid rgba(255,128,80,.3); color: #F5EDE8;
-  font: inherit; font-size: 14px;
-}
-.next:hover { background: rgba(255,128,80,.08); }
 .published { font-size: 13px; color: #B09A90; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
 
 /* Desktop list + detail */

@@ -13,7 +13,7 @@ function Chip({ item }) {
   return <span className={`${styles.chip} ${chipClass[item.companyType]}`}>{item.company}</span>
 }
 
-function DetailBody({ item, compact = false, onNext, nextTitle }) {
+function DetailBody({ item, compact = false }) {
   return (
     <>
       <div className={styles.metaRow}>
@@ -39,11 +39,6 @@ function DetailBody({ item, compact = false, onNext, nextTitle }) {
         <Link to={`/projects/${item.id}`} className={styles.cta}>
           Read case study <Icon name="arrow-right" />
         </Link>
-        {onNext && (
-          <button type="button" onClick={onNext} className={styles.next}>
-            Next: {nextTitle}
-          </button>
-        )}
         {item.externalCaseStudy && (
           <a href={item.externalCaseStudy.url} target="_blank" rel="noopener noreferrer" className={styles.published}>
             {item.externalCaseStudy.label} <Icon name="arrow-up-right" />
@@ -102,7 +97,7 @@ export default function Work() {
                 aria-hidden={i !== selected}
                 className={i === selected ? styles.detail : styles.detailHidden}
               >
-                <DetailBody item={item} onNext={() => setSelected((i + 1) % items.length)} nextTitle={items[(i + 1) % items.length].title} />
+                <DetailBody item={item} />
               </div>
             ))}
           </div>
