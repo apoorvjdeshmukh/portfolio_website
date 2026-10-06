@@ -71,7 +71,7 @@
 .footerRow { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: auto; }
 .cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 48px; padding: 0 24px; border-radius: 100px;
+  flex: 1 1 180px; min-height: 48px; padding: 0 24px; border-radius: 100px;
   background: #FF8050; color: #160D08; font-size: 14px; font-weight: 700;
 }
 .cta i { font-size: 17px; transition: transform 0.15s; }
@@ -79,7 +79,7 @@
 .ctaFull { composes: cta; flex: 1 1 100%; }
 .pill {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  min-height: 48px; padding: 0 22px; border-radius: 100px;
+  flex: 1 1 180px; min-height: 48px; padding: 0 22px; border-radius: 100px;
   border: 1px solid rgba(255,128,80,.3); color: #F5EDE8; font-size: 14px; font-weight: 500;
   transition: background 0.2s, border-color 0.2s;
 }
