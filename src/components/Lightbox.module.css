@@ -1,0 +1,32 @@
+.backdrop {
+  position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
+  padding: 24px; background: rgba(20, 12, 8, 0.82); animation: fade 0.18s ease-out;
+}
+.dialog {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  max-width: min(1280px, 100%); max-height: 100%;
+}
+.image {
+  display: block; max-width: 100%; max-height: calc(100vh - 150px); width: auto; height: auto; object-fit: contain;
+  border-radius: var(--radius-md, 10px); background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); animation: pop 0.2s ease-out;
+}
+.caption { margin: 0; max-width: 720px; text-align: center; font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, 0.85); }
+.close {
+  position: absolute; top: -14px; right: -14px; width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: var(--accent, #FF6B35); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; z-index: 1;
+}
+.close:hover { background: var(--accent-dark, #E8551A); }
+.nav { display: flex; align-items: center; gap: 14px; }
+.navBtn {
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.12);
+  color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.navBtn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.24); }
+.navBtn:disabled { opacity: 0.35; cursor: default; }
+.flip { display: inline-flex; transform: scaleX(-1); }
+.count { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(255, 255, 255, 0.85); }
+.close:focus-visible, .navBtn:focus-visible { outline: 3px solid var(--accent-secondary, #FFD93D); outline-offset: 2px; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .backdrop, .image { animation: none; } }
+@media (max-width: 640px) { .backdrop { padding: 12px; } .close { top: -8px; right: -4px; } }

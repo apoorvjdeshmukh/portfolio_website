@@ -134,6 +134,15 @@ export const projects = [
     platform: 'iOS · Android · React Native',
     win: 'Built and shipped a lending-first library app solo in ~5 work weeks with Claude Code: AI shelf scan chosen by measurement (24 books found vs 13), a return-rate North Star, and a launch that cleared store privacy, safety and review requirements. Free, no ads.',
   },
+  {
+    id: 'payment-recon',
+    title: 'Payment Reconciliation Agent: AI Proposes, a Person Approves',
+    company: 'Personal Project',
+    companyType: 'personal',
+    tags: ['AI / ML', 'Agents', 'FinTech', 'Evals', 'Personal Project'],
+    platform: 'Python · Stripe test mode · Claude API',
+    win: 'Built an AI helper that investigates payment mismatches while a person approves every ledger change, on synthetic data. Measured against a rules baseline on 50 labeled cases: 74% to 100% fully resolved (tuned on the same cases), 0 unapproved writes.',
+  },
 ]
 
 export const stack = [
@@ -610,5 +619,64 @@ export const caseStudies = {
       },
     ],
     bigWin: 'Took a personal frustration from idea to a real product in stores, solo, in about 5 work weeks of active build: an AI shelf scan chosen by measurement (24 books found vs 13), a North Star the app shows its own users, and a launch that cleared privacy, safety and store requirements before the first review.',
+  },
+  'payment-recon': {
+    title: 'Payment Reconciliation Agent: AI Proposes, a Person Approves',
+    company: 'Personal Project',
+    companyType: 'personal',
+    role: 'Solo PM and product owner, built with Claude Code',
+    timeline: '10 planned build days, Oct 2026',
+    platform: 'Python · SQLite · Stripe (test mode) · Claude API',
+    tags: ['AI / ML', 'Agents', 'FinTech', 'Evals', 'Human-in-the-loop', 'Personal Project'],
+    externalCaseStudy: { label: 'Interactive write-up', url: '/payment-recon-demo/index.html' },
+    links: [
+      { label: 'Try the demo', url: '/payment-recon-demo/demo/index.html', icon: 'world' },
+    ],
+    tldr: `A dental practice's patient ledger and its Stripe payments drift apart: partial refunds, double charges, fees, disputes, payouts that land on odd days. I built a rules matcher plus an AI helper that investigates what the rules cannot settle and proposes a fix. A person approves before anything is written. This is a personal project on synthetic patients and Stripe test mode, not production work. I measured it against the rules alone on 50 labeled cases, three runs each, and kept the failures in the story.`,
+    metrics: [
+      { value: '74% → 100%', label: 'Cases fully resolved, rules alone vs rules plus AI (50 cases, tuned on the same cases)' },
+      { value: '0', label: 'Ledger writes without an approval record' },
+      { value: '0 of 21', label: 'Runs where the AI followed instructions planted in a payment' },
+      { value: '~$0.04', label: 'AI cost per payment it looks at, about 10 seconds' },
+    ],
+    diagram: 'payment-recon',
+    diagramLabel: 'How a payment moves',
+    lightbox: true,
+    screenshots: [
+      { src: '/payment-recon/review-desk-overview.png', alt: 'Review Desk overview: 58 payments came in, 23 needed nothing, 35 need review' },
+      { src: '/payment-recon/review-desk-risky-item.png', alt: 'A risky item: refund a duplicate charge, with a second look before anything moves' },
+      { src: '/payment-recon/review-desk-planted-text.png', alt: 'An item whose payment text tried to give orders, shown with a warning that it was ignored' },
+    ],
+    sections: [
+      {
+        heading: 'The problem (user need)',
+        content: `Stripe records what happened. A practice's ledger records what it believes happened. They drift apart through partial refunds, duplicate charges, fees, disputes and late payouts. Rules can match the easy majority. The rest needs someone to look at several records and decide, and that is slow and error-prone.\n\nThe user is a billing specialist at a small practice. **They do not want a robot that edits the books. They want the boring cases cleared and the risky ones put in front of them with the evidence.**`,
+      },
+      {
+        heading: 'How I scoped it',
+        content: `I chose autonomy level 2: the AI reads anything and proposes, and only a human approval writes to the ledger. Ledger errors are financial and hard to undo, and trust should be earned with measured accuracy first.\n\nI also decided up front how to judge it: a case is correct only if the ledger fix, the Stripe fix, the target records and the amounts all match the answer key. Scoring is done by code, not by an AI judge. If a payment has two problems, both fixes must be right.`,
+      },
+      {
+        heading: 'Making the test honest',
+        content: `The first 20 cases scored 100% with plain rules, which meant the data was too easy to show what an AI adds. I grew the set to 50 harder cases (a parent paying for a child, nicknames, typos, refunds that match no record, two problems in one payment) and froze the rules before running them.\n\n**Rules alone fully resolved 74% of the 50 cases.** I kept that baseline strong on purpose, so any lift would hold up when challenged.`,
+      },
+      {
+        heading: 'What went wrong, and what I did about it',
+        content: `The first-built AI reached 89.3%. Almost every miss was one habit: on brand-new test charges with no payout yet, it suggested a late-deposit fix that was not needed. It could not see the practice's expected deposit date or today's date.\n\nOn the same payments after Stripe had paid them out, it made no such mistake. So the cause was missing data and a missing view, not weak reasoning. Two fix rounds took the 50 cases to 100% in three runs. The first fix created a new mistake (it matched the nickname "Bob" to "Robert" instead of asking a person), and the second fixed that.\n\nBoth rounds were written after reading the failures on the same cases, so **the final score is optimistic**.`,
+      },
+      {
+        heading: 'Choosing the model',
+        content: `I compared Claude Sonnet 5.5 with Haiku 5.5 on the same cases, three runs each. Haiku scored 97.3% at about a twelfth of the cost, but in 2 of 3 runs it proposed cancelling a Stripe hold that did not need cancelling, the dangerous kind of miss.\n\nI shipped Sonnet only. Routing easy cases to Haiku was tested and saved money, and I documented it as a future option rather than building it: it is simpler, and at a small practice's volume the saving does not matter.`,
+      },
+      {
+        heading: 'Keeping a person in control',
+        content: `Every suggestion lands in a review queue, sorted into ready, risky and needs-a-person. Risky means low confidence, any step that moves money in Stripe, or text in the payment that looks like an instruction. Those get a second look before anything is applied, and the person types a name that goes in the log.\n\nThe write gate is the only code that changes the ledger, only for an approved item, and only on a working copy. The audit log is append-only. I built a small screen, the Review Desk, so a person can work the queue, and a static demo of it.`,
+      },
+      {
+        heading: 'What I\'d do differently',
+        content: `1. **More data and scenarios.** Under 100 cases is small. More cases would make it more realistic. Time held it back.\n2. **More than one model family.** I only tested Claude models. I would add others such as OpenAI and Gemini. Time and money held that back.\n3. **More steps for the agent, later.** It only suggests today. Letting it make ledger changes too is possible, but with this data size and time I chose suggest-only, and the next step is earned with trust.`,
+      },
+    ],
+    bigWin: 'Designed and measured an AI agent with a human approval step: 74% to 100% fully resolved on 50 labeled cases (tuned on the same cases), 0 unapproved writes, and every miss explained. Personal project on synthetic data, not production work.',
   },
 }

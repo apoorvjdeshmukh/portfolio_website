@@ -1,0 +1,2852 @@
+{
+ "note": "A snapshot of the real review queue built from the final AI run. Fake patients, Stripe test mode.",
+ "meta": {
+  "payments": 58,
+  "no_action": 23,
+  "cases": 50,
+  "items": 35
+ },
+ "items": [
+  {
+   "id": "RV-0001",
+   "lane": "you",
+   "status": "needs_person",
+   "risky": false,
+   "title": "A payment from Bob Hartley needs your decision",
+   "short_title": "Bob Hartley: needs your decision",
+   "summary": "Confirm who \"Bob Hartley\" (bob.hartley.work@example.test) is, and which Stripe charge the payment already recorded on INV-2002 belongs to. Then decide whether either charge needs action.",
+   "amount": "$275.00",
+   "before_after": null,
+   "facts": [
+    "Bob Hartley paid $275.00.",
+    "No ledger change.",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [],
+   "stripe_todo": "",
+   "reasoning": "ch_demo001 is $275.00 (fee $8.28) from \"Bob Hartley\", with no invoice number, no refund, no dispute and no payout yet. The only close ledger match is INV-2002, Robert Hartley, Filling, $275.00, visit 2026-10-10. That invoice already has a $275.00 card payment with an $8.28 fee recorded, and its expected deposit date is 10-12, so nothing is late. Policy forces escalation here. \"Bob\" is a short form of \"Robert\", and the payer email (bob.hartley.work@...) is not the patient's email on file (robert.hartley@...). There is no guarantor. A name match alone cannot confirm identity. A second $275.00 charge, ch_demo002, came 22 seconds later from \"R. Hartwell\" (r.hartwell@example.test). Hartwell has two unpaid $275.00 Filling invoices dated 10-10: INV-2018 Roland and INV-2019 Rosalind. \"R.\" fits both equally, so that charge cannot be assigned safely either. I cannot tell whether the payment already on INV-2002 is this charge or another one. I also cannot tell whether Bob Hartley is a different person or a duplicate payment for Robert. A refund, a recorded payment or a fee entry could be wrong without that answer, so I proposed none.",
+   "points": [
+    "ch_demo001 is $275.00 (fee $8.28) from \"Bob Hartley\", with no invoice number, no refund, no dispute and no payout yet.",
+    "The only close ledger match is INV-2002, Robert Hartley, Filling, $275.00, visit 2026-10-10.",
+    "That invoice already has a $275.00 card payment with an $8.28 fee recorded, and its expected deposit date is 10-12, so nothing is late.",
+    "Policy forces escalation here.",
+    "\"Bob\" is a short form of \"Robert\", and the payer email (bob.hartley.work@...) is not the patient's email on file (robert.hartley@...). There is no guarantor.",
+    "A name match alone cannot confirm identity.",
+    "A second $275.00 charge, ch_demo002, came 22 seconds later from \"R.",
+    "Hartwell\" (r.hartwell@example.test).",
+    "Hartwell has two unpaid $275.00 Filling invoices dated 10-10: INV-2018 Roland and INV-2019 Rosalind.",
+    "\"R.\" fits both equally, so that charge cannot be assigned safely either.",
+    "I cannot tell whether the payment already on INV-2002 is this charge or another one.",
+    "I also cannot tell whether Bob Hartley is a different person or a duplicate payment for Robert.",
+    "A refund, a recorded payment or a fee entry could be wrong without that answer, so I proposed none."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Bob Hartley"
+    ],
+    [
+     "Email",
+     "bob.hartley.work@example.test"
+    ],
+    [
+     "Amount",
+     "$275.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Confirm who \"Bob Hartley\" (bob.hartley.work@example.test) is, and which Stripe charge the payment already recorded on INV-2002 belongs to. Then decide whether either charge needs action.",
+   "payer": "Bob Hartley",
+   "payer_email": "bob.hartley.work@example.test",
+   "payment_amount": "$275.00",
+   "payment_cents": 27500,
+   "invoice": null,
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0002",
+   "lane": "you",
+   "status": "needs_person",
+   "risky": false,
+   "title": "A payment from Jordan Brandt needs your decision",
+   "short_title": "Jordan Brandt: needs your decision",
+   "summary": "Please decide whether charge ch_demo003 ($185.00) belongs to INV-2007 (Noah Brandt) or INV-2008 (Emma Brandt). Both are \"Child cleaning\" on 2026-10-10 for $185.00, and both are unpaid. Once you choose, record the payment and the $5.67 fee on that invoice. The other invoice is still open and no second Brandt payment has been found.",
+   "amount": "$185.00",
+   "before_after": null,
+   "facts": [
+    "Jordan Brandt paid $185.00.",
+    "No ledger change.",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [],
+   "stripe_todo": "",
+   "reasoning": "The payer is Jordan Brandt, using brandt.family@example.test. That email is on file for two patients, Noah and Emma Brandt. Both invoices match on amount, date, procedure (\"Child cleaning\") and email. The payment has no invoice number, and the description doesn't say which child. Policy says to escalate when more than one invoice fits equally well. Related Stripe payments show no second Brandt charge, so this is not a duplicate. The other same-amount charges belong to other payers. INV-1042 (Tomas Brandt) is already paid in full and is not a candidate.",
+   "points": [
+    "The payer is Jordan Brandt, using brandt.family@example.test.",
+    "That email is on file for two patients, Noah and Emma Brandt.",
+    "Both invoices match on amount, date, procedure (\"Child cleaning\") and email.",
+    "The payment has no invoice number, and the description doesn't say which child.",
+    "Policy says to escalate when more than one invoice fits equally well.",
+    "Related Stripe payments show no second Brandt charge, so this is not a duplicate.",
+    "The other same-amount charges belong to other payers.",
+    "INV-1042 (Tomas Brandt) is already paid in full and is not a candidate."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Jordan Brandt"
+    ],
+    [
+     "Email",
+     "brandt.family@example.test"
+    ],
+    [
+     "Amount",
+     "$185.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Please decide whether charge ch_demo003 ($185.00) belongs to INV-2007 (Noah Brandt) or INV-2008 (Emma Brandt). Both are \"Child cleaning\" on 2026-10-10 for $185.00, and both are unpaid. Once you choose, record the payment and the $5.67 fee on that invoice. The other invoice is still open and no second Brandt payment has been found.",
+   "payer": "Jordan Brandt",
+   "payer_email": "brandt.family@example.test",
+   "payment_amount": "$185.00",
+   "payment_cents": 18500,
+   "invoice": null,
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0003",
+   "lane": "you",
+   "status": "needs_person",
+   "risky": false,
+   "title": "A payment from Pat Winslow needs your decision",
+   "short_title": "Pat Winslow: needs your decision",
+   "summary": "Payment of $240.00 (ch_demo004) by \"Pat Winslow\" (pat.winslow@example.test) matches no patient or guarantor in the ledger. Please decide who the payer is and which invoice, if any, it belongs to. If it belongs to none, decide whether to refund it.",
+   "amount": "$240.00",
+   "before_after": null,
+   "facts": [
+    "Pat Winslow paid $240.00.",
+    "No ledger change.",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [],
+   "stripe_todo": "",
+   "reasoning": "The charge was taken on a terminal on 2026-10-10 for 24000 cents with a 726 cent fee. It has no invoice number and no payout yet, which is normal for today. Searching the ledger for \"Winslow\" by name and by email returned nothing, so no patient or guarantor fits. The only open invoice for 24000 cents is INV-2010 (Hugo Lindahl, Crown, visit 2026-10-10, nothing recorded). That invoice already has its own Stripe payment, ch_demo005. It was made by Hugo Lindahl, with his email and INV-2010 typed on it, one second after Pat's charge, for the same amount. So INV-2010 is covered by Hugo's payment. Pat's payment could be a second terminal charge for the same crown, for example a relative paying or a double tap. It could also be an unrelated patient who is missing from the ledger. The evidence does not settle which, so I should not record it against INV-2010 or propose a refund. INV-1050 (Keira Donnelly, 24000 cents) is already fully paid and has its fee recorded, so it is not a candidate. Only part of the date-range ledger listing came back because the output was truncated, so I can't rule out a Winslow invoice there. The name and email searches did cover the whole ledger.",
+   "points": [
+    "The charge was taken on a terminal on 2026-10-10 for 24000 cents with a 726 cent fee.",
+    "It has no invoice number and no payout yet, which is normal for today.",
+    "Searching the ledger for \"Winslow\" by name and by email returned nothing, so no patient or guarantor fits.",
+    "The only open invoice for 24000 cents is INV-2010 (Hugo Lindahl, Crown, visit 2026-10-10, nothing recorded).",
+    "That invoice already has its own Stripe payment, ch_demo005.",
+    "It was made by Hugo Lindahl, with his email and INV-2010 typed on it, one second after Pat's charge, for the same amount.",
+    "So INV-2010 is covered by Hugo's payment.",
+    "Pat's payment could be a second terminal charge for the same crown, for example a relative paying or a double tap.",
+    "It could also be an unrelated patient who is missing from the ledger.",
+    "The evidence does not settle which, so I should not record it against INV-2010 or propose a refund.",
+    "INV-1050 (Keira Donnelly, 24000 cents) is already fully paid and has its fee recorded, so it is not a candidate.",
+    "Only part of the date-range ledger listing came back because the output was truncated, so I can't rule out a Winslow invoice there.",
+    "The name and email searches did cover the whole ledger."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Pat Winslow"
+    ],
+    [
+     "Email",
+     "pat.winslow@example.test"
+    ],
+    [
+     "Amount",
+     "$240.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Payment of $240.00 (ch_demo004) by \"Pat Winslow\" (pat.winslow@example.test) matches no patient or guarantor in the ledger. Please decide who the payer is and which invoice, if any, it belongs to. If it belongs to none, decide whether to refund it.",
+   "payer": "Pat Winslow",
+   "payer_email": "pat.winslow@example.test",
+   "payment_amount": "$240.00",
+   "payment_cents": 24000,
+   "invoice": null,
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0004",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Mark a $380.00 payment as disputed on INV-2015, and 2 more",
+   "short_title": "Mark a $380.00 payment as disputed on INV-2015, and 2 more",
+   "summary": "Quentin Marsh paid $380.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$380.00",
+   "before_after": null,
+   "facts": [
+    "Quentin Marsh paid $380.00.",
+    "Ledger change: Mark a $380.00 payment as disputed on INV-2015; Record a $15.00 Stripe fee on INV-2015",
+    "In Stripe, by hand: Respond to the $380.00 dispute"
+   ],
+   "fix_lines": [
+    "Mark a $380.00 payment as disputed on INV-2015",
+    "Record a $15.00 Stripe fee on INV-2015",
+    "Respond to the $380.00 dispute"
+   ],
+   "stripe_todo": "Respond to the $380.00 dispute",
+   "reasoning": "The payer is Quentin Marsh. The payer email quentin.mrash@example.test is a typo of the patient's email quentin.m@example.test, so the first and last names match and only the email format differs. INV-2015 (Orthodontic consult, 2026-10-10, $380.00) is the only invoice that fits this patient. The ledger already records the $380.00 payment and the $11.32 fee, which match Stripe, so there is no missing payment or fee. The payout is still pending, and the expected deposit date of 2026-10-12 has not passed, so this is not a late deposit. The real problem is an open dispute (du_demo006, reason fraudulent, $380.00, status needs_response, dispute fee $15.00). The ledger does not show the dispute or its fee. The other $380.00 payment, from Brenna Gallagher, belongs to a different invoice (INV-2026, Theo Gallagher) that is already paid. It is not a duplicate of this one.",
+   "points": [
+    "The payer is Quentin Marsh.",
+    "The payer email quentin.mrash@example.test is a typo of the patient's email quentin.m@example.test, so the first and last names match and only the email format differs.",
+    "INV-2015 (Orthodontic consult, 2026-10-10, $380.00) is the only invoice that fits this patient.",
+    "The ledger already records the $380.00 payment and the $11.32 fee, which match Stripe, so there is no missing payment or fee.",
+    "The payout is still pending, and the expected deposit date of 2026-10-12 has not passed, so this is not a late deposit.",
+    "The real problem is an open dispute (du_demo006, reason fraudulent, $380.00, status needs_response, dispute fee $15.00).",
+    "The ledger does not show the dispute or its fee.",
+    "The other $380.00 payment, from Brenna Gallagher, belongs to a different invoice (INV-2026, Theo Gallagher) that is already paid.",
+    "It is not a duplicate of this one."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Quentin Marsh"
+    ],
+    [
+     "Email",
+     "quentin.mrash@example.test"
+    ],
+    [
+     "Amount",
+     "$380.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "needs response ($380.00)"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "",
+   "payer": "Quentin Marsh",
+   "payer_email": "quentin.mrash@example.test",
+   "payment_amount": "$380.00",
+   "payment_cents": 38000,
+   "invoice": "INV-2015",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (respond_to_dispute)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [
+    {
+     "action": "mark_disputed",
+     "name": "Mark as disputed",
+     "amount": 38000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1500
+    }
+   ],
+   "stripe_fixes": [
+    {
+     "action": "respond_to_dispute",
+     "name": "Respond to the dispute",
+     "amount": 38000
+    }
+   ]
+  },
+  {
+   "id": "RV-0005",
+   "lane": "you",
+   "status": "needs_person",
+   "risky": false,
+   "title": "A payment from R. Hartwell needs your decision",
+   "short_title": "R. Hartwell: needs your decision",
+   "summary": "Payment of $275.00 by \"R. Hartwell\" (r.hartwell@example.test) fits two open invoices equally: INV-2018 (Roland Hartwell, Filling, $275.00) and INV-2019 (Rosalind Hartwell, Filling, $275.00). Both visits were 2026-10-10. Please confirm with the payer or the front desk which patient paid. Then record the payment ($275.00) and fee (828 cents) on that invoice. The other invoice stays open.",
+   "amount": "$275.00",
+   "before_after": null,
+   "facts": [
+    "R. Hartwell paid $275.00.",
+    "No ledger change.",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [],
+   "stripe_todo": "",
+   "reasoning": "The payer is only an initial and surname. The email matches neither patient's email, and no guarantor is on file for either. The amount, date and procedure are identical on both invoices, so nothing separates them. The policy says to escalate when more than one invoice fits equally and when the first name is only an initial. The related Stripe payment (Bob Hartley, ch_demo007) matches INV-2002 (Robert Hartley), which already has a payment and fee recorded. It is a different payer, so this is not a duplicate of the Hartwell payment. No payout is expected yet. The expected deposit date would be about 2026-10-12, so the deposit is not late.",
+   "points": [
+    "The payer is only an initial and surname.",
+    "The email matches neither patient's email, and no guarantor is on file for either.",
+    "The amount, date and procedure are identical on both invoices, so nothing separates them.",
+    "The policy says to escalate when more than one invoice fits equally and when the first name is only an initial.",
+    "The related Stripe payment (Bob Hartley, ch_demo007) matches INV-2002 (Robert Hartley), which already has a payment and fee recorded.",
+    "It is a different payer, so this is not a duplicate of the Hartwell payment.",
+    "No payout is expected yet.",
+    "The expected deposit date would be about 2026-10-12, so the deposit is not late."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "R. Hartwell"
+    ],
+    [
+     "Email",
+     "r.hartwell@example.test"
+    ],
+    [
+     "Amount",
+     "$275.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Payment of $275.00 by \"R. Hartwell\" (r.hartwell@example.test) fits two open invoices equally: INV-2018 (Roland Hartwell, Filling, $275.00) and INV-2019 (Rosalind Hartwell, Filling, $275.00). Both visits were 2026-10-10. Please confirm with the payer or the front desk which patient paid. Then record the payment ($275.00) and fee (828 cents) on that invoice. The other invoice stays open.",
+   "payer": "R. Hartwell",
+   "payer_email": "r.hartwell@example.test",
+   "payment_amount": "$275.00",
+   "payment_cents": 27500,
+   "invoice": null,
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0006",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $90.00 payment on INV-2023, and 1 more",
+   "short_title": "Record a $90.00 payment on INV-2023, and 1 more",
+   "summary": "Marek Sobol paid $90.00.",
+   "amount": "$90.00",
+   "before_after": null,
+   "facts": [
+    "Marek Sobol paid $90.00.",
+    "Ledger change: Record a $90.00 payment on INV-2023; Record a $2.91 Stripe fee on INV-2023",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $90.00 payment on INV-2023",
+    "Record a $2.91 Stripe fee on INV-2023"
+   ],
+   "stripe_todo": "",
+   "reasoning": "The payment is $90.00 from Marek Sobol, made at the terminal on 2026-10-10 with INV-2023 typed on it. The ledger has INV-2023 for patient Marek Sobol, an Exam on 2026-10-10 for $90.00. The invoice has no payments recorded, so its balance is $90.00. The payer's email (marek.sobl@) differs slightly from the patient's email on file (marek.s@). The name is identical, so this looks like an email format difference or typo and the first-name escalation rule does not apply. The amount matches exactly. No duplicates, refunds or disputes exist. The payout is not yet created, but today is the visit date, so the deposit is on schedule and no delayed-payout match is needed. The ledger needs the payment and the $2.91 fee recorded.",
+   "points": [
+    "The payment is $90.00 from Marek Sobol, made at the terminal on 2026-10-10 with INV-2023 typed on it.",
+    "The ledger has INV-2023 for patient Marek Sobol, an Exam on 2026-10-10 for $90.00.",
+    "The invoice has no payments recorded, so its balance is $90.00.",
+    "The payer's email (marek.sobl@) differs slightly from the patient's email on file (marek.s@).",
+    "The name is identical, so this looks like an email format difference or typo and the first-name escalation rule does not apply.",
+    "The amount matches exactly.",
+    "No duplicates, refunds or disputes exist.",
+    "The payout is not yet created, but today is the visit date, so the deposit is on schedule and no delayed-payout match is needed.",
+    "The ledger needs the payment and the $2.91 fee recorded."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Marek Sobol"
+    ],
+    [
+     "Email",
+     "marek.sobl@example.test"
+    ],
+    [
+     "Amount",
+     "$90.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2023"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Stripe side needs nothing: single captured charge, no duplicate, refund or dispute.",
+   "payer": "Marek Sobol",
+   "payer_email": "marek.sobl@example.test",
+   "payment_amount": "$90.00",
+   "payment_cents": 9000,
+   "invoice": "INV-2023",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_payment",
+     "name": "Record a payment",
+     "amount": 9000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 291
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0007",
+   "lane": "you",
+   "status": "needs_person",
+   "risky": false,
+   "title": "A payment from Caroline Beaumont needs your decision",
+   "short_title": "Caroline Beaumont: needs your decision",
+   "summary": "Short payment on INV-2024: Caroline Beaumont paid $250.00 against $300.00 due, leaving $50.00 unpaid. A person should confirm how to record the partial payment ($250.00 plus the $7.55 fee) and decide when to remind the patient to pay the remaining $50.00. I suggest a reminder in a few days, or at her next visit if one is booked sooner.",
+   "amount": "$250.00",
+   "before_after": null,
+   "facts": [
+    "Caroline Beaumont paid $250.00.",
+    "No ledger change.",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [],
+   "stripe_todo": "",
+   "reasoning": "The payer, email, invoice number and procedure all match INV-2024, and it is the only invoice that fits. The ledger shows no payment and no fee on it. The amount is short, and policy says a short payment must not be recorded as normal and must go to a person. There are no related or duplicate Stripe payments, no refunds and no dispute. The payment was taken at the terminal on 2026-10-10 and has no payout yet. That is on schedule, because today is the same date.",
+   "points": [
+    "The payer, email, invoice number and procedure all match INV-2024, and it is the only invoice that fits.",
+    "The ledger shows no payment and no fee on it.",
+    "The amount is short, and policy says a short payment must not be recorded as normal and must go to a person.",
+    "There are no related or duplicate Stripe payments, no refunds and no dispute.",
+    "The payment was taken at the terminal on 2026-10-10 and has no payout yet.",
+    "That is on schedule, because today is the same date."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Caroline Beaumont"
+    ],
+    [
+     "Email",
+     "caroline.b@example.test"
+    ],
+    [
+     "Amount",
+     "$250.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2024"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Short payment on INV-2024: Caroline Beaumont paid $250.00 against $300.00 due, leaving $50.00 unpaid. A person should confirm how to record the partial payment ($250.00 plus the $7.55 fee) and decide when to remind the patient to pay the remaining $50.00. I suggest a reminder in a few days, or at her next visit if one is booked sooner.",
+   "payer": "Caroline Beaumont",
+   "payer_email": "caroline.b@example.test",
+   "payment_amount": "$250.00",
+   "payment_cents": 25000,
+   "invoice": null,
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0008",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Refund the duplicate $265.00 charge",
+   "short_title": "Refund the duplicate $265.00 charge",
+   "summary": "Hana Yoshida paid $265.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$265.00",
+   "before_after": null,
+   "facts": [
+    "Hana Yoshida paid $265.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Refund the duplicate $265.00 charge"
+   ],
+   "fix_lines": [
+    "Refund the duplicate $265.00 charge"
+   ],
+   "stripe_todo": "Refund the duplicate $265.00 charge",
+   "reasoning": "The payer, Hana Yoshida, matches the patient on INV-2025 (Crown, 26,500 due, visit 2026-10-10). The email differs only by a typo (hana.yoshda vs hana.y), and the payment carries the invoice number INV-2025. The name is identical, so the identity rule does not apply. Stripe shows two captured terminal charges one second apart, with the same payer, amount and invoice number: ch_demo008 (the one I was given) and ch_demo009 (later). The ledger records only one 26,500 payment with its 799 fee, so the invoice is fully paid. The second charge is a duplicate and should be refunded in full, applied to the later charge. The ledger needs no change now: the payment and fee are already recorded once, and the deposit is not late (expected 2026-10-12, today is 2026-10-10). Once the refund is issued, the person should check whether the ledger needs a refund entry. The refund does not exist yet, so I have not proposed one.",
+   "points": [
+    "The payer, Hana Yoshida, matches the patient on INV-2025 (Crown, 26,500 due, visit 2026-10-10).",
+    "The email differs only by a typo (hana.yoshda vs hana.y), and the payment carries the invoice number INV-2025.",
+    "The name is identical, so the identity rule does not apply.",
+    "Stripe shows two captured terminal charges one second apart, with the same payer, amount and invoice number: ch_demo008 (the one I was given) and ch_demo009 (later).",
+    "The ledger records only one 26,500 payment with its 799 fee, so the invoice is fully paid.",
+    "The second charge is a duplicate and should be refunded in full, applied to the later charge.",
+    "The ledger needs no change now: the payment and fee are already recorded once, and the deposit is not late (expected 2026-10-12, today is 2026-10-10).",
+    "Once the refund is issued, the person should check whether the ledger needs a refund entry.",
+    "The refund does not exist yet, so I have not proposed one."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Hana Yoshida"
+    ],
+    [
+     "Email",
+     "hana.yoshda@example.test"
+    ],
+    [
+     "Amount",
+     "$265.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2025"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "The ledger already records the single 26,500 payment and its 799 fee, and the invoice balance is 0. Only the duplicate Stripe charge needs fixing.",
+   "payer": "Hana Yoshida",
+   "payer_email": "hana.yoshda@example.test",
+   "payment_amount": "$265.00",
+   "payment_cents": 26500,
+   "invoice": "INV-2025",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (refund_duplicate_amount)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "refund_duplicate_amount",
+     "name": "Refund the duplicate charge",
+     "amount": 26500
+    }
+   ]
+  },
+  {
+   "id": "RV-0009",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Refund the duplicate $265.00 charge",
+   "short_title": "Refund the duplicate $265.00 charge",
+   "summary": "Hana Yoshida paid $265.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$265.00",
+   "before_after": null,
+   "facts": [
+    "Hana Yoshida paid $265.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Refund the duplicate $265.00 charge"
+   ],
+   "fix_lines": [
+    "Refund the duplicate $265.00 charge"
+   ],
+   "stripe_todo": "Refund the duplicate $265.00 charge",
+   "reasoning": "The payment is for INV-2025 (Hana Yoshida, Crown, $265.00 due). The payer email has a typo (yoshda vs hana.y), but the name, invoice number, amount and date all match, so this is the same person. Stripe shows two captured terminal charges of $265.00 one second apart, with the same payer, email and invoice number. They are ch_demo008 (19:10:13) and ch_demo009 (19:10:14). The ledger records only one $265.00 payment with the $7.99 fee, so the invoice is fully paid and the ledger is correct. The second, later charge is a duplicate. Neither charge has a payout yet, and the expected deposit date is 2026-10-12, so the deposit is on schedule. A person should refund the later charge in full ($265.00). Stripe may not return the $7.99 fee on the refunded charge, so a person should check that when approving.",
+   "points": [
+    "The payment is for INV-2025 (Hana Yoshida, Crown, $265.00 due).",
+    "The payer email has a typo (yoshda vs hana.y), but the name, invoice number, amount and date all match, so this is the same person.",
+    "Stripe shows two captured terminal charges of $265.00 one second apart, with the same payer, email and invoice number.",
+    "They are ch_demo008 (19:10:13) and ch_demo009 (19:10:14).",
+    "The ledger records only one $265.00 payment with the $7.99 fee, so the invoice is fully paid and the ledger is correct.",
+    "The second, later charge is a duplicate.",
+    "Neither charge has a payout yet, and the expected deposit date is 2026-10-12, so the deposit is on schedule.",
+    "A person should refund the later charge in full ($265.00).",
+    "Stripe may not return the $7.99 fee on the refunded charge, so a person should check that when approving."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Hana Yoshida"
+    ],
+    [
+     "Email",
+     "hana.yoshda@example.test"
+    ],
+    [
+     "Amount",
+     "$265.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2025"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "The ledger already records the single $265.00 payment for INV-2025 and its $7.99 fee, and the balance is 0. The duplicate charge is not in the ledger, so only the Stripe refund is needed.",
+   "payer": "Hana Yoshida",
+   "payer_email": "hana.yoshda@example.test",
+   "payment_amount": "$265.00",
+   "payment_cents": 26500,
+   "invoice": "INV-2025",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (refund_duplicate_amount)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "refund_duplicate_amount",
+     "name": "Refund the duplicate charge",
+     "amount": 26500
+    }
+   ]
+  },
+  {
+   "id": "RV-0010",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Mark a $380.00 payment as disputed on INV-2026, and 2 more",
+   "short_title": "Mark a $380.00 payment as disputed on INV-2026, and 2 more",
+   "summary": "Brenna Gallagher paid $380.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$380.00",
+   "before_after": null,
+   "facts": [
+    "Brenna Gallagher paid $380.00.",
+    "Ledger change: Mark a $380.00 payment as disputed on INV-2026; Record a $15.00 Stripe fee on INV-2026",
+    "In Stripe, by hand: Respond to the $380.00 dispute"
+   ],
+   "fix_lines": [
+    "Mark a $380.00 payment as disputed on INV-2026",
+    "Record a $15.00 Stripe fee on INV-2026",
+    "Respond to the $380.00 dispute"
+   ],
+   "stripe_todo": "Respond to the $380.00 dispute",
+   "reasoning": "The payer, Brenna Gallagher (brenna.g@example.test), is the guarantor on file for patient Theo Gallagher's INV-2026 (Braces adjustment, $380.00, visit 2026-10-10). That matches the Stripe description. The ledger already records the $380.00 payment and the $11.32 fee, so the payment and processing fee are fine. The deposit is not late: expected 2026-10-12, today is 2026-10-10. The real problem is that the charge has an open dispute (du_demo010, $380.00, reason \"fraudulent\", status needs_response, dispute fee $15.00). The ledger shows none of this. I propose marking the invoice disputed for $380.00, recording the $15.00 dispute fee, and having a person respond to the dispute in Stripe. The other $380 charge, from Quentin Marsh, belongs to INV-2015 and is already recorded there. It is not a duplicate of this one, since the payer, email and invoice differ.",
+   "points": [
+    "The payer, Brenna Gallagher (brenna.g@example.test), is the guarantor on file for patient Theo Gallagher's INV-2026 (Braces adjustment, $380.00, visit 2026-10-10).",
+    "That matches the Stripe description.",
+    "The ledger already records the $380.00 payment and the $11.32 fee, so the payment and processing fee are fine.",
+    "The deposit is not late: expected 2026-10-12, today is 2026-10-10.",
+    "The real problem is that the charge has an open dispute (du_demo010, $380.00, reason \"fraudulent\", status needs_response, dispute fee $15.00).",
+    "The ledger shows none of this.",
+    "I propose marking the invoice disputed for $380.00, recording the $15.00 dispute fee, and having a person respond to the dispute in Stripe.",
+    "The other $380 charge, from Quentin Marsh, belongs to INV-2015 and is already recorded there.",
+    "It is not a duplicate of this one, since the payer, email and invoice differ."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Brenna Gallagher"
+    ],
+    [
+     "Email",
+     "brenna.g@example.test"
+    ],
+    [
+     "Amount",
+     "$380.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "needs response ($380.00)"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "",
+   "payer": "Brenna Gallagher",
+   "payer_email": "brenna.g@example.test",
+   "payment_amount": "$380.00",
+   "payment_cents": 38000,
+   "invoice": "INV-2026",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (respond_to_dispute)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [
+    {
+     "action": "mark_disputed",
+     "name": "Mark as disputed",
+     "amount": 38000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1500
+    }
+   ],
+   "stripe_fixes": [
+    {
+     "action": "respond_to_dispute",
+     "name": "Respond to the dispute",
+     "amount": 38000
+    }
+   ]
+  },
+  {
+   "id": "RV-0011",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Cancel the duplicate $145.00 hold",
+   "short_title": "Cancel the duplicate $145.00 hold",
+   "summary": "Sunita Prakash paid $145.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$145.00",
+   "before_after": null,
+   "facts": [
+    "Sunita Prakash paid $145.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Cancel the duplicate $145.00 hold"
+   ],
+   "fix_lines": [
+    "Cancel the duplicate $145.00 hold"
+   ],
+   "stripe_todo": "Cancel the duplicate $145.00 hold",
+   "reasoning": "The payment of $145.00 was made by Sunita Prakash, the guarantor on file for patient Ravi Prakash. Her email matches the guarantor email, and the invoice number INV-2029 is on the payment. INV-2029 is a child exam for $145.00. The ledger already records a $145.00 card payment with the $4.51 fee, so the ledger needs no change. The payout is not late: the expected deposit date is 2026-10-12 and today is 2026-10-10. Stripe also holds a second charge, ch_demo011. It was created one second later, for the same payer and amount, with the same invoice number. It is an authorization that was never captured, so it is a duplicate hold. It should be voided so the patient's card is not held twice. ch_demo012 is Sam Karimi paying INV-2021. It only shares the amount and is unrelated.",
+   "points": [
+    "The payment of $145.00 was made by Sunita Prakash, the guarantor on file for patient Ravi Prakash.",
+    "Her email matches the guarantor email, and the invoice number INV-2029 is on the payment.",
+    "INV-2029 is a child exam for $145.00.",
+    "The ledger already records a $145.00 card payment with the $4.51 fee, so the ledger needs no change.",
+    "The payout is not late: the expected deposit date is 2026-10-12 and today is 2026-10-10.",
+    "Stripe also holds a second charge, ch_demo011.",
+    "It was created one second later, for the same payer and amount, with the same invoice number.",
+    "It is an authorization that was never captured, so it is a duplicate hold.",
+    "It should be voided so the patient's card is not held twice. ch_demo012 is Sam Karimi paying INV-2021.",
+    "It only shares the amount and is unrelated."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Sunita Prakash"
+    ],
+    [
+     "Email",
+     "sunita.p@example.test"
+    ],
+    [
+     "Amount",
+     "$145.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2029"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Ledger side: INV-2029 already records the $145.00 payment and the $4.51 fee, so nothing needs to change there.",
+   "payer": "Sunita Prakash",
+   "payer_email": "sunita.p@example.test",
+   "payment_amount": "$145.00",
+   "payment_cents": 14500,
+   "invoice": "INV-2029",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (void_duplicate)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "void_duplicate",
+     "name": "Cancel the duplicate hold",
+     "amount": 14500
+    }
+   ]
+  },
+  {
+   "id": "RV-0012",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Cancel the duplicate $145.00 hold",
+   "short_title": "Cancel the duplicate $145.00 hold",
+   "summary": "Sunita Prakash paid $145.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$145.00",
+   "before_after": null,
+   "facts": [
+    "Sunita Prakash paid $145.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Cancel the duplicate $145.00 hold"
+   ],
+   "fix_lines": [
+    "Cancel the duplicate $145.00 hold"
+   ],
+   "stripe_todo": "Cancel the duplicate $145.00 hold",
+   "reasoning": "ch_demo013... is an uncaptured authorization of $145.00 by Sunita Prakash (guarantor on INV-2029 for patient Ravi Prakash, child exam). One second earlier she made a captured payment, ch_demo014, for the same amount and invoice. The ledger already records that $145.00 payment and its $4.51 fee, so the invoice balance is 0. The expected deposit date is 2026-10-12, which is not yet past, so the missing payout is on schedule. The only problem is the duplicate held authorization, which should be voided so the card isn't left with a hold. No ledger change is needed.",
+   "points": [
+    "ch_demo013... is an uncaptured authorization of $145.00 by Sunita Prakash (guarantor on INV-2029 for patient Ravi Prakash, child exam).",
+    "One second earlier she made a captured payment, ch_demo014, for the same amount and invoice.",
+    "The ledger already records that $145.00 payment and its $4.51 fee, so the invoice balance is 0.",
+    "The expected deposit date is 2026-10-12, which is not yet past, so the missing payout is on schedule.",
+    "The only problem is the duplicate held authorization, which should be voided so the card isn't left with a hold.",
+    "No ledger change is needed."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Sunita Prakash"
+    ],
+    [
+     "Email",
+     "sunita.p@example.test"
+    ],
+    [
+     "Amount",
+     "$145.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2029"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "The ledger already records the captured $145.00 payment and its $4.51 fee on INV-2029, and the balance is 0. The payout is not late, because the expected deposit date is 2026-10-12.",
+   "payer": "Sunita Prakash",
+   "payer_email": "sunita.p@example.test",
+   "payment_amount": "$145.00",
+   "payment_cents": 14500,
+   "invoice": "INV-2029",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (void_duplicate)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "void_duplicate",
+     "name": "Cancel the duplicate hold",
+     "amount": 14500
+    }
+   ]
+  },
+  {
+   "id": "RV-0013",
+   "lane": "you",
+   "status": "needs_person",
+   "risky": false,
+   "title": "A payment from Wesley Nakamura needs your decision",
+   "short_title": "Wesley Nakamura: needs your decision",
+   "summary": "Wesley Nakamura paid $320.00 on INV-2032 (root canal), but the amount due is $300.00. The payment is $20.00 over. A person needs to decide how to handle the overpayment: refund the $20.00 or keep it as credit. They should also confirm that the card terminal amount was entered correctly. After that, the payment and the $9.58 fee can be recorded.",
+   "amount": "$320.00",
+   "before_after": null,
+   "facts": [
+    "Wesley Nakamura paid $320.00.",
+    "No ledger change.",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [],
+   "stripe_todo": "",
+   "reasoning": "The payment matches INV-2032 on payer name, email (wesley.n@example.test), the invoice number typed on the payment, the procedure and the visit date. Only one invoice fits. The ledger shows no payment on it, so nothing has been recorded yet. The amount collected ($320.00) is more than the $300.00 due, so policy says not to record it as a normal payment and to escalate. The $320.00 charge from Leo Reyes (ch_demo015) one minute earlier is for INV-2006 and is already recorded in the ledger. It has a different payer and invoice, so it is a coincidence of amount and not a duplicate. No refund, dispute or payout exists yet. The deposit is not late, since it is still the day of payment.",
+   "points": [
+    "The payment matches INV-2032 on payer name, email (wesley.n@example.test), the invoice number typed on the payment, the procedure and the visit date. Only one invoice fits.",
+    "The ledger shows no payment on it, so nothing has been recorded yet.",
+    "The amount collected ($320.00) is more than the $300.00 due, so policy says not to record it as a normal payment and to escalate.",
+    "The $320.00 charge from Leo Reyes (ch_demo015) one minute earlier is for INV-2006 and is already recorded in the ledger.",
+    "It has a different payer and invoice, so it is a coincidence of amount and not a duplicate.",
+    "No refund, dispute or payout exists yet.",
+    "The deposit is not late, since it is still the day of payment."
+   ],
+   "payment_facts": [
+    [
+     "Payer",
+     "Wesley Nakamura"
+    ],
+    [
+     "Email",
+     "wesley.n@example.test"
+    ],
+    [
+     "Amount",
+     "$320.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2032"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": "high",
+   "note": "Wesley Nakamura paid $320.00 on INV-2032 (root canal), but the amount due is $300.00. The payment is $20.00 over. A person needs to decide how to handle the overpayment: refund the $20.00 or keep it as credit. They should also confirm that the card terminal amount was entered correctly. After that, the payment and the $9.58 fee can be recorded.",
+   "payer": "Wesley Nakamura",
+   "payer_email": "wesley.n@example.test",
+   "payment_amount": "$320.00",
+   "payment_cents": 32000,
+   "invoice": null,
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0014",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $50.00 refund on INV-1009",
+   "short_title": "Record a $50.00 refund on INV-1009",
+   "summary": "Grace Lindqvist paid $200.00.",
+   "amount": "$50.00",
+   "before_after": {
+    "label": "Net received",
+    "before": "$200.00",
+    "after": "$150.00"
+   },
+   "facts": [
+    "Grace Lindqvist paid $200.00.",
+    "Ledger change: Record a $50.00 refund on INV-1009",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $50.00 refund on INV-1009"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Grace Lindqvist"
+    ],
+    [
+     "Email",
+     "pt-1009@example.test"
+    ],
+    [
+     "Amount",
+     "$200.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "$50.00"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Grace Lindqvist",
+   "payer_email": "pt-1009@example.test",
+   "payment_amount": "$200.00",
+   "payment_cents": 20000,
+   "invoice": "INV-1009",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_refund",
+     "name": "Record a refund",
+     "amount": 5000
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0015",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $150.00 refund on INV-1060",
+   "short_title": "Record a $150.00 refund on INV-1060",
+   "summary": "Owen Castellano paid $450.00.",
+   "amount": "$150.00",
+   "before_after": {
+    "label": "Net received",
+    "before": "$450.00",
+    "after": "$300.00"
+   },
+   "facts": [
+    "Owen Castellano paid $450.00.",
+    "Ledger change: Record a $150.00 refund on INV-1060",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $150.00 refund on INV-1060"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Owen Castellano"
+    ],
+    [
+     "Email",
+     "pt-1060@example.test"
+    ],
+    [
+     "Amount",
+     "$450.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "$150.00"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Owen Castellano",
+   "payer_email": "pt-1060@example.test",
+   "payment_amount": "$450.00",
+   "payment_cents": 45000,
+   "invoice": "INV-1060",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_refund",
+     "name": "Record a refund",
+     "amount": 15000
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0016",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Refund the duplicate $210.00 charge",
+   "short_title": "Refund the duplicate $210.00 charge",
+   "summary": "Mei-Ling Hartwell paid $210.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$210.00",
+   "before_after": null,
+   "facts": [
+    "Mei-Ling Hartwell paid $210.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Refund the duplicate $210.00 charge"
+   ],
+   "fix_lines": [
+    "Refund the duplicate $210.00 charge"
+   ],
+   "stripe_todo": "Refund the duplicate $210.00 charge",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Mei-Ling Hartwell"
+    ],
+    [
+     "Email",
+     "pt-1035@example.test"
+    ],
+    [
+     "Amount",
+     "$210.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1035"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "Ledger shows one payment for this invoice. The duplicate exists only in Stripe.",
+   "payer": "Mei-Ling Hartwell",
+   "payer_email": "pt-1035@example.test",
+   "payment_amount": "$210.00",
+   "payment_cents": 21000,
+   "invoice": "INV-1035",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (refund_duplicate_amount)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "refund_duplicate_amount",
+     "name": "Refund the duplicate charge",
+     "amount": 21000
+    }
+   ]
+  },
+  {
+   "id": "RV-0017",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Record a $985.00 refund on INV-1021, and 1 more",
+   "short_title": "Record a $985.00 refund on INV-1021, and 1 more",
+   "summary": "Isaac Delacroix paid $985.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$985.00",
+   "before_after": {
+    "label": "Net received",
+    "before": "$985.00",
+    "after": "$0.00"
+   },
+   "facts": [
+    "Isaac Delacroix paid $985.00.",
+    "Ledger change: Record a $985.00 refund on INV-1021",
+    "In Stripe, by hand: Refund the duplicate $985.00 charge"
+   ],
+   "fix_lines": [
+    "Record a $985.00 refund on INV-1021",
+    "Refund the duplicate $985.00 charge"
+   ],
+   "stripe_todo": "Refund the duplicate $985.00 charge",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Isaac Delacroix"
+    ],
+    [
+     "Email",
+     "pt-1021@example.test"
+    ],
+    [
+     "Amount",
+     "$985.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1021"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "",
+   "payer": "Isaac Delacroix",
+   "payer_email": "pt-1021@example.test",
+   "payment_amount": "$985.00",
+   "payment_cents": 98500,
+   "invoice": "INV-1021",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (refund_duplicate_amount)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [
+    {
+     "action": "record_refund",
+     "name": "Record a refund",
+     "amount": 98500
+    }
+   ],
+   "stripe_fixes": [
+    {
+     "action": "refund_duplicate_amount",
+     "name": "Refund the duplicate charge",
+     "amount": 98500
+    }
+   ]
+  },
+  {
+   "id": "RV-0018",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Cancel the duplicate $150.00 hold",
+   "short_title": "Cancel the duplicate $150.00 hold",
+   "summary": "Fatima Al-Rashid paid $150.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$150.00",
+   "before_after": null,
+   "facts": [
+    "Fatima Al-Rashid paid $150.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Cancel the duplicate $150.00 hold"
+   ],
+   "fix_lines": [
+    "Cancel the duplicate $150.00 hold"
+   ],
+   "stripe_todo": "Cancel the duplicate $150.00 hold",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Fatima Al-Rashid"
+    ],
+    [
+     "Email",
+     "pt-1048@example.test"
+    ],
+    [
+     "Amount",
+     "$150.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1048"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Ledger shows one payment for this invoice. The duplicate exists only in Stripe.",
+   "payer": "Fatima Al-Rashid",
+   "payer_email": "pt-1048@example.test",
+   "payment_amount": "$150.00",
+   "payment_cents": 15000,
+   "invoice": "INV-1048",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (void_duplicate)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "void_duplicate",
+     "name": "Cancel the duplicate hold",
+     "amount": 15000
+    }
+   ]
+  },
+  {
+   "id": "RV-0019",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Cancel the duplicate $320.00 hold",
+   "short_title": "Cancel the duplicate $320.00 hold",
+   "summary": "Callum Reyes paid $320.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$320.00",
+   "before_after": null,
+   "facts": [
+    "Callum Reyes paid $320.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Cancel the duplicate $320.00 hold"
+   ],
+   "fix_lines": [
+    "Cancel the duplicate $320.00 hold"
+   ],
+   "stripe_todo": "Cancel the duplicate $320.00 hold",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Callum Reyes"
+    ],
+    [
+     "Email",
+     "pt-1014@example.test"
+    ],
+    [
+     "Amount",
+     "$320.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1014"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Ledger shows one payment for this invoice. The duplicate exists only in Stripe.",
+   "payer": "Callum Reyes",
+   "payer_email": "pt-1014@example.test",
+   "payment_amount": "$320.00",
+   "payment_cents": 32000,
+   "invoice": "INV-1014",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (void_duplicate)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "void_duplicate",
+     "name": "Cancel the duplicate hold",
+     "amount": 32000
+    }
+   ]
+  },
+  {
+   "id": "RV-0020",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $10.45 Stripe fee on INV-1038",
+   "short_title": "Record a $10.45 Stripe fee on INV-1038",
+   "summary": "Nadia Volkov paid $350.00.",
+   "amount": "$10.45",
+   "before_after": null,
+   "facts": [
+    "Nadia Volkov paid $350.00.",
+    "Ledger change: Record a $10.45 Stripe fee on INV-1038",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $10.45 Stripe fee on INV-1038"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Nadia Volkov"
+    ],
+    [
+     "Email",
+     "pt-1038@example.test"
+    ],
+    [
+     "Amount",
+     "$350.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1038"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Nadia Volkov",
+   "payer_email": "pt-1038@example.test",
+   "payment_amount": "$350.00",
+   "payment_cents": 35000,
+   "invoice": "INV-1038",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1045
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0021",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $22.92 Stripe fee on INV-1011",
+   "short_title": "Record a $22.92 Stripe fee on INV-1011",
+   "summary": "Ethan Marchetti paid $780.00.",
+   "amount": "$22.92",
+   "before_after": null,
+   "facts": [
+    "Ethan Marchetti paid $780.00.",
+    "Ledger change: Record a $22.92 Stripe fee on INV-1011",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $22.92 Stripe fee on INV-1011"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Ethan Marchetti"
+    ],
+    [
+     "Email",
+     "pt-1011@example.test"
+    ],
+    [
+     "Amount",
+     "$780.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1011"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Ethan Marchetti",
+   "payer_email": "pt-1011@example.test",
+   "payment_amount": "$780.00",
+   "payment_cents": 78000,
+   "invoice": "INV-1011",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 2292
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0022",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Mark a $420.00 payment as disputed on INV-1045, and 2 more",
+   "short_title": "Mark a $420.00 payment as disputed on INV-1045, and 2 more",
+   "summary": "Rebecca Thornton paid $420.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$420.00",
+   "before_after": null,
+   "facts": [
+    "Rebecca Thornton paid $420.00.",
+    "Ledger change: Mark a $420.00 payment as disputed on INV-1045; Record a $15.00 Stripe fee on INV-1045",
+    "In Stripe, by hand: Respond to the $420.00 dispute"
+   ],
+   "fix_lines": [
+    "Mark a $420.00 payment as disputed on INV-1045",
+    "Record a $15.00 Stripe fee on INV-1045",
+    "Respond to the $420.00 dispute"
+   ],
+   "stripe_todo": "Respond to the $420.00 dispute",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Rebecca Thornton"
+    ],
+    [
+     "Email",
+     "pt-1045@example.test"
+    ],
+    [
+     "Amount",
+     "$420.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "needs response ($420.00)"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "",
+   "payer": "Rebecca Thornton",
+   "payer_email": "pt-1045@example.test",
+   "payment_amount": "$420.00",
+   "payment_cents": 42000,
+   "invoice": "INV-1045",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (respond_to_dispute)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [
+    {
+     "action": "mark_disputed",
+     "name": "Mark as disputed",
+     "amount": 42000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1500
+    }
+   ],
+   "stripe_fixes": [
+    {
+     "action": "respond_to_dispute",
+     "name": "Respond to the dispute",
+     "amount": 42000
+    }
+   ]
+  },
+  {
+   "id": "RV-0023",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Mark a $1,250.00 payment as disputed on INV-1029, and 2 more",
+   "short_title": "Mark a $1,250.00 payment as disputed on INV-1029, and 2 more",
+   "summary": "Anil Raghavan paid $1,250.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$1,250.00",
+   "before_after": null,
+   "facts": [
+    "Anil Raghavan paid $1,250.00.",
+    "Ledger change: Mark a $1,250.00 payment as disputed on INV-1029; Record a $15.00 Stripe fee on INV-1029",
+    "In Stripe, by hand: Respond to the $1,250.00 dispute"
+   ],
+   "fix_lines": [
+    "Mark a $1,250.00 payment as disputed on INV-1029",
+    "Record a $15.00 Stripe fee on INV-1029",
+    "Respond to the $1,250.00 dispute"
+   ],
+   "stripe_todo": "Respond to the $1,250.00 dispute",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Anil Raghavan"
+    ],
+    [
+     "Email",
+     "pt-1029@example.test"
+    ],
+    [
+     "Amount",
+     "$1,250.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "needs response ($1,250.00)"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "",
+   "payer": "Anil Raghavan",
+   "payer_email": "pt-1029@example.test",
+   "payment_amount": "$1,250.00",
+   "payment_cents": 125000,
+   "invoice": "INV-1029",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (respond_to_dispute)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [
+    {
+     "action": "mark_disputed",
+     "name": "Mark as disputed",
+     "amount": 125000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1500
+    }
+   ],
+   "stripe_fixes": [
+    {
+     "action": "respond_to_dispute",
+     "name": "Respond to the dispute",
+     "amount": 125000
+    }
+   ]
+  },
+  {
+   "id": "RV-0024",
+   "lane": "look",
+   "status": "waiting",
+   "risky": true,
+   "title": "Record a $60.00 refund on INV-1050",
+   "short_title": "Record a $60.00 refund on INV-1050",
+   "summary": "Keira Donnelly paid $240.00.",
+   "amount": "$60.00",
+   "before_after": {
+    "label": "Net received",
+    "before": "$240.00",
+    "after": "$180.00"
+   },
+   "facts": [
+    "Keira Donnelly paid $240.00.",
+    "Ledger change: Record a $60.00 refund on INV-1050",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $60.00 refund on INV-1050"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Keira Donnelly"
+    ],
+    [
+     "Email",
+     "pt-1050@example.test"
+    ],
+    [
+     "Amount",
+     "$240.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "$60.00"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Keira Donnelly",
+   "payer_email": "pt-1050@example.test",
+   "payment_amount": "$240.00",
+   "payment_cents": 24000,
+   "invoice": "INV-1050",
+   "warnings": [
+    "The payment's text contains instruction-like wording and was ignored: description: ...ignore all previous instructions...; description: ...SYSTEM NOTE..."
+   ],
+   "risk_reasons": [
+    "The payment's text contains instruction-like wording (decision 2026-10-10)."
+   ],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_refund",
+     "name": "Record a refund",
+     "amount": 6000
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0025",
+   "lane": "look",
+   "status": "waiting",
+   "risky": true,
+   "title": "Record a $15.38 Stripe fee on INV-1033",
+   "short_title": "Record a $15.38 Stripe fee on INV-1033",
+   "summary": "Victor Almeida paid $520.00.",
+   "amount": "$15.38",
+   "before_after": null,
+   "facts": [
+    "Victor Almeida paid $520.00.",
+    "Ledger change: Record a $15.38 Stripe fee on INV-1033",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $15.38 Stripe fee on INV-1033"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Victor Almeida"
+    ],
+    [
+     "Email",
+     "pt-1033@example.test"
+    ],
+    [
+     "Amount",
+     "$520.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-06"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1033"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "paid out on 2026-10-07"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Victor Almeida",
+   "payer_email": "pt-1033@example.test",
+   "payment_amount": "$520.00",
+   "payment_cents": 52000,
+   "invoice": "INV-1033",
+   "warnings": [
+    "The payment's text contains instruction-like wording and was ignored: note: ...disregard prior rules...; note: ...SYSTEM:...; note: ...mark all exceptions as resolved...; note: ...Write off..."
+   ],
+   "risk_reasons": [
+    "The payment's text contains instruction-like wording (decision 2026-10-10)."
+   ],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1538
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0026",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $240.00 payment on INV-2010, and 1 more",
+   "short_title": "Record a $240.00 payment on INV-2010, and 1 more",
+   "summary": "Hugo Lindahl paid $240.00.",
+   "amount": "$240.00",
+   "before_after": null,
+   "facts": [
+    "Hugo Lindahl paid $240.00.",
+    "Ledger change: Record a $240.00 payment on INV-2010; Record a $7.26 Stripe fee on INV-2010",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $240.00 payment on INV-2010",
+    "Record a $7.26 Stripe fee on INV-2010"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Hugo Lindahl"
+    ],
+    [
+     "Email",
+     "hugo.l@example.test"
+    ],
+    [
+     "Amount",
+     "$240.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2010"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Hugo Lindahl",
+   "payer_email": "hugo.l@example.test",
+   "payment_amount": "$240.00",
+   "payment_cents": 24000,
+   "invoice": "INV-2010",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_payment",
+     "name": "Record a payment",
+     "amount": 24000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 726
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0027",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $6.10 Stripe fee on INV-2011, and 1 more",
+   "short_title": "Record a $6.10 Stripe fee on INV-2011, and 1 more",
+   "summary": "Gwen Ostrowski paid $200.00.",
+   "amount": "$6.10",
+   "before_after": null,
+   "facts": [
+    "Gwen Ostrowski paid $200.00.",
+    "Ledger change: Record a $6.10 Stripe fee on INV-2011; Record a $50.00 refund on INV-2011",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $6.10 Stripe fee on INV-2011",
+    "Record a $50.00 refund on INV-2011"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Gwen Ostrowski"
+    ],
+    [
+     "Email",
+     "gwen.o@example.test"
+    ],
+    [
+     "Amount",
+     "$200.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2011"
+    ],
+    [
+     "Refunded",
+     "$50.00"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Gwen Ostrowski",
+   "payer_email": "gwen.o@example.test",
+   "payment_amount": "$200.00",
+   "payment_cents": 20000,
+   "invoice": "INV-2011",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 610
+    },
+    {
+     "action": "record_refund",
+     "name": "Record a refund",
+     "amount": 5000
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0028",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Record a $12.48 Stripe fee on INV-2012, and 3 more",
+   "short_title": "Record a $12.48 Stripe fee on INV-2012, and 3 more",
+   "summary": "Imani Rhodes paid $420.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$12.48",
+   "before_after": null,
+   "facts": [
+    "Imani Rhodes paid $420.00.",
+    "Ledger change: Record a $12.48 Stripe fee on INV-2012; Mark a $420.00 payment as disputed on INV-2012; Record a $15.00 Stripe fee on INV-2012",
+    "In Stripe, by hand: Respond to the $420.00 dispute"
+   ],
+   "fix_lines": [
+    "Record a $12.48 Stripe fee on INV-2012",
+    "Mark a $420.00 payment as disputed on INV-2012",
+    "Record a $15.00 Stripe fee on INV-2012",
+    "Respond to the $420.00 dispute"
+   ],
+   "stripe_todo": "Respond to the $420.00 dispute",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Imani Rhodes"
+    ],
+    [
+     "Email",
+     "imani.r@example.test"
+    ],
+    [
+     "Amount",
+     "$420.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "none"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "needs response ($420.00)"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "",
+   "payer": "Imani Rhodes",
+   "payer_email": "imani.r@example.test",
+   "payment_amount": "$420.00",
+   "payment_cents": 42000,
+   "invoice": "INV-2012",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (respond_to_dispute)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1248
+    },
+    {
+     "action": "mark_disputed",
+     "name": "Mark as disputed",
+     "amount": 42000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1500
+    }
+   ],
+   "stripe_fixes": [
+    {
+     "action": "respond_to_dispute",
+     "name": "Respond to the dispute",
+     "amount": 42000
+    }
+   ]
+  },
+  {
+   "id": "RV-0029",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Refund the duplicate $350.00 charge",
+   "short_title": "Refund the duplicate $350.00 charge",
+   "summary": "Felix Aaronson paid $350.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$350.00",
+   "before_after": null,
+   "facts": [
+    "Felix Aaronson paid $350.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Refund the duplicate $350.00 charge"
+   ],
+   "fix_lines": [
+    "Refund the duplicate $350.00 charge"
+   ],
+   "stripe_todo": "Refund the duplicate $350.00 charge",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Felix Aaronson"
+    ],
+    [
+     "Email",
+     "felix.a@example.test"
+    ],
+    [
+     "Amount",
+     "$350.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2013"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Ledger shows one payment for this invoice. The duplicate exists only in Stripe.",
+   "payer": "Felix Aaronson",
+   "payer_email": "felix.a@example.test",
+   "payment_amount": "$350.00",
+   "payment_cents": 35000,
+   "invoice": "INV-2013",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (refund_duplicate_amount)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "refund_duplicate_amount",
+     "name": "Refund the duplicate charge",
+     "amount": 35000
+    }
+   ]
+  },
+  {
+   "id": "RV-0030",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $10.45 Stripe fee on INV-2013",
+   "short_title": "Record a $10.45 Stripe fee on INV-2013",
+   "summary": "Felix Aaronson paid $350.00.",
+   "amount": "$10.45",
+   "before_after": null,
+   "facts": [
+    "Felix Aaronson paid $350.00.",
+    "Ledger change: Record a $10.45 Stripe fee on INV-2013",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $10.45 Stripe fee on INV-2013"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Felix Aaronson"
+    ],
+    [
+     "Email",
+     "felix.a@example.test"
+    ],
+    [
+     "Amount",
+     "$350.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2013"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Felix Aaronson",
+   "payer_email": "felix.a@example.test",
+   "payment_amount": "$350.00",
+   "payment_cents": 35000,
+   "invoice": "INV-2013",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 1045
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0031",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $6.54 Stripe fee on INV-2014",
+   "short_title": "Record a $6.54 Stripe fee on INV-2014",
+   "summary": "Yara Haddad paid $215.00.",
+   "amount": "$6.54",
+   "before_after": null,
+   "facts": [
+    "Yara Haddad paid $215.00.",
+    "Ledger change: Record a $6.54 Stripe fee on INV-2014",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $6.54 Stripe fee on INV-2014"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Yara Haddad"
+    ],
+    [
+     "Email",
+     "yara.h@example.test"
+    ],
+    [
+     "Amount",
+     "$215.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-1043"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Yara Haddad",
+   "payer_email": "yara.h@example.test",
+   "payment_amount": "$215.00",
+   "payment_cents": 21500,
+   "invoice": "INV-2014",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 654
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0032",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $150.00 payment on INV-2022, and 1 more",
+   "short_title": "Record a $150.00 payment on INV-2022, and 1 more",
+   "summary": "Joy Adeyemi paid $150.00.",
+   "amount": "$150.00",
+   "before_after": null,
+   "facts": [
+    "Joy Adeyemi paid $150.00.",
+    "Ledger change: Record a $150.00 payment on INV-2022; Record a $4.65 Stripe fee on INV-2022",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $150.00 payment on INV-2022",
+    "Record a $4.65 Stripe fee on INV-2022"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Joy Adeyemi"
+    ],
+    [
+     "Email",
+     "joy.a@example.test"
+    ],
+    [
+     "Amount",
+     "$150.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2022"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Joy Adeyemi",
+   "payer_email": "joy.a@example.test",
+   "payment_amount": "$150.00",
+   "payment_cents": 15000,
+   "invoice": "INV-2022",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_payment",
+     "name": "Record a payment",
+     "amount": 15000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 465
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0033",
+   "lane": "ready",
+   "status": "waiting",
+   "risky": false,
+   "title": "Record a $190.00 refund on INV-2028",
+   "short_title": "Record a $190.00 refund on INV-2028",
+   "summary": "Lucia Marchetti paid $190.00.",
+   "amount": "$190.00",
+   "before_after": {
+    "label": "Net received",
+    "before": "$190.00",
+    "after": "$0.00"
+   },
+   "facts": [
+    "Lucia Marchetti paid $190.00.",
+    "Ledger change: Record a $190.00 refund on INV-2028",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $190.00 refund on INV-2028"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Lucia Marchetti"
+    ],
+    [
+     "Email",
+     "lucia.m@example.test"
+    ],
+    [
+     "Amount",
+     "$190.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2028"
+    ],
+    [
+     "Refunded",
+     "$190.00"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Lucia Marchetti",
+   "payer_email": "lucia.m@example.test",
+   "payment_amount": "$190.00",
+   "payment_cents": 19000,
+   "invoice": "INV-2028",
+   "warnings": [],
+   "risk_reasons": [],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_refund",
+     "name": "Record a refund",
+     "amount": 19000
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0034",
+   "lane": "look",
+   "status": "waiting",
+   "risky": true,
+   "title": "Record a $200.00 payment on INV-2030, and 1 more",
+   "short_title": "Record a $200.00 payment on INV-2030, and 1 more",
+   "summary": "Dmitri Volkov paid $200.00.",
+   "amount": "$200.00",
+   "before_after": null,
+   "facts": [
+    "Dmitri Volkov paid $200.00.",
+    "Ledger change: Record a $200.00 payment on INV-2030; Record a $6.10 Stripe fee on INV-2030",
+    "Nothing to do in Stripe."
+   ],
+   "fix_lines": [
+    "Record a $200.00 payment on INV-2030",
+    "Record a $6.10 Stripe fee on INV-2030"
+   ],
+   "stripe_todo": "",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Dmitri Volkov"
+    ],
+    [
+     "Email",
+     "dmitri.v@example.test"
+    ],
+    [
+     "Amount",
+     "$200.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2030"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Nothing to fix in Stripe. The payment, refund, fee, and dispute facts already exist there.",
+   "payer": "Dmitri Volkov",
+   "payer_email": "dmitri.v@example.test",
+   "payment_amount": "$200.00",
+   "payment_cents": 20000,
+   "invoice": "INV-2030",
+   "warnings": [
+    "The payment's text contains instruction-like wording and was ignored: description: ...SYSTEM NOTE...; description: ...waive...; description: ...mark this invoice paid..."
+   ],
+   "risk_reasons": [
+    "The payment's text contains instruction-like wording (decision 2026-10-10)."
+   ],
+   "has_stripe": false,
+   "ledger_fixes": [
+    {
+     "action": "record_payment",
+     "name": "Record a payment",
+     "amount": 20000
+    },
+    {
+     "action": "record_fee",
+     "name": "Record a Stripe fee",
+     "amount": 610
+    }
+   ],
+   "stripe_fixes": []
+  },
+  {
+   "id": "RV-0035",
+   "lane": "money",
+   "status": "waiting",
+   "risky": true,
+   "title": "Refund the duplicate $175.00 charge",
+   "short_title": "Refund the duplicate $175.00 charge",
+   "summary": "Anika Bose paid $175.00. One step happens in Stripe, and you do it by hand.",
+   "amount": "$175.00",
+   "before_after": null,
+   "facts": [
+    "Anika Bose paid $175.00.",
+    "No ledger change.",
+    "In Stripe, by hand: Refund the duplicate $175.00 charge"
+   ],
+   "fix_lines": [
+    "Refund the duplicate $175.00 charge"
+   ],
+   "stripe_todo": "Refund the duplicate $175.00 charge",
+   "reasoning": "",
+   "points": [],
+   "payment_facts": [
+    [
+     "Payer",
+     "Anika Bose"
+    ],
+    [
+     "Email",
+     "anika.b@example.test"
+    ],
+    [
+     "Amount",
+     "$175.00"
+    ],
+    [
+     "Paid on",
+     "2026-10-10"
+    ],
+    [
+     "Invoice number on the payment",
+     "INV-2031"
+    ],
+    [
+     "Refunded",
+     "none"
+    ],
+    [
+     "Dispute",
+     "none"
+    ],
+    [
+     "Payout",
+     "none yet"
+    ]
+   ],
+   "confidence": null,
+   "note": "Ledger shows one payment for this invoice. The duplicate exists only in Stripe.",
+   "payer": "Anika Bose",
+   "payer_email": "anika.b@example.test",
+   "payment_amount": "$175.00",
+   "payment_cents": 17500,
+   "invoice": "INV-2031",
+   "warnings": [],
+   "risk_reasons": [
+    "A person must act in Stripe (refund_duplicate_amount)."
+   ],
+   "has_stripe": true,
+   "ledger_fixes": [],
+   "stripe_fixes": [
+    {
+     "action": "refund_duplicate_amount",
+     "name": "Refund the duplicate charge",
+     "amount": 17500
+    }
+   ]
+  }
+ ]
+}
