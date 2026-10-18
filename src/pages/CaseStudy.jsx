@@ -1,16 +1,18 @@
 import Icon from '../components/Icon'
 import { useParams, Navigate, Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { caseStudies, projects } from '../data/content'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Lightbox from '../components/Lightbox'
 import RagDiagram from '../components/RagDiagram'
 import NexusEcosystemDiagram from '../components/diagrams/NexusEcosystemDiagram'
 import NexusDriverDiagram from '../components/diagrams/NexusDriverDiagram'
 import FintechMpDiagram from '../components/diagrams/FintechMpDiagram'
 import UnionPlatformDiagram from '../components/diagrams/UnionPlatformDiagram'
 import SnugFlowDiagram from '../components/diagrams/SnugFlowDiagram'
+import PaymentReconFlowDiagram from '../components/diagrams/PaymentReconFlowDiagram'
 import Contact from '../components/Contact'
 import Reveal from '../components/Reveal'
 import styles from './CaseStudy.module.css'
@@ -22,6 +24,7 @@ const diagrams = {
   'fintech-mp': FintechMpDiagram,
   'union-platform': UnionPlatformDiagram,
   'snug': SnugFlowDiagram,
+  'payment-recon': PaymentReconFlowDiagram,
 }
 
 function renderInline(text) {
@@ -53,6 +56,7 @@ function NextProjects({ current }) {
 export default function CaseStudy() {
   const { id } = useParams()
   const cs = caseStudies[id]
+  const [zoomed, setZoomed] = useState(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -139,11 +143,20 @@ export default function CaseStudy() {
           {cs.screenshots && cs.screenshots.length > 0 && (
             <Reveal as="div" stagger threshold={0.01} className={styles.mediaGrid}>
               {cs.screenshots.map((s, i) => (
-                <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className={styles.screenshot} style={{ '--i': i }} />
+                cs.lightbox ? (
+                  <button key={s.src} type="button" onClick={() => setZoomed(i)} className={styles.screenshotBtn} style={{ '--i': i }} aria-label={`Enlarge: ${s.alt}`}>
+                    <img src={s.src} alt="" loading="lazy" className={styles.screenshot} />
+                  </button>
+                ) : (
+                  <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className={styles.screenshot} style={{ '--i': i }} />
+                )
               ))}
             </Reveal>
           )}
 
+          {cs.lightbox && zoomed !== null && (
+            <Lightbox images={cs.screenshots} index={zoomed} onClose={() => setZoomed(null)} onMove={setZoomed} />
+          )}
           {cs.video && (
             <Reveal>
               <div className={styles.videoSection}>

@@ -1,0 +1,83 @@
+/* Review Desk: minimal. One path per screen. Detail is folded away. Tokens first, light theme only. */
+:root{--bg:#f5f7f9;--surface:#fff;--ink:#0e1a22;--muted:#55656f;--line:#dfe6eb;--accent:#0b6e8a;
+--ready:#14633d;--ready-bg:#e1f3ea;--money:#a02f24;--money-bg:#fbe3df;--look:#8a4a05;--look-bg:#fdebd3;--you:#2f3f9a;--you-bg:#e5e8fa;--ai:#0a5870;--ai-bg:#e1f1f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans","Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.5}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;margin:0;letter-spacing:-0.01em;text-wrap:balance}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 28px 40px;display:flex;flex-direction:column;gap:18px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand h1{font-size:22px}
+.cols{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.side{flex:1 1 290px;max-width:330px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.main{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.pad{padding:28px 30px;display:flex;flex-direction:column;gap:18px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.c-ready{background:var(--ready-bg);color:var(--ready)}.c-money{background:var(--money-bg);color:var(--money)}.c-look{background:var(--look-bg);color:var(--look)}
+.c-you{background:var(--you-bg);color:var(--you)}.c-ai{background:var(--ai-bg);color:var(--ai)}.c-plain{background:#e9eef2;color:#3d4d59}.c-dark{background:var(--ink);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:600 15px "Instrument Sans",sans-serif;padding:11px 20px;min-height:46px;border-radius:12px;border:1px solid #c9d3da;background:#fff;color:var(--ink);cursor:pointer}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff;font-size:17px;min-height:52px;padding:11px 34px}
+.btn-you{background:#3b4fb8;border-color:#3b4fb8;color:#fff;font-size:17px;min-height:52px;padding:11px 30px}
+.btn-quiet{border-color:transparent;background:transparent;color:var(--muted)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.list{padding:6px;display:flex;flex-direction:column;gap:2px}
+.row{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 12px;border-radius:12px}
+.row:hover{background:var(--bg)}
+.row.sel{background:#e9f4f8}
+.dot{width:10px;height:10px;border-radius:50%}
+.d-ready{background:#1a7f4e}.d-money{background:#c0392b}.d-look{background:#b45f06}.d-you{background:#3b4fb8}.d-done{background:#9aa8b4}
+.k{font-size:13px;color:var(--muted)}
+.v{font-weight:600}
+.lead{color:var(--muted);font-size:16px;margin-top:8px}
+.h-big{font-size:34px;line-height:1.1}
+.ba{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;background:var(--bg);border-radius:12px;padding:16px 18px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.sep{border-top:1px solid #e6ecf0}
+details>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"+";font-size:20px;color:var(--muted);font-weight:400}
+details[open]>summary::after{content:"\2212"}
+details>summary:focus-visible,.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.fold{padding:0 30px}
+.in{font:500 15px "Instrument Sans",sans-serif;padding:11px 12px;border:1px solid #c9d3da;border-radius:10px;min-height:46px;background:#fff;color:var(--ink);width:100%}
+.in-bad{border-color:#c0392b;background:#fff8f7}
+.f{display:flex;flex-direction:column;gap:6px}
+.err{color:var(--money);font-weight:600}
+.flash{background:var(--ready-bg);color:var(--ready);border-radius:12px;padding:12px 16px;font-weight:600}
+.flash.bad{background:var(--money-bg);color:var(--money)}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.facts li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:start}
+.quote{background:var(--look-bg);color:#5c3203;padding:10px 12px;border-radius:10px;font-size:13px;overflow-wrap:anywhere}
+table{border-collapse:collapse;width:100%;min-width:420px}
+th{font-size:13px;color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid #e6ecf0}
+td{padding:11px 10px;border-bottom:1px solid #f0f3f5;vertical-align:top}
+.warn-card{border-color:#efc3bd}.you-card{border-color:#c5cbee}
+.steps{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;font-size:13px}
+.bar{height:5px;border-radius:3px;background:var(--line)}.bar.on{background:#1a7f4e}.bar.now{background:var(--accent)}
+@media (max-width:760px){.main{order:-1}.side{max-width:none;flex-basis:100%}.wrap{padding:16px}.pad{padding:20px}.fold{padding:0 20px}.h-big{font-size:26px}.steps{grid-template-columns:1fr 1fr}}
+
+/* Overview */
+.funnel{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--line)}
+.seg{display:block;height:100%}.s-done{background:#9aa8b4}.s-ready{background:#1a7f4e}.s-money{background:#c0392b}.s-you{background:#3b4fb8}
+.tile{padding:22px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.tile:hover{border-color:#b9d9e3}
+.big-n{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-size:48px;font-weight:700;line-height:1;letter-spacing:-0.03em}
+/* The AI's reasoning as short steps, and the facts as a grid */
+.points{margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:#3d4d59}
+.points li::marker{color:var(--accent);font-weight:600}
+.facts-grid{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 20px}
+.facts-grid dt{font-size:12px;color:var(--muted)}.facts-grid dd{margin:2px 0 0;font-weight:600;overflow-wrap:anywhere}
+/* Two panes: the queue and the item scroll on their own, so what you picked is always in view */
+.side-head{position: sticky;top:0;z-index:2;background:var(--bg);padding-bottom:10px;display:flex;flex-direction:column;gap:10px}
+@media (min-width:761px){
+  body.app .wrap{height:100vh;padding-bottom:12px}
+  /* the static demo wraps everything in #app (and has a notice above it), so #app must take the leftover height */
+  body.app #app{flex:1;min-height:0;display:flex;flex-direction:column;gap:18px}
+  body.app .cols{flex:1;min-height:0;flex-wrap:nowrap;align-items:stretch}
+  body.app .side{flex:0 0 320px;height:100%;overflow-y: auto}
+  body.app .main{flex:1 1 auto;height:100%;overflow-y: auto;padding-right:4px}
+}

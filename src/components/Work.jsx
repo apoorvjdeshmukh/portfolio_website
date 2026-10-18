@@ -13,11 +13,11 @@ function Chip({ item }) {
   return <span className={`${styles.chip} ${chipClass[item.companyType]}`}>{item.company}</span>
 }
 
-// Outbound links shown beside the CTA (Pitch's demo videos stay on its case study page)
+// Outbound links shown beside the CTA (Pitch's demo videos and Payment Recon's demo stay on their case study pages)
 function externalLinks(item) {
   const out = []
   if (item.externalCaseStudy) out.push(item.externalCaseStudy)
-  if (item.id !== 'pitch') {
+  if (item.id !== 'pitch' && item.id !== 'payment-recon') {
     for (const l of item.links || []) out.push({ label: l.label.startsWith('logixa.io') ? 'Website' : l.label, url: l.url })
   }
   return out
@@ -71,7 +71,7 @@ export default function Work() {
         <Reveal><p className={styles.label}>Selected work</p></Reveal>
         <Reveal>
           <h2 className={styles.heading}>
-            Eight 0-to-1 products, shipped under real constraints — regulation, multiple languages, legacy chaos, and (for two) just my own time and a Claude API key.
+            Nine 0-to-1 products, shipped under real constraints — regulation, multiple languages, legacy chaos, and (for two) just my own time and a Claude API key.
           </h2>
         </Reveal>
 
