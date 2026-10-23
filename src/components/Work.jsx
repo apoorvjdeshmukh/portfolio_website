@@ -62,7 +62,7 @@ function DetailBody({ item, compact = false }) {
 
 export default function Work() {
   const [selected, setSelected] = useState(0)
-  const [open, setOpen] = useState(0)
+  const [open, setOpen] = useState(-1)
 
   return (
     <section className={styles.section} data-act="2" id="work">
